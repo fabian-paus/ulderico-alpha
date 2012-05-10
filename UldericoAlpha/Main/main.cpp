@@ -1,22 +1,12 @@
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
+#include "ResourcesManager.h"
 
 int main()
 {
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
 	
-	//Load background image
-	sf::Texture texture;
-	if(!texture.LoadFromFile(""))
-		return EXIT_FAILURE;
-
-	//Load background music
-	sf::Music bgMusic;
-	if(!bgMusic.OpenFromFile(""))
-		return EXIT_FAILURE;
-	//Play background music
-	bgMusic.Play();
+	ResourcesManager rm;
+	sf::Sprite *bg = rm.Get("background");
 
 	// Start the game loop
 	while (window.IsOpen())
