@@ -83,7 +83,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\..\Desktop\characters.png" />
+    <None Include="..\..\res\img\characters.png" />
     <None Include="..\..\res\img\invaders.png" />
     <None Include="..\..\res\img\tintmask.png" />
     <None Include="..\..\res\img\tintover.png" />

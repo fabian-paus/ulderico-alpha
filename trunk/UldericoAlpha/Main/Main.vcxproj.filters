@@ -54,7 +54,7 @@
     <None Include="..\..\res\img\tintover.png">
       <Filter>Ressources\Images</Filter>
     </None>
-    <None Include="..\..\..\..\..\..\Desktop\characters.png">
+    <None Include="..\..\res\img\characters.png">
       <Filter>Ressources\Images</Filter>
     </None>
   </ItemGroup>
