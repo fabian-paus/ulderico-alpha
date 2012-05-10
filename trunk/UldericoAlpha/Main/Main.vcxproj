@@ -58,7 +58,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -81,6 +81,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ResourcesManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\res\img\characters.png" />
@@ -97,6 +98,10 @@
     <None Include="..\..\res\sound\spaceinvaders1.mpeg" />
     <None Include="..\..\res\sound\ufo_highpitch.wav" />
     <None Include="..\..\res\sound\ufo_lowpitch.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ResourcesManager.h" />
+    <ClInclude Include="ResourcesManagerTemplate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
