@@ -80,8 +80,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Alien1.cpp" />
+    <ClCompile Include="Alien2.cpp" />
+    <ClCompile Include="Alien3.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Element.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Invader.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
+    <ClCompile Include="Shield.cpp" />
+    <ClCompile Include="Squadron.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\res\img\characters.png" />
@@ -100,7 +111,18 @@
     <None Include="res\sound\ufo_lowpitch.wav" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Alien1.h" />
+    <ClInclude Include="Alien2.h" />
+    <ClInclude Include="Alien3.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Element.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Invader.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="ResourcesManager.h" />
+    <ClInclude Include="Shield.h" />
+    <ClInclude Include="Squadron.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
