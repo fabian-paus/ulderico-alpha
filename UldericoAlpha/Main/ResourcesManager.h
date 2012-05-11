@@ -19,9 +19,11 @@ public:
 	const sf::Sound& GetSound(std::string const & name);
 
 private:
-	void RegisterSprite(std::string const & name, sf::Sprite resource );
+	void RegisterSprite(std::string const & name, sf::Sprite resource);
 
-	void RegisterSound(std::string const & name, sf::Sound resource );
+	void RegisterSound(std::string const & name, sf::Sound resource);
+
+	void LoadSounds();
 
 private:
 	typedef std::map <std::string, sf::Sprite> SpriteResourceMap;
@@ -29,6 +31,8 @@ private:
 
 	sf::Texture m_background;
 	sf::Texture m_character;
+
+	sf::SoundBuffer m_spaceInvaders;
 
 	SpriteResourceMap m_spriteResources;
 	SoundResourceMap m_soundResources;
