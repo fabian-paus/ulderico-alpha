@@ -17,6 +17,8 @@ int main()
 	mainTheme.SetVolume(75.0f);
 	mainTheme.Play();
 
+	sf::Sound shoot = rm.GetSound("shoot");
+
 	uldericoAlpha.Start();
 
 	// Start the game loop
@@ -32,6 +34,8 @@ int main()
 
 			if(event.Type == sf::Event::KeyPressed)
 			{
+				if (event.Key.Code == sf::Keyboard::Space)
+					shoot.Play();
 				if(event.Key.Control && event.Key.Code == 15)
 					uldericoAlpha.Pause();
 			}
