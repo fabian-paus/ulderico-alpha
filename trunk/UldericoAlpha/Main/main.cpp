@@ -10,8 +10,6 @@ int main()
 	// Start the game loop
 	while (window.IsOpen())
 	{
-
-
 		// Process events
 		sf::Event event;
 		while (window.PollEvent(event))

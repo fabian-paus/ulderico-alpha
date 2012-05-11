@@ -10,6 +10,48 @@ ResourcesManager::ResourcesManager()
 		return;
 
 	RegisterSprite("background", sf::Sprite(m_background));
+
+	sf::Sprite invaders = sf::Sprite(m_character);
+
+	//Load first invader(green)	
+	sf::IntRect inv1Rec(0, 0, 82, 86);
+	invaders.SetTextureRect(inv1Rec);
+	RegisterSprite("invader1", invaders);
+
+	//Load second invader(blue)
+	sf::IntRect inv2Rec(112, 0, 116, 86);
+	invaders.SetTextureRect(inv2Rec);
+	RegisterSprite("invader2", invaders);
+
+	//Load third invader(purple)	
+	sf::IntRect inv3Rec(250, 0, 122, 86);
+	invaders.SetTextureRect(inv3Rec);
+	RegisterSprite("invader3", invaders);
+
+	//Load me(red)
+	sf::IntRect meRec(31, 303, 117, 70);
+	invaders.SetTextureRect(meRec);
+	RegisterSprite("me", invaders);
+
+	//Load attack(green)
+	sf::IntRect att1Rec(22, 122, 30, 60);
+	invaders.SetTextureRect(att1Rec);
+	RegisterSprite("attack1", invaders);
+
+	//Load attack(blue)
+	sf::IntRect att2Rec(152, 122, 28, 50);
+	invaders.SetTextureRect(att2Rec);
+	RegisterSprite("attack2", invaders);
+
+	//Load attack(purble)
+	sf::IntRect att3Rec(290, 122, 28, 50);
+	invaders.SetTextureRect(att3Rec);
+	RegisterSprite("attack3", invaders);
+
+	//Load attack(red)
+	sf::IntRect attMeRec(84, 222, 13, 45);
+	invaders.SetTextureRect(attMeRec);
+	RegisterSprite("attackMe", invaders);
 }
 
 void ResourcesManager::RegisterSprite(std::string const & name, sf::Sprite resource)
