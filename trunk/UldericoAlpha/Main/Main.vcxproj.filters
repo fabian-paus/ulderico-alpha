@@ -65,9 +65,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ResourcesManagerTemplate.h">
-      <Filter>ResourceManager</Filter>
-    </ClInclude>
     <ClInclude Include="ResourcesManager.h">
       <Filter>ResourceManager</Filter>
     </ClInclude>
