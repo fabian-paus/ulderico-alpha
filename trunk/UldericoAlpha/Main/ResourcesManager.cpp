@@ -1,11 +1,16 @@
 #include "ResourcesManager.h"
 
+#include <iostream>
+
 static const char* const CHARACTERS_IMAGE = "res/img/characters.png";
 static const char* const BACKGROUND_IMAGE = "res/img/invaders.png";
 
-static const char* const SPACE_INVADERS_SOUND = "res/sound/spaceinvaders1.ogg";
-
+static const char* const MAIN_THEME_SOUND = "res/sound/spaceinvaders1.wav";
+static const char* const SHOOT_SOUND = "res/sound/shoot.wav";
+static const char* const KILLED_SOUND = "res/sound/invaderkilled.wav";
 static const char* const EXPLOSION_SOUND = "res/sound/explosion.wav";
+static const char* const UFO_LOWPITCH_SOUND = "res/sound/ufo_lowpitch.wav";
+static const char* const UFO_HIGHPITCH_SOUND = "res/sound/ufo_highpitch.wav";
 
 ResourcesManager::ResourcesManager()
 {
@@ -87,7 +92,27 @@ void ResourcesManager::LoadImages()
 
 void ResourcesManager::LoadSounds()
 {
-	m_spaceInvaders.LoadFromFile(SPACE_INVADERS_SOUND);
+	LoadSound("main-theme", MAIN_THEME_SOUND);
+	LoadSound("shoot", SHOOT_SOUND);
+	LoadSound("killed", KILLED_SOUND);
+	LoadSound("explosion", EXPLOSION_SOUND);
+	LoadSound("ufo-lowpitch", UFO_LOWPITCH_SOUND);
+	LoadSound("ufo-highpitch", UFO_HIGHPITCH_SOUND);
+}
 
-	RegisterSound("main-theme", sf::Sound(m_spaceInvaders));
+void ResourcesManager::LoadSound(std::string const& name, 
+								 std::string const& path)
+{
+	// Add new sound buffer
+	m_soundBuffers.push_back(sf::SoundBuffer());
+	sf::SoundBuffer& buffer = m_soundBuffers.back();
+
+	if (!buffer.LoadFromFile(path))
+	{
+		std::cerr << "Could not load sound resource '" << name 
+			<< "' from file '" << path << "'" << std::endl;
+		return;
+	}
+
+	RegisterSound(name, sf::Sound(buffer));
 }
