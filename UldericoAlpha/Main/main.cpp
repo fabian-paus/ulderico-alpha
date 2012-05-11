@@ -5,9 +5,6 @@ int main()
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
 	
-	ResourcesManager rm;
-	sf::Sprite *bg = rm.Get("background");
-
 	// Start the game loop
 	while (window.IsOpen())
 	{

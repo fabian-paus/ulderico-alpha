@@ -1,17 +1,28 @@
 #ifndef RESOURCESMANAGER_H_INCLUDED
 #define RESOURCESMANAGER_H_INCLUDED
 
-#include "ResourcesManagerTemplate.h"
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 
-static const char *characters = "\\res\\img\\characters.png";
-static const char *background = "\\res\\img\\invaders.png";
+#include <map>
+#include <string>
 
-class ResourcesManager : public ResourcesManagerTemplate <sf::Sprite>
+
+
+class ResourcesManager
 {
+	typedef std::map <std::string, sf::Sprite> SpriteResourceMap;
+	typedef std::map <std::string, sf::Sound> SoundResourceMap;
+
+private:
+	SpriteResourceMap spriteResources;
+	SoundResourceMap soundResources;
+	void RegisterSprite(std::string const & name, sf::Sprite resource );
+	void RegisterSound(std::string const & name, sf::Sound resource );
 public:
-	ResourcesManager(void);
-	~ResourcesManager(void);
-    void Free(std::string const & name);
+	ResourcesManager();
+	const sf::Sprite& GetSprite(std::string const & name);
+	const sf::Sound& GetSound(std::string const & name);
 };
 
 #endif
