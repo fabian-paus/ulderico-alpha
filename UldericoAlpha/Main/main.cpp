@@ -1,10 +1,13 @@
 #include "ResourcesManager.h"
+#include "Game.h"
 
 int main()
 {
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
 	
+	Game uldericoAlpha;
+
 	ResourcesManager rm;
 
 	sf::Sound mainTheme = rm.GetSound("main-theme");
@@ -14,7 +17,7 @@ int main()
 	mainTheme.SetVolume(75.0f);
 	mainTheme.Play();
 
-	sf::Sound shoot = rm.GetSound("shoot");
+	uldericoAlpha.Start();
 
 	// Start the game loop
 	while (window.IsOpen())
@@ -23,18 +26,14 @@ int main()
 		sf::Event event;
 		while (window.PollEvent(event))
 		{
-			switch (event.Type)
-			{
-			case sf::Event::Closed:
+			// Close window : exit
+			if (event.Type == sf::Event::Closed)
 				window.Close();
-				break;
 
-			case sf::Event::KeyPressed:
-				if (event.Key.Code == sf::Keyboard::Space)
-				{
-					shoot.Play();
-				}
-				break;
+			if(event.Type == sf::Event::KeyPressed)
+			{
+				if(event.Key.Control && event.Key.Code == 15)
+					uldericoAlpha.Pause();
 			}
 		}
 
@@ -44,6 +43,8 @@ int main()
 		sf::Sprite background = rm.GetSprite("background");
 		// Draw background
 		window.Draw(background);
+
+		uldericoAlpha.Update();
 
 		// Update the window
 		window.Display();
