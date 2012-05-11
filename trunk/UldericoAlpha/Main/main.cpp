@@ -7,6 +7,13 @@ int main()
 	
 	ResourcesManager rm;
 
+	sf::Sound mainTheme = rm.GetSound("main-theme");
+
+	// Play main theme in a loop. Space Invaders! ;)
+	mainTheme.SetLoop(true);
+	mainTheme.SetVolume(75.0f);
+	mainTheme.Play();
+
 	// Start the game loop
 	while (window.IsOpen())
 	{

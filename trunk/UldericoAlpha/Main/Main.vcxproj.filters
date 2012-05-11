@@ -21,36 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\res\sound\explosion.wav">
-      <Filter>Ressources\Audio</Filter>
-    </None>
-    <None Include="..\..\res\sound\fastinvader1.wav">
-      <Filter>Ressources\Audio</Filter>
-    </None>
-    <None Include="..\..\res\sound\fastinvader2.wav">
-      <Filter>Ressources\Audio</Filter>
-    </None>
-    <None Include="..\..\res\sound\fastinvader3.wav">
-      <Filter>Ressources\Audio</Filter>
-    </None>
-    <None Include="..\..\res\sound\fastinvader4.wav">
-      <Filter>Ressources\Audio</Filter>
-    </None>
-    <None Include="..\..\res\sound\invaderkilled.wav">
-      <Filter>Ressources\Audio</Filter>
-    </None>
-    <None Include="..\..\res\sound\shoot.wav">
-      <Filter>Ressources\Audio</Filter>
-    </None>
-    <None Include="..\..\res\sound\spaceinvaders1.mpeg">
-      <Filter>Ressources\Audio</Filter>
-    </None>
-    <None Include="..\..\res\sound\ufo_highpitch.wav">
-      <Filter>Ressources\Audio</Filter>
-    </None>
-    <None Include="..\..\res\sound\ufo_lowpitch.wav">
-      <Filter>Ressources\Audio</Filter>
-    </None>
     <None Include="..\..\res\img\invaders.png">
       <Filter>Ressources\Images</Filter>
     </None>
@@ -62,6 +32,36 @@
     </None>
     <None Include="..\..\res\img\characters.png">
       <Filter>Ressources\Images</Filter>
+    </None>
+    <None Include="res\sound\explosion.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\fastinvader1.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\fastinvader2.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\fastinvader3.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\fastinvader4.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\invaderkilled.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\shoot.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\spaceinvaders1.mpeg">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\ufo_highpitch.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\ufo_lowpitch.wav">
+      <Filter>Ressources\Audio</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

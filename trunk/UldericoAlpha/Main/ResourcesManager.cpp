@@ -3,6 +3,10 @@
 static const char* const CHARACTERS_IMAGE = "res/img/characters.png";
 static const char* const BACKGROUND_IMAGE = "res/img/invaders.png";
 
+static const char* const SPACE_INVADERS_SOUND = "res/sound/spaceinvaders1.ogg";
+
+static const char* const EXPLOSION_SOUND = "res/sound/explosion.wav";
+
 ResourcesManager::ResourcesManager()
 {
 	// Load all images into sprites and make them accessable by name
@@ -52,6 +56,8 @@ ResourcesManager::ResourcesManager()
 	sf::IntRect attMeRec(84, 222, 13, 45);
 	invaders.SetTextureRect(attMeRec);
 	RegisterSprite("attackMe", invaders);
+
+	LoadSounds();
 }
 
 void ResourcesManager::RegisterSprite(std::string const & name, sf::Sprite resource)
@@ -72,4 +78,11 @@ const sf::Sprite& ResourcesManager::GetSprite(std::string const & name)
 const sf::Sound& ResourcesManager::GetSound(std::string const & name)
 {
 	return m_soundResources[name];
+}
+
+void ResourcesManager::LoadSounds()
+{
+	m_spaceInvaders.LoadFromFile(SPACE_INVADERS_SOUND);
+
+	RegisterSound("main-theme", sf::Sound(m_spaceInvaders));
 }
