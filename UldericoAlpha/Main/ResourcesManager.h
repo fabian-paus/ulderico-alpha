@@ -23,6 +23,8 @@ private:
 
 	void RegisterSound(std::string const & name, sf::Sound resource);
 
+	void LoadImages();
+
 	void LoadSounds();
 
 private:

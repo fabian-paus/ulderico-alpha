@@ -5,6 +5,39 @@
     <ClCompile Include="ResourcesManager.cpp">
       <Filter>ResourceManager</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Alien1.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Alien2.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Alien3.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Element.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Invader.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Squadron.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -18,6 +51,9 @@
     </Filter>
     <Filter Include="ResourceManager">
       <UniqueIdentifier>{79f9b6aa-4a13-4a8d-acba-c90521226abf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{f9bde1ec-98ed-4fce-92e9-c4b74d905405}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +103,39 @@
   <ItemGroup>
     <ClInclude Include="ResourcesManager.h">
       <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Alien1.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Alien2.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Alien3.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Element.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Invader.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Squadron.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
