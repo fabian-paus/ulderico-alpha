@@ -24,8 +24,9 @@ int main()
 		// Clear screen
 		window.Clear();
 
-		//draw background
-		window.Draw(rm.GetSprite("background"));
+		sf::Sprite background = rm.GetSprite("background");
+		// Draw background
+		window.Draw(background);
 
 		// Update the window
 		window.Display();
