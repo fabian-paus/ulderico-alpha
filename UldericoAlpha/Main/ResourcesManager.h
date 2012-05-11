@@ -6,7 +6,7 @@
 
 #include <map>
 #include <string>
-
+#include <list>
 
 
 class ResourcesManager
@@ -27,6 +27,8 @@ private:
 
 	void LoadSounds();
 
+	void LoadSound(std::string const& name, std::string const& path);
+
 private:
 	typedef std::map <std::string, sf::Sprite> SpriteResourceMap;
 	typedef std::map <std::string, sf::Sound> SoundResourceMap;
@@ -34,7 +36,7 @@ private:
 	sf::Texture m_background;
 	sf::Texture m_character;
 
-	sf::SoundBuffer m_spaceInvaders;
+	std::list<sf::SoundBuffer> m_soundBuffers;
 
 	SpriteResourceMap m_spriteResources;
 	SoundResourceMap m_soundResources;

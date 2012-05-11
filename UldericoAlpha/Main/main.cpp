@@ -14,6 +14,8 @@ int main()
 	mainTheme.SetVolume(75.0f);
 	mainTheme.Play();
 
+	sf::Sound shoot = rm.GetSound("shoot");
+
 	// Start the game loop
 	while (window.IsOpen())
 	{
@@ -21,9 +23,19 @@ int main()
 		sf::Event event;
 		while (window.PollEvent(event))
 		{
-			// Close window : exit
-			if (event.Type == sf::Event::Closed)
+			switch (event.Type)
+			{
+			case sf::Event::Closed:
 				window.Close();
+				break;
+
+			case sf::Event::KeyPressed:
+				if (event.Key.Code == sf::Keyboard::Space)
+				{
+					shoot.Play();
+				}
+				break;
+			}
 		}
 
 		// Clear screen
