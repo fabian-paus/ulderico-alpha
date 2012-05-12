@@ -16,6 +16,7 @@ class Game
 {
 private:
 	Level *levels;
+	int activLevel;
 	GameStates state;
 	Bullet *bullets;
 	Player player;

@@ -8,6 +8,7 @@ class Alien3 : public Invader
 public:
 	Alien3(void);
 	~Alien3(void);
+	virtual const char* GetType() { return "purble-invader"; };
 };
 
 #endif

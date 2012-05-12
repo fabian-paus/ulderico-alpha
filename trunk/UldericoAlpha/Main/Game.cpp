@@ -3,6 +3,10 @@
 
 Game::Game(void)
 {
+	activLevel = 1;
+	bullets = 0;
+	levels = 0;
+	state = start;
 }
 
 
@@ -20,4 +24,10 @@ void Game::Pause()
 
 void Game::Update()
 {
+	draw();
+}
+
+void Game::draw()
+{
+
 }

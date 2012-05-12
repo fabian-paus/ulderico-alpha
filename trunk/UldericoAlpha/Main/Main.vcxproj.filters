@@ -38,6 +38,7 @@
     <ClCompile Include="Squadron.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="BoundaryBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -137,5 +138,6 @@
     <ClInclude Include="Shield.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="BoundaryBox.h" />
   </ItemGroup>
 </Project>

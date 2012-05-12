@@ -16,6 +16,7 @@ public:
 	void SetPosition(int x, int y);
 	int GetLifes() { return lifes; };
 	void LoseLife(){ lifes--; };
+	virtual const char* GetType() { return "red-defender"; };
 };
 
 #endif

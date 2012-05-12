@@ -12,7 +12,10 @@ public:
 	Element(void);
 	~Element(void);
 	void SetPosition(int x, int y);
+	int GetX();
+	int GetY();
 	bool IsHit(Element el);
+	virtual const char* GetType() { return "Element"; };
 };
 
 #endif

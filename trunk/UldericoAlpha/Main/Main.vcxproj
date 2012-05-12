@@ -83,6 +83,7 @@
     <ClCompile Include="Alien1.cpp" />
     <ClCompile Include="Alien2.cpp" />
     <ClCompile Include="Alien3.cpp" />
+    <ClCompile Include="BoundaryBox.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -114,6 +115,7 @@
     <ClInclude Include="Alien1.h" />
     <ClInclude Include="Alien2.h" />
     <ClInclude Include="Alien3.h" />
+    <ClInclude Include="BoundaryBox.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="Game.h" />
