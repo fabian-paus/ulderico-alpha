@@ -7,7 +7,7 @@ class Invader : public Element
 {
 public:
 	Invader(void);
-	~Invader(void);
+	~Invader(void);	
 };
 
 #endif

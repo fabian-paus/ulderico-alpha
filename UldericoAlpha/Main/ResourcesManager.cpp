@@ -97,7 +97,7 @@ void ResourcesManager::LoadTexture(sf::Texture& texture, std::string const& path
 {
 	if (!texture.LoadFromFile(path))
 	{
-		std::cerr << "Could not load texture from file '" 
+		std::cerr << "Could not load texture from file '"	
 			<< path << "'" << std::endl;
 	}
 }
