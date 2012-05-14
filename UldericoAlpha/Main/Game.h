@@ -8,6 +8,7 @@
 enum GameStates 
 {
 	start,
+   playing,
 	paused,
 	gameOver
 };
@@ -27,6 +28,7 @@ public:
 	void Start();
 	void Pause();
 	void Update();
+   GameStates GetState() { return state; };
 };
 
 #endif

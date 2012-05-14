@@ -96,10 +96,10 @@
     <ClCompile Include="Squadron.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\res\img\characters.png" />
-    <None Include="..\..\res\img\invaders.png" />
-    <None Include="..\..\res\img\tintmask.png" />
-    <None Include="..\..\res\img\tintover.png" />
+    <None Include="res\font\ca.ttf" />
+    <None Include="res\img\characters.png" />
+    <None Include="res\img\invaders.png" />
+    <None Include="res\img\logo.png" />
     <None Include="res\sound\explosion.wav" />
     <None Include="res\sound\fastinvader1.wav" />
     <None Include="res\sound\fastinvader2.wav" />
