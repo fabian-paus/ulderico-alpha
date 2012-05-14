@@ -4,12 +4,15 @@
 int main()
 {
 	// Create the main window
-	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+	sf::RenderWindow window(sf::VideoMode(775, 572), "SFML window");
 	
+   //instantiate game class
 	Game uldericoAlpha;
 
+   //instantiate resource manager
 	ResourcesManager rm;
 
+   //getting main theme
 	sf::Sound mainTheme = rm.GetSound("main-theme");
 
 	// Play main theme in a loop. Space Invaders! ;)
