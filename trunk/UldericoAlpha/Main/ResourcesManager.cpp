@@ -4,6 +4,9 @@
 
 static const char* const CHARACTERS_IMAGE = "res/img/characters.png";
 static const char* const BACKGROUND_IMAGE = "res/img/invaders.png";
+static const char* const LOGO_IMAGE = "res/img/logo.png";
+
+static const char* const GAME_FONT = "res/font/ca.ttf";
 
 static const char* const MAIN_THEME_SOUND    = "res/sound/spaceinvaders1.ogg";
 static const char* const SHOOT_SOUND         = "res/sound/shoot.wav";
@@ -16,9 +19,11 @@ ResourcesManager::ResourcesManager()
 {
 	LoadTexture(m_background, BACKGROUND_IMAGE);
 	LoadTexture(m_characters, CHARACTERS_IMAGE);
+   LoadTexture(m_logo, LOGO_IMAGE);
 
 	LoadSprites();
 	LoadSounds();
+   LoadFonts();
 }
 
 const sf::Sprite& ResourcesManager::GetSprite(std::string const & name)
@@ -26,14 +31,26 @@ const sf::Sprite& ResourcesManager::GetSprite(std::string const & name)
 	return m_spriteResources[name];
 }
 
+const sf::Font& ResourcesManager::GetFont(std::string const & name)
+{
+   return m_fontResources[name];
+}
+
 const sf::Sound& ResourcesManager::GetSound(std::string const & name)
 {
 	return m_soundResources[name];
 }
 
+void ResourcesManager::LoadFonts()
+{
+   LoadFont("game-font", GAME_FONT);
+}
+
 void ResourcesManager::LoadSprites()
 {
 	RegisterSprite("background", sf::Sprite(m_background));
+
+   RegisterSprite("logo", sf::Sprite(m_logo));
 
 	LoadSprite("green-invader", m_characters, sf::IntRect(0, 0, 82, 86));
 	LoadSprite("blue-invader", m_characters, sf::IntRect(112, 0, 116, 86));
@@ -83,6 +100,18 @@ void ResourcesManager::LoadSound(std::string const& name,
 	RegisterSound(name, sf::Sound(buffer));
 }
 
+void ResourcesManager::LoadFont(std::string const& name, std::string const& path)
+{
+   sf::Font font;
+   if(!font.LoadFromFile(path))
+   {
+      std::cerr << "Could not load font resource '" << name 
+			<< "' from file '" << path << "'" << std::endl;
+      return;
+   }
+   RegisterFont(name, font);
+}
+
 void ResourcesManager::RegisterSprite(std::string const & name, sf::Sprite const& resource)
 {
 	m_spriteResources.insert(std::make_pair(name, resource));
@@ -91,6 +120,11 @@ void ResourcesManager::RegisterSprite(std::string const & name, sf::Sprite const
 void ResourcesManager::RegisterSound(std::string const & name, sf::Sound const& resource)
 {
 	m_soundResources.insert(std::make_pair(name, resource));
+}
+
+void ResourcesManager::RegisterFont(std::string const& name, sf::Font const& resource)
+{
+   m_fontResources.insert(std::make_pair(name, resource));
 }
 
 void ResourcesManager::LoadTexture(sf::Texture& texture, std::string const& path)

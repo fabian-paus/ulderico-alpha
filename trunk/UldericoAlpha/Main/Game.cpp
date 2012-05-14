@@ -15,6 +15,8 @@ Game::~Game(void)
 
 void Game::Start()
 {
+   state = playing;
+   //initialize player, shields, invaders & draw
 }
 
 void Game::Pause()
