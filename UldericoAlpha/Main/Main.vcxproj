@@ -107,7 +107,7 @@
     <None Include="res\sound\fastinvader4.wav" />
     <None Include="res\sound\invaderkilled.wav" />
     <None Include="res\sound\shoot.wav" />
-    <None Include="res\sound\spaceinvaders1.mpeg" />
+    <None Include="res\sound\spaceinvaders1.ogg" />
     <None Include="res\sound\ufo_highpitch.wav" />
     <None Include="res\sound\ufo_lowpitch.wav" />
   </ItemGroup>

@@ -5,7 +5,7 @@
 static const char* const CHARACTERS_IMAGE = "res/img/characters.png";
 static const char* const BACKGROUND_IMAGE = "res/img/invaders.png";
 
-static const char* const MAIN_THEME_SOUND    = "res/sound/spaceinvaders1.wav";
+static const char* const MAIN_THEME_SOUND    = "res/sound/spaceinvaders1.ogg";
 static const char* const SHOOT_SOUND         = "res/sound/shoot.wav";
 static const char* const KILLED_SOUND        = "res/sound/invaderkilled.wav";
 static const char* const EXPLOSION_SOUND     = "res/sound/explosion.wav";

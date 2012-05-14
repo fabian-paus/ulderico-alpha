@@ -15,6 +15,7 @@ public:
 	int GetX();
 	int GetY();
 	bool IsHit(Element el);
+   void Shot();
 	virtual const char* GetType() { return "Element"; };
 };
 

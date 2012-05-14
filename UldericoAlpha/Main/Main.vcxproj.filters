@@ -38,7 +38,9 @@
     <ClCompile Include="Squadron.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="BoundaryBox.cpp" />
+    <ClCompile Include="BoundaryBox.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -91,13 +93,13 @@
     <None Include="res\sound\shoot.wav">
       <Filter>Ressources\Audio</Filter>
     </None>
-    <None Include="res\sound\spaceinvaders1.mpeg">
-      <Filter>Ressources\Audio</Filter>
-    </None>
     <None Include="res\sound\ufo_highpitch.wav">
       <Filter>Ressources\Audio</Filter>
     </None>
     <None Include="res\sound\ufo_lowpitch.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\spaceinvaders1.ogg">
       <Filter>Ressources\Audio</Filter>
     </None>
   </ItemGroup>
@@ -138,6 +140,8 @@
     <ClInclude Include="Shield.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="BoundaryBox.h" />
+    <ClInclude Include="BoundaryBox.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
