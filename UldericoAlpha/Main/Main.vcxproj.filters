@@ -105,6 +105,9 @@
     <None Include="res\img\invaders.png">
       <Filter>Ressources\Images</Filter>
     </None>
+    <None Include="res\Levels.xml">
+      <Filter>Ressources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ResourcesManager.h">

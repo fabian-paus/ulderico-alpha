@@ -31,7 +31,7 @@ int main()
 
    sf::Text StartGame("Spiel starten", ca);
    StartGame.SetPosition(250.0, 300.0);
-
+   
 	// Start the game loop
 	while (window.IsOpen())
 	{
