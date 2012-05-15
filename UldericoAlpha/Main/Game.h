@@ -1,22 +1,23 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
-#include "ResourcesManager.h"
+#include <boost\signals2.hpp>
 
+#include "ResourcesManager.h"
 #include "Level.h"
 #include "Player.h"
 #include "Bullet.h"
 
 enum GameState 
 {
-   loading,
+	loading,
 	start,
-   playing,
+	playing,
 	paused,
 	gameOver
 };
 
-class Game
+class Game : public sf::RenderWindow
 {
 private:
 	Level *levels;
@@ -24,18 +25,18 @@ private:
 	GameState state;
 	Bullet *bullets;
 	Player player;
-   ResourcesManager rm;
+	ResourcesManager rm;
+	sf::RenderWindow window;
+	void gameLoop();
 	void draw();
 public:
 	Game();
 	~Game(void);
-   //sf::RenderWindow window(sf::VideoMode(775, 572), "SFML window");
 	void Start();
 	void Pause();
 	void Update();
-   GameState GetState() { return state; };
-   void OnKeyDown(sf::Event event);
-   void OnMouseButtonPressed(sf::Event event);
+	void OnKeyDown(sf::Event event);
+	void OnMouseButtonPressed(sf::Event event);
 };
 
 #endif
