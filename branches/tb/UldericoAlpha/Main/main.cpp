@@ -1,12 +1,18 @@
 #include "Game.h"
-#include <boost\signals2.hpp>
 
-#include <iostream>
+using namespace UldericoAlpha::Core;
 
 int main()
 {	
+
 	//instantiate game class
-	Game uldericoAlpha;	
+	Game uldericoAlpha;
+   
+	//load the resources
+	uldericoAlpha.Load();
+
+	//start game loop
+	uldericoAlpha.StartGameLoop();
 
 	return EXIT_SUCCESS;
 }
