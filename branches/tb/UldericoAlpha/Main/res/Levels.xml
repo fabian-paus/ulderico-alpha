@@ -1,0 +1,13 @@
+<Levels>
+	<Level Nr="1" scale="0.5" speed="1">
+		<ElementGroup kind="red" lifes="1">
+			<Element>
+				<posX>1</posX>
+				<posY>1</posY>
+            <kind></kind>
+            <lifes></lifes>
+			</Element>
+		</ElementGroup>
+		...
+	</Level>
+</Levels>

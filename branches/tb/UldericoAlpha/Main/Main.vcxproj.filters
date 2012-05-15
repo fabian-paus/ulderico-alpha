@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ResourcesManager.cpp">
+      <Filter>ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Alien1.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Alien2.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Alien3.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Element.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Invader.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Squadron.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="BoundaryBox.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Ressources">
+      <UniqueIdentifier>{6c6b46d4-052a-44c3-a5bd-f536ba8a1a56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ressources\Images">
+      <UniqueIdentifier>{778ed21f-0630-49a1-a4db-32d75a4e8807}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ressources\Audio">
+      <UniqueIdentifier>{69595519-a27d-4473-a2fa-3f9de83c3683}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManager">
+      <UniqueIdentifier>{79f9b6aa-4a13-4a8d-acba-c90521226abf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{f9bde1ec-98ed-4fce-92e9-c4b74d905405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ressources\Fonts">
+      <UniqueIdentifier>{efafabe2-a46b-41d7-9d17-bf571774c194}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\sound\explosion.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\fastinvader1.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\fastinvader2.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\fastinvader3.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\fastinvader4.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\invaderkilled.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\shoot.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\ufo_highpitch.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\ufo_lowpitch.wav">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\sound\spaceinvaders1.ogg">
+      <Filter>Ressources\Audio</Filter>
+    </None>
+    <None Include="res\font\ca.ttf">
+      <Filter>Ressources\Fonts</Filter>
+    </None>
+    <None Include="res\img\logo.png">
+      <Filter>Ressources\Images</Filter>
+    </None>
+    <None Include="res\img\characters.png">
+      <Filter>Ressources\Images</Filter>
+    </None>
+    <None Include="res\img\invaders.png">
+      <Filter>Ressources\Images</Filter>
+    </None>
+    <None Include="res\Levels.xml">
+      <Filter>Ressources</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ResourcesManager.h">
+      <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Alien1.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Alien2.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Alien3.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Element.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Invader.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Squadron.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundaryBox.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
