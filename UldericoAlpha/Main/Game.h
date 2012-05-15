@@ -5,7 +5,7 @@
 #include "Player.h"
 #include "Bullet.h"
 
-enum GameStates 
+enum GameState 
 {
 	start,
    playing,
@@ -28,7 +28,7 @@ public:
 	void Start();
 	void Pause();
 	void Update();
-   GameStates GetState() { return state; };
+   GameState GetState() { return state; };
 };
 
 #endif
