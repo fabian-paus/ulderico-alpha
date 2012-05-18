@@ -18,7 +18,7 @@ class Game
 private:
 	Level *levels;
 	int activLevel;
-	GameStates state;
+	GameState state;
 	Bullet *bullets;
 	Player player;
 	void draw();
