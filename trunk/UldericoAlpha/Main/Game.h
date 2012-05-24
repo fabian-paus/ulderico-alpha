@@ -1,34 +1,47 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
+#include <boost\signals2.hpp>
+
+#include "ResourcesManager.h"
 #include "Level.h"
 #include "Player.h"
 #include "Bullet.h"
+#include "BoundaryBox.h"
 
-enum GameState 
+namespace UldericoAlpha
 {
-	start,
-   playing,
-	paused,
-	gameOver
-};
-
-class Game
-{
-private:
-	Level *levels;
-	int activLevel;
-	GameState state;
-	Bullet *bullets;
-	Player player;
-	void draw();
-public:
-	Game(void);
-	~Game(void);
-	void Start();
-	void Pause();
-	void Update();
-   GameState GetState() { return state; };
-};
-
+	namespace Core
+	{
+		class Game
+		{
+		public:
+			Game();
+			~Game(void);
+			void Load();
+			void StartGameLoop();
+			enum GameState 
+			{
+				loading,
+				started,
+				playing,
+				paused,
+				gameOver
+			};
+		private:
+			Level *levels;
+			int activLevel;
+			GameState state;
+			Bullet *bullets;
+			Player player;
+			Helper::ResourcesManager rm;
+			BoundaryBox bb;
+			void draw();
+			void start();
+			void pause();
+			void update();
+			sf::RenderWindow window;
+		};
+	}
+}
 #endif

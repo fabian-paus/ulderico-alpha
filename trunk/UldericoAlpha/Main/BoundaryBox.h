@@ -20,9 +20,9 @@ private:
 	int bottom;
 	int left;
 public:
-	BoundaryBox(void);
-	~BoundaryBox(void);
-	BoundaryBox GetPositionInBox(Element el);
+	BoundaryBox(int top = 0, int right = 0, int bottom = 0, int left = 0);
+	~BoundaryBox();
+	BoundaryPosition GetPositionInBox(Element el);
 };
 
 #endif
