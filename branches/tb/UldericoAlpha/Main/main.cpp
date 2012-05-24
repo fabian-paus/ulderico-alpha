@@ -4,7 +4,6 @@ using namespace UldericoAlpha::Core;
 
 int main()
 {	
-
 	//instantiate game class
 	Game uldericoAlpha;
    
