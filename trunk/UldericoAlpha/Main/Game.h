@@ -1,8 +1,6 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
-#include <boost\signals2.hpp>
-
 #include "ResourcesManager.h"
 #include "Level.h"
 #include "Player.h"
