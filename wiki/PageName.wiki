@@ -1,0 +1,12 @@
+#summary Anforderungen für das Projekt
+
+= Einleitung =
+
+Das Projekt Ulderico Alpha hat das Ziel einen Space Invaders Clone zu implementieren.
+
+
+= Details =
+
+Anforderungen:
+  * Das Spiel kann gestartet, pausiert und beendet werden.
+  * Ein Spieler kann sich horizontal bewegen.
