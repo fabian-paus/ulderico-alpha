@@ -15,4 +15,13 @@ Spiel:
 Steuerung:
   * Ein Spieler kann sich horizontal bewegen
   * Ein Spieler kann schießen
+
+Anzeige:
+  * Wahrend des Spiels wird die erreichte Punktzahl angezeigt
+  * Während des Spiels wird die Anzahl der noch verbleibenden Leben des Spielers angezeigt
+
+Gegner:
+  * Die Gegner starten in einem Schwarm oberhalb des Spielers
+  * Der Schwarm bewegt sich horizontal bis er an den Rand des Spielfeldes kommt. Danach bewegt er sich nach unten.
+  * Die Gegner schießen zufällig auf den Spieler (nach unten)
   
