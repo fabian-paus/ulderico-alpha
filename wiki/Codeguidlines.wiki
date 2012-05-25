@@ -38,7 +38,6 @@ Durch Vorgaben in der Namensgebung schafft man vertraute Strukturen und lesbaren
   * Konstanten: GROSS_MIT_UNTERSTRICHEN
   * Lokale Variablen: klein_mit_unterstrichen
   * Member Variablen: m_so_wie_variablen (führendes m)
-  * Globale Variablen: sind verboten ;)
 
 Klassennamen sind Subjektive. Methoden und Funktionen beginnen mit einem Verb. Abkürzungen sind grundsätzlich nicht erlaubt. Bezeichner müssen ausgeschrieben werden. Ausnahmen sind bekannte Abkürzungen wie XML, HTML, API, etc.
 
@@ -49,4 +48,7 @@ Das Projekt wird keine eigenen Templates enthalten. Die Verwendung von Templates
 
 Fehlerbehandlung erfolgt über Exceptions. Eigene Exceptions müssen von der Klasse std::exception abgeleitet werden. Fehlerbehandlung sollte in diesem Projekt lediglich beim Laden der Ressourcen notwendig sein.
 
-== 
+== Verbote ==
+Aus Gründen der Lesbarkeit und Nachvollziehbarkeit des Codes sind folgende Sprachfeatures verboten. Nach den Punkten sind ein paar Alternativen aufgelistet.
+  * Makros: Funktionen
+  * Globale Variablen: Lokale Variablen, Parameter, Rückgabewerte
