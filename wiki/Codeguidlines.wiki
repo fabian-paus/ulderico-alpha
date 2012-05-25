@@ -15,5 +15,28 @@ Für jede Klasse wird ein Pärchen aus Quellcode- und Headerdatei angelegt. Der 
 == Kommentare ==
 Jede Klasse muss einen einleitenden Kommentar enthalten, der ihre Funktionalität beschreibt. Jede nicht öffentliche Funktion muss kommentiert werden. Private Funktionen dürfen/sollten ebenfalls kommentiert werden. Ein Funktionskommentar enthält die Aufgabe der Funktion und eine Beschreibung der Parameter und des Rückgabewerts.
 
-Quellcode, der nicht direkt lesbar ist und deshalb einen Kommentar erfordert, sollte zunächst durch Refactoring verbessert werden
+Kommentare im Quellcode sollten beschreiben, was umgesetzt wurde und nicht wie (das steht schon im Code).
 
+== Namensgebung ==
+Durch Vorgaben in der Namensgebung schafft man vertraute Strukturen und lesbaren Code.
+
+  * Typen (Klassen, Strukturen, etc.): PascalCase
+  * Lokale Variablen: klein_mit_unterstrichen
+  * Member Variablen: m_so_wie_variablen (führendes m)
+  * Konstanten: GROSS_MIT_UNTERSTRICHEN
+  * Globale Variablen: sind verboten ;)
+
+Klassennamen sind Subjektive. Methoden und Funktionen beginnen mit einem Verb. Abkürzungen sind grundsätzlich nicht erlaubt. Bezeichner müssen ausgeschrieben werden. Ausnahmen sind bekannte Abkürzungen wie XML, HTML, API, etc.
+
+== Include-Guards ==
+Jede Headerdatei wird durch einen Include-Guard vor mehrfacher Einbindung geschützt. Ein Include-Guard hat diese Form:
+
+{{{
+#ifndef ULDERICO_ALPHA_CLASS_NAME_HPP_INCLUDED
+#define ULDERICO_ALPHA_CLASS_NAME_HPP_INCLUDED
+
+// Eigentlicher Inhalt der Headerdatei
+
+#endif // ULDERICO_ALPHA_CLASS_NAME_HPP_INCLUDED
+
+}}}
