@@ -12,23 +12,6 @@ Programmcode wird in Englisch geschrieben. Deutsche Bezeichner sind *nicht* erla
 == Quellcode ==
 Für jede Klasse wird ein Pärchen aus Quellcode- und Headerdatei angelegt. Der Dateiname entspricht dem Klassennamen. Für Headerdateien wird die Endung .hpp, für Quellcode die Endung .cpp verwendet.
 
-== Kommentare ==
-Jede Klasse muss einen einleitenden Kommentar enthalten, der ihre Funktionalität beschreibt. Jede nicht öffentliche Funktion muss kommentiert werden. Private Funktionen dürfen/sollten ebenfalls kommentiert werden. Ein Funktionskommentar enthält die Aufgabe der Funktion und eine Beschreibung der Parameter und des Rückgabewerts.
-
-Kommentare im Quellcode sollten beschreiben, was umgesetzt wurde und nicht wie (das steht schon im Code).
-
-== Namensgebung ==
-Durch Vorgaben in der Namensgebung schafft man vertraute Strukturen und lesbaren Code.
-
-  * Typen (Klassen, Strukturen, etc.): PascalCase
-  * Lokale Variablen: klein_mit_unterstrichen
-  * Member Variablen: m_so_wie_variablen (führendes m)
-  * Konstanten: GROSS_MIT_UNTERSTRICHEN
-  * Globale Variablen: sind verboten ;)
-
-Klassennamen sind Subjektive. Methoden und Funktionen beginnen mit einem Verb. Abkürzungen sind grundsätzlich nicht erlaubt. Bezeichner müssen ausgeschrieben werden. Ausnahmen sind bekannte Abkürzungen wie XML, HTML, API, etc.
-
-== Include-Guards ==
 Jede Headerdatei wird durch einen Include-Guard vor mehrfacher Einbindung geschützt. Ein Include-Guard hat diese Form:
 
 {{{
@@ -40,3 +23,30 @@ Jede Headerdatei wird durch einen Include-Guard vor mehrfacher Einbindung gesch�
 #endif // ULDERICO_ALPHA_CLASS_NAME_HPP_INCLUDED
 
 }}}
+
+== Kommentare ==
+Jede Klasse muss einen einleitenden Kommentar enthalten, der ihre Funktionalität beschreibt. Jede nicht öffentliche Funktion muss kommentiert werden. Private Funktionen dürfen/sollten ebenfalls kommentiert werden. Ein Funktionskommentar enthält die Aufgabe der Funktion und eine Beschreibung der Parameter und des Rückgabewerts.
+
+Kommentare im Quellcode sollten beschreiben, was umgesetzt wurde und nicht wie (das steht schon im Code).
+
+== Namensgebung ==
+Durch Vorgaben in der Namensgebung schafft man vertraute Strukturen und lesbaren Code.
+
+  * Typen (Klassen, Strukturen, etc.): PascalCase
+  * Methoden: camelCase
+  * Namespaces: klein_mit_unterstrichen
+  * Konstanten: GROSS_MIT_UNTERSTRICHEN
+  * Lokale Variablen: klein_mit_unterstrichen
+  * Member Variablen: m_so_wie_variablen (führendes m)
+  * Globale Variablen: sind verboten ;)
+
+Klassennamen sind Subjektive. Methoden und Funktionen beginnen mit einem Verb. Abkürzungen sind grundsätzlich nicht erlaubt. Bezeichner müssen ausgeschrieben werden. Ausnahmen sind bekannte Abkürzungen wie XML, HTML, API, etc.
+
+== Verwendete C++ Features ==
+C++ ist eine Multiparadigmensprache. Es gibt verschiedene Features der Sprache, die sich für unterschiedliche Aufgaben eignen (Prozeudrale Programmierung wie in C, Objektorientierte Programmierung in C++, Metaprogrammierung mit Templates, Funktionale Programmierung mit Lambdas). Da wir in der Vorlesung nur einen kleinen Teil gesehen haben, beschränken wir uns in diesem Projekt auf das objektorientierte C++.
+
+Das Projekt wird keine eigenen Templates enthalten. Die Verwendung von Templates aus der Standard-Bibliothek (vor allem Container-Klassen) ist zulässig und empfohlen. Eigene Container-Klassen sollten nicht implementiert werden.
+
+Fehlerbehandlung erfolgt über Exceptions. Eigene Exceptions müssen von der Klasse std::exception abgeleitet werden. Fehlerbehandlung sollte in diesem Projekt lediglich beim Laden der Ressourcen notwendig sein.
+
+== 
