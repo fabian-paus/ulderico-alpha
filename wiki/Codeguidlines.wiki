@@ -1,0 +1,19 @@
+#summary Coderichtlinien für dieses Projekt
+
+= Einleitung =
+
+Da an diesem Projekt mehrere Entwickler arbeiten, ist es wichtig die Grundlagen für den Programmierstil.
+
+= Richtlinien =
+
+== Sprache ==
+Programmcode wird in Englisch geschrieben. Deutsche Bezeichner sind *nicht* erlaubt. Kommentare werden ebenfalls in Englisch verfasst. Hier ist darauf zu achten, dass diese in einfachem Englisch gehalten werden. Spätestens wenn Fachwörter nachgeschlagen werden müssen, sollte eine simplere Umschreibung verwendet werden.
+
+== Quellcode ==
+Für jede Klasse wird ein Pärchen aus Quellcode- und Headerdatei angelegt. Der Dateiname entspricht dem Klassennamen. Für Headerdateien wird die Endung .hpp, für Quellcode die Endung .cpp verwendet.
+
+== Kommentare ==
+Jede Klasse muss einen einleitenden Kommentar enthalten, der ihre Funktionalität beschreibt. Jede nicht öffentliche Funktion muss kommentiert werden. Private Funktionen dürfen/sollten ebenfalls kommentiert werden. Ein Funktionskommentar enthält die Aufgabe der Funktion und eine Beschreibung der Parameter und des Rückgabewerts.
+
+Quellcode, der nicht direkt lesbar ist und deshalb einen Kommentar erfordert, sollte zunächst durch Refactoring verbessert werden
+
