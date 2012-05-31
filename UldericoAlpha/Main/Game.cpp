@@ -1,143 +1,45 @@
 #include "Game.h"
 
-using namespace UldericoAlpha::Core;
+#include "MenuBehaviour.h"
 
-Game::Game() : window(sf::VideoMode(775, 572), "SFML window")
+using namespace UldericoAlpha;
+
+Game::Game() 
+	: m_window(sf::VideoMode(775, 572), "SFML window")
 {
-	state = loading;
-	activLevel = 1;
-	bullets = 0;
-	levels = 0;
-}
-
-
-Game::~Game()
-{
-}
-
-void Game::Load()
-{
-	window.SetFramerateLimit(60);
-
-	//getting main theme
-	sf::Sound mainTheme = rm.GetSound("main-theme");
-
-	//Play main theme in a loop. Space Invaders! ;)
-	mainTheme.SetLoop(true);
-	mainTheme.SetVolume(75.0f);
-	mainTheme.Play();
-
-	draw();
+	m_behaviour = new MenuBehaviour(*this, m_resources);
 }
 
 void Game::StartGameLoop()
 {
 	// Start the game loop
-	while (window.IsOpen())
+	while (m_window.IsOpen())
 	{
 		// Process events
 		sf::Event event;
-		while (window.PollEvent(event))
+		while (m_window.PollEvent(event))
 		{
 			// Close window : exit
 			if (event.Type == sf::Event::Closed)
-				window.Close();
+				m_window.Close();
 
-			if(event.Type == sf::Event::KeyPressed)
-			{
-				if (event.Key.Code == sf::Keyboard::Space)
-					player.Shot(); //shoot.Play();
-				if(event.Key.Control && event.Key.Code == 15)
-					pause();
-
-			}
-			if(event.Type == sf::Event::MouseButtonPressed)
-			{
-				if(event.MouseButton.X >= 250 && event.MouseButton.X <= 450 && event.MouseButton.Y >= 300 && event.MouseButton.Y <= 350)
-				{
-					if(state == started)
-						start();
-					if(state == paused)
-						state = playing;
-				}
-			}
+			m_behaviour->OnEvent(event);
 		}
+
+		// TODO: Logik-Ticks einbauen
+		m_behaviour->Update();
 
 		// Clear screen
-		window.Clear();
+		m_window.Clear();
 
-		//Update the game
-		update();
+		m_behaviour->Render(m_window);
 
 		// Update the window
-		window.Display();
+		m_window.Display();
 	}
 }
 
-void Game::start()
+void Game::ChangeState(GameStates newState)
 {
-	state = playing;
-	//initialize player, shields, invaders & draw
-}
 
-void Game::pause()
-{
-	state = paused;
-	//draw pause screen
-}
-
-void Game::update()
-{
-	if(state == loading)
-		state = started;
-	//call update für invaders, player etc.
-	draw();
-}
-
-void Game::draw()
-{
-	sf::Sprite background = rm.GetSprite("background");
-	// Draw background
-	window.Draw(background);
-
-	switch(state)
-	{
-	case loading:
-		{
-			//paint loading
-			sf::Text loading("Laden", rm.GetFont("game-font"));
-			loading.SetPosition(250.0, 300.0);
-			window.Draw(loading);
-			break;
-		}
-	case started:
-		{
-			sf::Sprite logo = rm.GetSprite("logo");
-			logo.SetPosition(250.0, 150.0);
-
-			sf::Text StartGame("Spiel starten", rm.GetFont("game-font"));
-			StartGame.SetPosition(250.0, 300.0);
-			window.Draw(logo);
-			window.Draw(StartGame);
-			break;
-		}
-	case playing:
-		break;
-	case paused:
-		{
-			sf::Text loading("Spiel fortsetzen", rm.GetFont("game-font"));
-			loading.SetPosition(250.0, 300.0);
-			window.Draw(loading);
-			break;
-		}
-	case gameOver:
-		{
-			sf::Text loading("Game Over", rm.GetFont("game-font"));
-			loading.SetPosition(250.0, 300.0);
-			window.Draw(loading);
-			break;
-		}
-	default:
-		break;
-	}
 }

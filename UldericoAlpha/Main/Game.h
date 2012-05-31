@@ -7,39 +7,23 @@
 #include "Bullet.h"
 #include "BoundaryBox.h"
 
+#include "Behaviour.h"
+
 namespace UldericoAlpha
 {
-	namespace Core
+	class Game
 	{
-		class Game
-		{
-		public:
-			Game();
-			~Game(void);
-			void Load();
-			void StartGameLoop();
-			enum GameState 
-			{
-				loading,
-				started,
-				playing,
-				paused,
-				gameOver
-			};
-		private:
-			Level *levels;
-			int activLevel;
-			GameState state;
-			Bullet *bullets;
-			Player player;
-			Helper::ResourcesManager rm;
-			BoundaryBox bb;
-			void draw();
-			void start();
-			void pause();
-			void update();
-			sf::RenderWindow window;
-		};
-	}
+	public:
+		Game();
+
+		void StartGameLoop();
+
+		void ChangeState(GameStates newState);
+
+	private:
+		sf::RenderWindow m_window;
+		ResourcesManager m_resources;
+		Behaviour* m_behaviour;
+	};
 }
 #endif
