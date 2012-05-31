@@ -5,9 +5,6 @@
     <ClCompile Include="ResourcesManager.cpp">
       <Filter>ResourceManager</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -32,6 +29,12 @@
     <ClCompile Include="BoundaryBox.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuBehaviour.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -51,6 +54,9 @@
     </Filter>
     <Filter Include="Ressources\Fonts">
       <UniqueIdentifier>{efafabe2-a46b-41d7-9d17-bf571774c194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{92c48c3f-2b81-43a0-8336-5da6fad6deeb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -104,9 +110,6 @@
     <ClInclude Include="ResourcesManager.h">
       <Filter>ResourceManager</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Level.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -130,6 +133,21 @@
     </ClInclude>
     <ClInclude Include="BoundaryBox.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStates.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameBehaviour.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuBehaviour.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

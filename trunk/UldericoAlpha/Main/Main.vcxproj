@@ -87,6 +87,7 @@
     <ClCompile Include="Invader.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MenuBehaviour.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
     <ClCompile Include="Shield.cpp" />
@@ -114,12 +115,16 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameStates.h" />
+    <ClInclude Include="InGameBehaviour.h" />
     <ClInclude Include="Invader.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="MenuBehaviour.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ResourcesManager.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="Squadron.h" />
+    <ClInclude Include="Behaviour.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

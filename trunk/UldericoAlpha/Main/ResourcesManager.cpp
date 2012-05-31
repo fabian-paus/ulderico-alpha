@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-using namespace UldericoAlpha::Helper;
+using namespace UldericoAlpha;
 
 static const char* const CHARACTERS_IMAGE = "res/img/characters.png";
 static const char* const BACKGROUND_IMAGE = "res/img/invaders.png";

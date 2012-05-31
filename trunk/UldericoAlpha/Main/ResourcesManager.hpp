@@ -1,5 +1,5 @@
-#ifndef RESOURCESMANAGER_H_INCLUDED
-#define RESOURCESMANAGER_H_INCLUDED
+#ifndef ULDERICO_ALPHA_RESOURCESMANAGER_HPP_INCLUDED
+#define ULDERICO_ALPHA_RESOURCESMANAGER_HPP_INCLUDED
 
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
@@ -8,18 +8,18 @@
 #include <string>
 #include <list>
 
-namespace UldericoAlpha
+namespace ulderico_alpha
 {
 	class ResourcesManager
 	{
 	public:
 		ResourcesManager();
 
-		const sf::Sprite& GetSprite(std::string const& name);
+		sf::Sprite const& getSprite(std::string const& name);
 
-		const sf::Sound& GetSound(std::string const& name);
+		sf::Sound const& getSound(std::string const& name);
 
-		const sf::Font& GetFont(std::string const& name);
+		sf::Font const& getFont(std::string const& name);
 
 	private:
 		void LoadSprites();
@@ -60,4 +60,5 @@ namespace UldericoAlpha
 		FontResourceMap m_fontResources;
 	};
 }
-#endif
+
+#endif // ULDERICO_ALPHA_RESOURCESMANAGER_HPP_INCLUDED
