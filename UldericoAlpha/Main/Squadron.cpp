@@ -1,11 +1,15 @@
 #include "Squadron.h"
 
-
-Squadron::Squadron(void)
+namespace UldericoAlpha
 {
-}
+
+	Squadron::Squadron(void)
+	{
+	}
 
 
-Squadron::~Squadron(void)
-{
+	Squadron::~Squadron(void)
+	{
+	}
+
 }

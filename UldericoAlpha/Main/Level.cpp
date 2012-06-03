@@ -1,11 +1,15 @@
 #include "Level.h"
 
-
-Level::Level(void)
+namespace UldericoAlpha
 {
-}
+
+	Level::Level(void)
+	{
+	}
 
 
-Level::~Level(void)
-{
+	Level::~Level(void)
+	{
+	}
+
 }

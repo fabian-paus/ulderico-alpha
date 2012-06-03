@@ -1,11 +1,10 @@
 #include "Invader.h"
 
-
-Invader::Invader(void)
+namespace UldericoAlpha
 {
-}
 
-
-Invader::~Invader(void)
-{
+	Invader::Invader(int width, int height)
+		: Element(width, height)
+	{
+	}
 }

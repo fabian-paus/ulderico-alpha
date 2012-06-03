@@ -1,15 +1,8 @@
 #include "Player.h"
 
-
-Player::Player(void)
+namespace UldericoAlpha
 {
-}
-
-
-Player::~Player(void)
-{
-}
-
-void Player::Shot()
-{
+	void Player::Shot()
+	{
+	}
 }

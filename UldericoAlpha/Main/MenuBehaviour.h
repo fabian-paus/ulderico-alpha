@@ -1,8 +1,8 @@
-#ifndef ULDERICO_ALPHA_MENU_STATE_H_INCLUDED
-#define ULDERICO_ALPHA_MENU_STATE_H_INCLUDED
+#ifndef ULDERICO_ALPHA_MENU_BEHAVIOUR_H_INCLUDED
+#define ULDERICO_ALPHA_MENU_BEHAVIOUR_H_INCLUDED
 
-#include "Game.h"
 #include "Behaviour.h"
+#include "Game.h"
 #include "ResourcesManager.h"
 
 namespace UldericoAlpha
@@ -33,10 +33,7 @@ namespace UldericoAlpha
 		/**
 		 * Gibt den Zustand des Programms zurück.
 		 */
-		virtual GameStates GetState() const
-		{
-			return GameState_Menu;
-		}
+		virtual GameStates GetState() const	{ return GameState_Menu; };
 
 	private:
 		Game& m_game;
@@ -44,4 +41,4 @@ namespace UldericoAlpha
 	};
 }
 
-#endif // ULDERICO_ALPHA_MENU_STATE_H_INCLUDED
+#endif // ULDERICO_ALPHA_MENU_BEHAVIOUR_H_INCLUDED
