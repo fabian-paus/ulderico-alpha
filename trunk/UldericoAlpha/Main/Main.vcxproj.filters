@@ -26,13 +26,16 @@
     <ClCompile Include="Squadron.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="BoundaryBox.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="MenuBehaviour.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="BoundingBox.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameBehaviour.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -131,9 +134,6 @@
     <ClInclude Include="Shield.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="BoundaryBox.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -148,6 +148,15 @@
     </ClInclude>
     <ClInclude Include="MenuBehaviour.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingBox.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ShieldFragment.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ElementTypes.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

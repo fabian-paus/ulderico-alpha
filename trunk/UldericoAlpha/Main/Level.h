@@ -3,15 +3,18 @@
 
 #include "Squadron.h"
 
-class Level
+namespace UldericoAlpha
 {
-private:
-	Squadron squadron;
-public:
-	Level(void);
-	~Level(void);
-	void Start();
-	void Update();
-};
+	class Level
+	{
+	private:
+		Squadron squadron;
+	public:
+		Level(void);
+		~Level(void);
+		void Start();
+		void Update();
+	};
+}
 
 #endif

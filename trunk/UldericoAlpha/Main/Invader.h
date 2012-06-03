@@ -3,11 +3,13 @@
 
 #include "Element.h"
 
-class Invader : public Element
+namespace UldericoAlpha
 {
-public:
-	Invader(void);
-	~Invader(void);	
-};
+	class Invader : public Element
+	{
+	public:
+		Invader(int width, int height);
+	};
+}
 
 #endif

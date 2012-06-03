@@ -1,7 +1,9 @@
-#ifndef ULDERICO_ALPHA_IN_GAME_STATE_H_INCLUDED
-#define ULDERICO_ALPHA_IN_GAME_STATE_H_INCLUDED
+#ifndef ULDERICO_ALPHA_IN_GAME_BEHAVIOUR_H_INCLUDED
+#define ULDERICO_ALPHA_IN_GAME_BEHAVIOUR_H_INCLUDED
 
 #include "Behaviour.h"
+#include "Game.h"
+#include "ResourcesManager.h"
 
 namespace UldericoAlpha
 {
@@ -11,6 +13,7 @@ namespace UldericoAlpha
 	class InGameBehaviour : public Behaviour
 	{
 	public:
+		InGameBehaviour(Game& game, ResourcesManager& resources);
 		/**
 		 * Diese Methode wird vom Spiel in jedem Logik-Tick aufgerufen.
 		 */
@@ -20,7 +23,21 @@ namespace UldericoAlpha
 		 * Bei einem Ereignis (Tastatur, Maus) wird diese Methode aufgerufen.
 		 */
 		virtual void OnEvent(sf::Event const& event);
+
+		/**
+		* Zeichnet das für das Spiel relevante Daten
+		*/
+		virtual void Render(sf::RenderWindow& window);
+
+		/**
+		* Gibt den Status der Klasse zurück
+		*/
+		virtual GameStates GetState() const { return GameState_Game; };
+	
+	private:
+		Game& m_game;
+		ResourcesManager& m_resources;
 	};
 }
 
-#endif // ULDERICO_ALPHA_IN_GAME_STATE_H_INCLUDED
+#endif // ULDERICO_ALPHA_IN_GAME_BEHAVIOUR_H_INCLUDED

@@ -8,12 +8,14 @@ namespace UldericoAlpha
 	 */
 	enum GameStates 
 	{
-		GameState_Menu,
-		GameState_Game,
-		GameState_Pause,
-		GameState_GameOver,
-		GameState_Highscore
+		GameState_Menu = 0,
+		GameState_Game = 1,
+		GameState_Pause = 2,
+		GameState_GameOver = 3,
+		GameState_Highscore = 4
 	};
+
+
 }
 
 #endif // ULDERICO_ALPHA_GAME_STATES_H_INCLUDED

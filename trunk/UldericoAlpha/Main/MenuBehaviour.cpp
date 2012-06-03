@@ -3,8 +3,8 @@
 namespace UldericoAlpha
 {
 	MenuBehaviour::MenuBehaviour(Game& game, ResourcesManager& resources)
-		: m_game(game), 
-	      m_resources(resources)
+		: m_game(game),
+		m_resources(resources)
 	{ }
 
 	void MenuBehaviour::Update()

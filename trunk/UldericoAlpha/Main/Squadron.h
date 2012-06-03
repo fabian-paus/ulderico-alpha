@@ -1,11 +1,14 @@
 #ifndef SQUADRON_H_INCLUDED
 #define SQUADRON_H_INCLUDED
 
-class Squadron
+namespace UldericoAlpha
 {
-public:
-	Squadron(void);
-	~Squadron(void);
-};
+	class Squadron
+	{
+	public:
+		Squadron(void);
+		~Squadron(void);
+	};
+}
 
 #endif
