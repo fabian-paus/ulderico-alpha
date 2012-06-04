@@ -8,14 +8,15 @@ namespace UldericoAlpha
 {
 	class Bullet : public Element
 	{
-	private:
-		static const int m_width = 5;
-
-		static const int m_height = 8;
 	public:
-		Bullet(int posX, int posY, int speed);
+		Bullet(float posX, float posY, float speed);
 
 		virtual ElementTypes GetType() { return ElementType_Bullet; };
+        
+    private:
+		static const float WIDTH;
+
+		static const float HEIGHT;
 	};
 }
 

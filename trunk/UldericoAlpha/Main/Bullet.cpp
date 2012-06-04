@@ -2,11 +2,12 @@
 
 namespace UldericoAlpha
 {
+    const float Bullet::WIDTH = 5.0f;
+    const float Bullet::HEIGHT = 8.0f;
 
-	Bullet::Bullet(int posX, int posY, int speed)
-		:Element(posX, posY, m_width, m_height)
+	Bullet::Bullet(float posX, float posY, float speed)
+		:Element(posX, posY, WIDTH, HEIGHT)
 	{	
 		SetSpeed(speed);
 	}
-
 }

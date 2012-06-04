@@ -11,13 +11,24 @@ namespace UldericoAlpha
 	private:
 		int points;
 		int lifes;
+        float m_speedX;
 	public:
 		int GetPoints();
 		void AddPoints(int points);
-		void SetPosition(int x, int y);
 		int GetLifes() { return lifes; };
 		void LoseLife(){ lifes--; };
 		void Shot();
+
+        void SetSpeedX(float speed)
+        {
+            m_speedX = speed;
+        }
+
+        void Move()
+        {
+            Element::SetPosition(Element::GetX() + m_speedX, Element::GetY());
+        }
+
 		virtual ElementTypes GetType() { return ElementType_Player; };
 	};
 }

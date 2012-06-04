@@ -50,19 +50,20 @@ void ResourcesManager::LoadFonts()
 
 void ResourcesManager::LoadSprites()
 {
-	RegisterSprite("background", sf::Sprite(m_background));
+    RegisterSprite("background", sf::Sprite(m_background));
+    RegisterSprite("logo", sf::Sprite(m_logo));
 
-   RegisterSprite("logo", sf::Sprite(m_logo));
+    sf::Vector2f characterScale(0.4f, 0.4f);
 
-	LoadSprite("green-invader", m_characters, sf::IntRect(0, 0, 82, 86));
-	LoadSprite("blue-invader", m_characters, sf::IntRect(112, 0, 116, 86));
-	LoadSprite("purple-invader", m_characters, sf::IntRect(250, 0, 122, 86));
-	LoadSprite("red-defender", m_characters, sf::IntRect(31, 303, 117, 70));
+	LoadSprite("green-invader", m_characters, sf::IntRect(0, 0, 82, 86), characterScale);
+	LoadSprite("blue-invader", m_characters, sf::IntRect(112, 0, 116, 86), characterScale);
+	LoadSprite("purple-invader", m_characters, sf::IntRect(250, 0, 122, 86), characterScale);
+	LoadSprite("red-defender", m_characters, sf::IntRect(31, 303, 117, 70), characterScale);
 
-	LoadSprite("green-attack", m_characters, sf::IntRect(22, 122, 30, 60));
-	LoadSprite("blue-attack", m_characters, sf::IntRect(152, 122, 28, 50));
-	LoadSprite("purple-attack", m_characters, sf::IntRect(290, 122, 28, 50));
-	LoadSprite("red-attack", m_characters, sf::IntRect(84, 222, 13, 45));
+	LoadSprite("green-attack", m_characters, sf::IntRect(22, 122, 30, 60), characterScale);
+	LoadSprite("blue-attack", m_characters, sf::IntRect(152, 122, 28, 50), characterScale);
+	LoadSprite("purple-attack", m_characters, sf::IntRect(290, 122, 28, 50), characterScale);
+	LoadSprite("red-attack", m_characters, sf::IntRect(84, 222, 13, 45), characterScale);
 }
 
 void ResourcesManager::LoadSounds()
@@ -77,10 +78,12 @@ void ResourcesManager::LoadSounds()
 
 void ResourcesManager::LoadSprite(std::string const& name, 
 		sf::Texture const& texture,
-		sf::IntRect const& textureRect)
+		sf::IntRect const& textureRect,
+        sf::Vector2f const& scale)
 {
 	sf::Sprite sprite(texture);
 	sprite.SetTextureRect(textureRect);
+    sprite.SetScale(scale);
 
 	RegisterSprite(name, sprite);
 }

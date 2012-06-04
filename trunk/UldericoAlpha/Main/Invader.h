@@ -8,7 +8,7 @@ namespace UldericoAlpha
 	class Invader : public Element
 	{
 	public:
-		Invader(int width, int height);
+		Invader(float width, float height);
 	};
 }
 

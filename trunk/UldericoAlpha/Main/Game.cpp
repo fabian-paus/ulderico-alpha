@@ -2,41 +2,32 @@
 
 #include "MenuBehaviour.h"
 #include "InGameBehaviour.h"
+#include "GameOverBehaviour.h"
+#include "HighscoreBehaviour.h"
+
 #include "Shield.h"
 #include "Bullet.h"
 
+#include <SFML/System/Clock.hpp>
+#include <iostream>
+#include <cstdlib>
+
 namespace UldericoAlpha
 {
+    const std::string Game::WINDOW_TITLE = "UldericoAlpha 0.1 alpha ;)";
+
 	Game::Game() 
-		: m_window(sf::VideoMode(775, 572), "SFML window"),
-		m_gameState(GameState_Menu)
-	{
-		std::vector<Behaviour*>::iterator behaviour_it;
-		behaviour_it = m_behaviours.begin();
-		behaviour_it = m_behaviours.insert(behaviour_it, new MenuBehaviour(*this, m_resources));
-		
-		behaviour_it = m_behaviours.insert(behaviour_it, new InGameBehaviour(*this, m_resources));
-
-		//Nur zu Testzwecke später eventuell andere Implementierung
-		std::vector<Element*>::iterator element_it;
-		element_it = m_elements.begin();
-
-		element_it = m_elements.insert(element_it, new Shield(80, 420));
-		element_it = m_elements.insert(element_it, new Shield(260, 420));
-		element_it = m_elements.insert(element_it, new Shield(440, 420));
-		element_it = m_elements.insert(element_it, new Shield(620, 420));
-		
-		srand(time(NULL));
-		for(int i = 0; i < 40; i++)
-		{
-			int speed = (rand() % 9 + 1) + 1;
-			speed = (rand() % 1 + 1) == 1 ? speed : -speed;
-			element_it = m_elements.insert(element_it, new Bullet(rand() % 775, rand() % 572, speed));
-		}
-	}
+		: m_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), WINDOW_TITLE),
+          m_currentBehaviour(GetBehaviour(GameState_Menu))
+	{ 
+        // Einmalig den Zufallszahlengenerator initialieren
+        std::srand(static_cast <unsigned int> (std::time(NULL)));
+    }
 
 	void Game::StartGameLoop()
 	{
+        sf::Clock clock;
+
 		// Start the game loop
 		while (m_window.IsOpen())
 		{
@@ -48,16 +39,24 @@ namespace UldericoAlpha
 				if (event.Type == sf::Event::Closed)
 					m_window.Close();
 
-				m_behaviours.at(m_gameState)->OnEvent(event);
+                m_currentBehaviour->OnEvent(event);
 			}
 
-			// TODO: Logik-Ticks einbauen
-			m_behaviours.at(m_gameState)->Update();
+            sf::Time elapsedTime = clock.GetElapsedTime();
+			// Logik-Ticks einteilen
+            if (elapsedTime.AsMilliseconds() > LOGIC_TICK_MILLISECONDS)
+            {
+                // Die Uhr zuerst neustarten, damit die Zeit für das Logik-Update
+                // mit eingerechnet wird.
+                clock.Restart();
+
+                m_currentBehaviour->Update();
+            }
 
 			// Clear screen
 			m_window.Clear();
 
-			m_behaviours.at(m_gameState)->Render(m_window);
+			m_currentBehaviour->Render(m_window);
 
 			// Update the window
 			m_window.Display();
@@ -66,6 +65,32 @@ namespace UldericoAlpha
 
 	void Game::ChangeState(GameStates newState)
 	{
-
+        m_currentBehaviour = GetBehaviour(newState);
 	}
+
+    Behaviour* Game::GetBehaviour(GameStates gameState)
+    {
+        static MenuBehaviour menuBehaviour(*this, m_resources);
+        static InGameBehaviour inGameBehaviour(*this, m_resources);
+        static GameOverBehaviour gameOverBehaviour(*this, m_resources);
+        static HighscoreBehaviour highscoreBehaviour(*this, m_resources);
+
+        switch (gameState)
+        {
+        case GameState_Menu:
+            return &menuBehaviour;
+
+        case GameState_InGame:
+            return &inGameBehaviour;
+
+        case GameState_GameOver:
+            return &gameOverBehaviour;
+
+        case GameState_Highscore:
+            return &highscoreBehaviour;
+
+        default:
+            return nullptr;
+        }
+    }
 }

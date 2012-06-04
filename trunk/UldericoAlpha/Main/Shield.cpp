@@ -2,65 +2,45 @@
 
 namespace UldericoAlpha
 {
-	Shield::Shield(int posX, int posY)
-		:Element(posX, posY, m_width, m_height)
+    const float Shield::WIDTH = 100.0f;
+    const float Shield::HEIGHT = 50.0f;
+    const float Shield::BLOCK_WIDTH = 10.0f;
+    const float Shield::BLOCK_HEIGHT = 10.0f;
+
+	Shield::Shield(float posX, float posY)
+		:Element(posX, posY, WIDTH, HEIGHT)
 	{
-		/**
-		*  ca. 200 Elmente (20 breit x 10 hoch)
-		*      [][][][][][][][][]      
-		*  [][][][][][][][][][][][][]  
-		*  [][][][][][][][][][][][][]  
-		*  [][][][][][][][][][][][][]  
-		*  [][][][][][][][][][][][][]  
-		*  [][][]              [][][]  
-		*  [][]                  [][]  
-		*  [][]                  [][]  
-		*/
+        m_fragments.reserve(BLOCK_COUNT_WIDTH * BLOCK_COUNT_HEIGHT);
 
-		//Array mit Shield Fragmenten anlegen		
-		int index = 0;
-		float topSize = m_width * 4 / 5;
-		float bottomSize = m_width / 10;
-
-		std::vector<ShieldFragment*>::iterator it;
-		it = m_shieldFragments.begin();
-
-		for(int j = 0; j < m_height; j++)
+		for(int y = 0; y < BLOCK_COUNT_HEIGHT; y++)
 		{
-			for(int i = 0; i < m_width; i++)
-			{
-				ShieldFragment *shieldFrag = new ShieldFragment(posX + (i * m_block_width), posY + (j * m_block_height), m_block_height, m_block_width);
-				shieldFrag->SetSpeed(0);
+            float yOffset = y * BLOCK_WIDTH;
 
-				if(topSize < m_width && (i < ((m_width - topSize) / 2) || i >= (topSize + ((m_width - topSize) / 2))))
-				{
-					shieldFrag->Destroy();
-				}
-				if(j >= (m_height - (m_height / 5)) && (i > bottomSize && i < m_width - bottomSize))
-				{
-					shieldFrag->Destroy();
-				}
-				it = m_shieldFragments.insert(it, shieldFrag);
-				index++;
+			for(int x = 0; x < BLOCK_COUNT_WIDTH; x++)
+			{
+                float xOffset = x * BLOCK_WIDTH;
+
+				ShieldFragment fragment(posX + xOffset, posY + yOffset, BLOCK_WIDTH, BLOCK_HEIGHT);
+				fragment.SetSpeed(0.0f);
+
+                if (IsFilled(x, y))
+                    m_fragments.push_back(fragment);
 			}	
-			if(topSize < m_width)
-				topSize += 2;
 		}
 	}
 
-	bool Shield::Impact(Element const& el)
+	bool Shield::Impact(Element const& element)
 	{
-		int depth = (el.GetBoundingBox().GetHeight() / 2) * el.GetSpeed();
-		int index = 0;
+		//int depth = (element.GetBoundingBox().GetHeight() / 2) * element.GetSpeed();
+		//int index = 0;
 
 		std::vector<ShieldFragment*>::iterator it;
-		for(it = m_shieldFragments.begin(); it != m_shieldFragments.end(); ++it, index++)
+		for (auto fragment = m_fragments.begin(); fragment != m_fragments.end(); ++fragment)
 		{
-			ShieldFragment *shieldFrag = (ShieldFragment*)*it;
-			if(!shieldFrag->IsDestroyed())
+			if (!fragment->IsDestroyed())
 			{
 				//Überprüfen ob das Fragment in dem Element liegt
-				if(shieldFrag->IsHit(el))
+				if (fragment->IsHit(element))
 				{
 					//Treffer ausgewähltes Element ist das Element ganz Links und unten
 					//Zerstöre notwendige Elemente
@@ -75,11 +55,31 @@ namespace UldericoAlpha
 						index -= 10;
 						depth--;
 					}*/
-					shieldFrag->Destroy();
+					fragment->Destroy();
 					//return true;
 				}
 			}
 		}
 		return false;
 	}
+
+    bool Shield::IsFilled(int xPosition, int yPosition)
+    {
+        /**
+         * Hier wird der Aufbau der Shilde festgelegt.
+         * Ein Shild ist in einem Raster (10 x 5) aufgebaut.
+         *  - 1: Solides Feld
+         *  - 0: Leeres Feld
+         */
+        static const bool FILLED[BLOCK_COUNT_HEIGHT][BLOCK_COUNT_WIDTH] =
+        { 
+            { 0, 0, 1, 1, 1, 1, 1, 1, 0, 0 },
+            { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+            { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+            { 1, 1, 0, 0, 0, 0, 0, 0, 1, 1 },
+            { 1, 1, 0, 0, 0, 0, 0, 0, 1, 1 },
+        };
+
+        return FILLED[yPosition][xPosition];
+    }
 }

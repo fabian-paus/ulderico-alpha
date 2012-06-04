@@ -1,4 +1,5 @@
 #include "MenuBehaviour.h"
+#include "Game.h"
 
 namespace UldericoAlpha
 {
@@ -13,7 +14,7 @@ namespace UldericoAlpha
 
 	void MenuBehaviour::OnEvent(sf::Event const& event)
 	{
-		m_game.ChangeState(GameState_Game);
+		m_game.ChangeState(GameState_InGame);
 	}
 
 	void MenuBehaviour::Render(sf::RenderWindow& window)

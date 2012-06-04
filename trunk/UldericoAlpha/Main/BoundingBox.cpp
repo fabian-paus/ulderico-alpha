@@ -3,7 +3,7 @@
 namespace UldericoAlpha
 {
 
-	BoundingBox::BoundingBox(int width, int height)
+	BoundingBox::BoundingBox(float width, float height)
 		:m_height(height), m_width(width)
 	{ }
 

@@ -16,7 +16,7 @@ namespace UldericoAlpha
 	public:
 		ShieldFragment() : m_destroyed(false) {};
 
-		ShieldFragment(int posX, int posY, int width, int height) 
+		ShieldFragment(float posX, float posY, float width, float height) 
 			: m_destroyed(false), Element(posX, posY, width, height) {};
 
 		/**
