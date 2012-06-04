@@ -2,7 +2,4 @@
 
 namespace UldericoAlpha
 {
-	void Player::Shot()
-	{
-	}
 }

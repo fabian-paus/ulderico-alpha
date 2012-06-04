@@ -12,11 +12,11 @@ namespace UldericoAlpha
 	class Element
 	{
 	private:
-		int m_posX;
+		float m_posX;
 
-		int m_posY;
+		float m_posY;
 
-		int m_speed;
+		float m_speed;
 
 		BoundingBox m_boundingBox;
 
@@ -31,36 +31,36 @@ namespace UldericoAlpha
 		* an Position 0,0 mit einer bestimmten
 		* Höhe und Breite erzeugt wird
 		*/
-		Element(int width, int height);
+		Element(float width, float height);
 
 		/**
 		* Konstruktur, welcher Position und Ausmaße
 		* initialisiert
 		*/
-		Element (int posX, int posY, int width, int height);
+		Element (float posX, float posY, float width, float height);
 
 		/**
 		* Setter um die Position eines 
 		* Elements zu setzen
 		*/
-		void SetPosition(int const x, int const y);
+		void SetPosition(float const x, float const y);
 
 		/**
 		* Setter für den Speed-Member
 		*/
-		void SetSpeed(int const speed) { m_speed = speed; };
+		void SetSpeed(float const speed) { m_speed = speed; };
 
 		/**
 		* Getter für die X-Koordinate
 		*/
-		int GetX() const { return m_posX; };
+		float GetX() const { return m_posX; };
 
 		/**
 		* Getter für die Y-Koordinate
 		*/
-		int GetY() const { return m_posY; };
+		float GetY() const { return m_posY; };
 		
-		int GetSpeed() const { return m_speed; };
+		float GetSpeed() const { return m_speed; };
 
 		/**
 		* Getter für die Boundingbox

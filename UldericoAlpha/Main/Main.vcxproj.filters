@@ -38,6 +38,12 @@
     <ClCompile Include="InGameBehaviour.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="HighscoreBehaviour.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverBehaviour.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -157,6 +163,12 @@
     </ClInclude>
     <ClInclude Include="ElementTypes.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverBehaviour.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="HighscoreBehaviour.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

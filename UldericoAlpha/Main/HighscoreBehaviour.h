@@ -1,20 +1,20 @@
-#ifndef ULDERICO_ALPHA_MENU_BEHAVIOUR_H_INCLUDED
-#define ULDERICO_ALPHA_MENU_BEHAVIOUR_H_INCLUDED
+#ifndef ULDERICO_ALPHA_HIGHSCORE_BEHAVIOUR_H_INCLUDED
+#define ULDERICO_ALPHA_HIGHSCORE_BEHAVIOUR_H_INCLUDED
 
 #include "Behaviour.h"
-#include "ResourcesManager.h"
 
 namespace UldericoAlpha
 {
     class Game;
+    class ResourcesManager;
 
 	/**
-	 * Titelbildschirm.
+	 * Highscore-Anzeige.
 	 */
-	class MenuBehaviour : public Behaviour
+	class HighscoreBehaviour : public Behaviour
 	{
 	public:
-		MenuBehaviour(Game& game, ResourcesManager& resources);
+		HighscoreBehaviour(Game& game, ResourcesManager& resources);
 
 		/**
 		 * Diese Methode wird vom Spiel in jedem Logik-Tick aufgerufen.
@@ -34,7 +34,7 @@ namespace UldericoAlpha
 		/**
 		 * Gibt den Zustand des Programms zurück.
 		 */
-		virtual GameStates GetState() const	{ return GameState_Menu; };
+		virtual GameStates GetState() const	{ return GameState_GameOver; };
 
 	private:
 		Game& m_game;
@@ -42,4 +42,4 @@ namespace UldericoAlpha
 	};
 }
 
-#endif // ULDERICO_ALPHA_MENU_BEHAVIOUR_H_INCLUDED
+#endif // ULDERICO_ALPHA_HIGHSCORE_BEHAVIOUR_H_INCLUDED

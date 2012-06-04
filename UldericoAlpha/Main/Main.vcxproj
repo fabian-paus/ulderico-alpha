@@ -77,6 +77,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -84,6 +85,8 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameOverBehaviour.cpp" />
+    <ClCompile Include="HighscoreBehaviour.cpp" />
     <ClCompile Include="InGameBehaviour.cpp" />
     <ClCompile Include="Invader.cpp" />
     <ClCompile Include="Level.cpp" />
@@ -117,7 +120,9 @@
     <ClInclude Include="Element.h" />
     <ClInclude Include="ElementTypes.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameOverBehaviour.h" />
     <ClInclude Include="GameStates.h" />
+    <ClInclude Include="HighscoreBehaviour.h" />
     <ClInclude Include="InGameBehaviour.h" />
     <ClInclude Include="Invader.h" />
     <ClInclude Include="Level.h" />

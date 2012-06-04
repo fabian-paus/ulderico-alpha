@@ -1,28 +1,30 @@
 #include "Element.h"
 
+#include <cmath>
+
 namespace UldericoAlpha
 {
 
 	Element::Element()
-		:m_posX(0),
-		m_posY(0),
-		m_boundingBox(),
-		m_speed(0)
+		: m_posX(0),
+		  m_posY(0),
+		  m_boundingBox(),
+		  m_speed(0)
 	{}
 
-	Element::Element(int width, int height)
-		:m_boundingBox(width, height),
-		m_speed(0)
+	Element::Element(float width, float height)
+        : m_boundingBox(width, height),
+		  m_speed(0.0f)
 	{}
 
-	Element::Element(int posX, int posY, int width, int height)
+	Element::Element(float posX, float posY, float width, float height)
 		:m_posX(posX),
 		m_posY(posY),
 		m_boundingBox(width, height),
 		m_speed(0)
 	{}
 
-	void Element::SetPosition(int const posX, int const posY)
+	void Element::SetPosition(float posX, float posY)
 	{
 		if(posX >= 0)
 			m_posX = posX;
@@ -37,18 +39,16 @@ namespace UldericoAlpha
 		BoundingBox boundingBox = el.GetBoundingBox();
 
 		//Abstand zwischen den beiden X-Koordinaten
-		int dx = this->GetX() - el.GetX();
-		dx = dx > 0 ? dx : -dx;
+		float dx = std::fabs(this->GetX() - el.GetX());
 
 		//Abstand zwischen den beiden Y-Koordinaten
-		int dy = this->GetY() - el.GetY();
-		dy = dy > 0 ? dy : -dy;
+		float dy = std::fabs(this->GetY() - el.GetY());
 
 		//Höhe des weiter oben gelegenen Elements
-		int height = this->GetY() > el.GetY() ? boundingBox.GetHeight() : this->GetBoundingBox().GetHeight();
+		float height = this->GetY() > el.GetY() ? boundingBox.GetHeight() : this->GetBoundingBox().GetHeight();
 		
 		//Breite des weiter links gelegenen Elements
-		int width = this->GetX() > el.GetX() ? boundingBox.GetWidth() : this->m_boundingBox.GetWidth();
+		float width = this->GetX() > el.GetX() ? boundingBox.GetWidth() : this->m_boundingBox.GetWidth();
 
 		//Bestimmung, ob die Elemente überlappen
 		if(dx < width && dy < height)

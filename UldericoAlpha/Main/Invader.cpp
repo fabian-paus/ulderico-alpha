@@ -3,7 +3,7 @@
 namespace UldericoAlpha
 {
 
-	Invader::Invader(int width, int height)
+	Invader::Invader(float width, float height)
 		: Element(width, height)
 	{
 	}

@@ -30,7 +30,8 @@ namespace UldericoAlpha
 
 		void LoadSprite(std::string const& name, 
 			sf::Texture const& texture,
-			sf::IntRect const& textureRect);
+			sf::IntRect const& textureRect,
+            sf::Vector2f const& scale = sf::Vector2f(1.0f, 1.0f));
 
 		void LoadFont(std::string const& name, std::string const& path);
 
