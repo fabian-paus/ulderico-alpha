@@ -27,7 +27,7 @@ In unserem Projekt wird es keine Stelle geben an der die Benutzung von `new` not
 
 Der Vorteil bei der Nichtverwendung von `new` ist, dass wir Speicherlecks zu 100% in unserem Projekt ausschließen können.
 
-Für dynamische Listen gibt es bereits fertige Container aus der Standardbibliothek, sodass die Verwendung von `new[]` auch vermieden werden sollte.
+Für dynamische Listen gibt es bereits fertige Container aus der Standardbibliothek, sodass die Verwendung von `new[]` auch vermieden werden sollte. Siehe http://www.cplusplus.com/reference/stl/.
 
 == Fazit ==
   * Objekte immer "normal" anlegen
