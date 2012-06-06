@@ -2,66 +2,54 @@
 
 namespace UldericoAlpha
 {
-    const float Shield::WIDTH = 100.0f;
-    const float Shield::HEIGHT = 50.0f;
     const float Shield::BLOCK_WIDTH = 10.0f;
     const float Shield::BLOCK_HEIGHT = 10.0f;
+    
+    static const Vector2D SHIELD_SIZE(100.0f, 50.0f);
 
-	Shield::Shield(float posX, float posY)
-		:Element(posX, posY, WIDTH, HEIGHT)
+	Shield::Shield(float positionX, float positionY)
+		: Object(Vector2D(positionX, positionY), SHIELD_SIZE)
 	{
-        m_fragments.reserve(BLOCK_COUNT_WIDTH * BLOCK_COUNT_HEIGHT);
+        for(int y = 0; y < BLOCK_COUNT_HEIGHT; y++)
+		{
+            for(int x = 0; x < BLOCK_COUNT_WIDTH; x++)
+			{
+                m_fragments[y][x] = IsFilled(x, y);
+            } 
+        }
+	}
+
+    bool Shield::FragmentExists(int positionX, int positionY) const
+    {
+        return m_fragments[positionY][positionX];
+    }
+
+    bool Shield::DetectCollision(Object const& other)
+    {
+        const Vector2D BLOCK_SIZE(BLOCK_WIDTH, BLOCK_HEIGHT);
 
 		for(int y = 0; y < BLOCK_COUNT_HEIGHT; y++)
 		{
-            float yOffset = y * BLOCK_WIDTH;
-
-			for(int x = 0; x < BLOCK_COUNT_WIDTH; x++)
+            for(int x = 0; x < BLOCK_COUNT_WIDTH; x++)
 			{
-                float xOffset = x * BLOCK_WIDTH;
+                if (FragmentExists(x, y))
+                {
+                    Vector2D delta(x * Shield::BLOCK_WIDTH, y * Shield::BLOCK_HEIGHT);
+                    Vector2D position = GetPosition() + delta;
 
-				ShieldFragment fragment(posX + xOffset, posY + yOffset, BLOCK_WIDTH, BLOCK_HEIGHT);
-				fragment.SetSpeed(0.0f);
-
-                if (IsFilled(x, y))
-                    m_fragments.push_back(fragment);
-			}	
-		}
-	}
-
-	bool Shield::Impact(Element const& element)
-	{
-		//int depth = (element.GetBoundingBox().GetHeight() / 2) * element.GetSpeed();
-		//int index = 0;
-
-		std::vector<ShieldFragment*>::iterator it;
-		for (auto fragment = m_fragments.begin(); fragment != m_fragments.end(); ++fragment)
-		{
-			if (!fragment->IsDestroyed())
-			{
-				//Überprüfen ob das Fragment in dem Element liegt
-				if (fragment->IsHit(element))
-				{
-					//Treffer ausgewähltes Element ist das Element ganz Links und unten
-					//Zerstöre notwendige Elemente
-					/*index -=  el.GetBoundingBox().GetWidth() / 4;
-					int topWidth = el.GetBoundingBox().GetWidth() + el.GetBoundingBox().GetWidth() / 2;
-					while(depth > 0)
-					{
-						for(int i = 0; i < topWidth; i++)
-						{
-							m_shieldFragments[index + i]->Destroy();
-						}
-						index -= 10;
-						depth--;
-					}*/
-					fragment->Destroy();
-					//return true;
-				}
+                    Object fragment(position, BLOCK_SIZE, Vector2D::ZERO);
+                    
+                    // Überprüfen ob das Fragment in dem anderen Objekt liegt
+                    if (fragment.CollidesWith(other))
+                    {
+                        m_fragments[y][x] = false;
+                        return true;
+                    }
+                }
 			}
 		}
 		return false;
-	}
+    }
 
     bool Shield::IsFilled(int xPosition, int yPosition)
     {

@@ -2,9 +2,7 @@
 #define ULDERICO_ALPHA_BEHAVIOUR_H_INCLUDED
 
 #include <SFML/Window/Event.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
-
-#include "GameStates.h"
+#include <SFML/Graphics/RenderTarget.hpp>
 
 namespace UldericoAlpha
 {
@@ -27,12 +25,7 @@ namespace UldericoAlpha
 		/**
 		 * Wenn der Zustand dargestellt werden soll, wird diese Methode aufgerufen.
 		 */
-		virtual void Render(sf::RenderWindow& window) = 0;
-
-		/**
-		 * Gibt den Zustand des Programms zurück.
-		 */
-		virtual GameStates GetState() const = 0;
+		virtual void Render(sf::RenderTarget& window, float interpolation) = 0;
 	};
 }
 

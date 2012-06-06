@@ -5,9 +5,6 @@
     <ClCompile Include="ResourcesManager.cpp">
       <Filter>ResourceManager</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Element.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -15,12 +12,6 @@
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="Level.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Shield.cpp">
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="Squadron.cpp">
@@ -44,6 +35,24 @@
     <ClCompile Include="GameOverBehaviour.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -66,6 +75,9 @@
     </Filter>
     <Filter Include="Game">
       <UniqueIdentifier>{92c48c3f-2b81-43a0-8336-5da6fad6deeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World">
+      <UniqueIdentifier>{8d7097b4-348f-4445-a274-45614bd0edbe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -122,9 +134,6 @@
     <ClInclude Include="Level.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Element.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -132,12 +141,6 @@
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Squadron.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Shield.h">
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
@@ -158,9 +161,6 @@
     <ClInclude Include="BoundingBox.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="ShieldFragment.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="ElementTypes.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -169,6 +169,27 @@
     </ClInclude>
     <ClInclude Include="HighscoreBehaviour.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAction.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield.h">
+      <Filter>World</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
