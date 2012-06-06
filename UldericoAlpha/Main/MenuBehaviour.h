@@ -29,12 +29,7 @@ namespace UldericoAlpha
 		/**
 		 * Wenn der Zustand dargestellt werden soll, wird diese Methode aufgerufen.
 		 */
-		virtual void Render(sf::RenderWindow& window);
-
-		/**
-		 * Gibt den Zustand des Programms zurück.
-		 */
-		virtual GameStates GetState() const	{ return GameState_Menu; };
+		virtual void Render(sf::RenderTarget& window, float interpolation);
 
 	private:
 		Game& m_game;

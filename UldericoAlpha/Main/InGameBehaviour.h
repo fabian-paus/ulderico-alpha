@@ -7,7 +7,9 @@
 
 #include "Shield.h"
 #include "Bullet.h"
-#include "Player.h"
+#include "World.h"
+
+#include "PlayerAction.h"
 
 namespace UldericoAlpha
 {
@@ -37,48 +39,23 @@ namespace UldericoAlpha
 		/**
 		* Zeichnet das für das Spiel relevante Daten
 		*/
-		virtual void Render(sf::RenderWindow& window);
-
-		/**
-		* Gibt den Status der Klasse zurück
-		*/
-		virtual GameStates GetState() const { return GameState_InGame; };
+		virtual void Render(sf::RenderTarget& window, float interpolation);
 	
 	private:
         /**
-         * Erstellt die Schutzschilde.
-         */
-        void CreateShields();
-
-        /**
-         * Erstellt Testkugeln.
-         */
-        void CreateBullets();
-
-        /** 
-         * Bewegt aktive Kugeln weiter.
-         */
-        void MoveBullets();
-
-        /** 
-         * Überprüft Kollisionen der Kugeln mit anderen Elementen.
-         */
-        void CheckCollisions();
-
-        /**
          * Zeichnet die Schutzschilde.
          */
-        void DrawShields(sf::RenderWindow& window);
+        void DrawShields(sf::RenderTarget& window);
 
         /**
          * Zeichnet die aktiven Kugeln.
          */
-        void DrawBullets(sf::RenderWindow& window);
+        void DrawBullets(sf::RenderTarget& window, float interpolation);
 
         /**
          * Zeichnet den Spieler.
          */
-        void DrawPlayer(sf::RenderWindow& window);
+        void DrawPlayer(sf::RenderTarget& window, float interpolation);
 
         /**
          * Behandelt Benutzereingaben über die Tastatur.
@@ -94,9 +71,8 @@ namespace UldericoAlpha
 		Game& m_game;
 		ResourcesManager& m_resources;
 
-        std::vector<Shield> m_shields;
-        std::vector<Bullet> m_bullets;
-        Player m_player;
+        PlayerAction m_action;
+        World m_world;
 	};
 }
 
