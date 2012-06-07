@@ -1,15 +1,29 @@
-#ifndef INVADER_H_INCLUDED
-#define INVADER_H_INCLUDED
+#ifndef ULDERICO_ALPHA_INVADER_H_INCLUDED
+#define ULDERICO_ALPHA_INVADER_H_INCLUDED
 
-#include "Element.h"
+#include "Object.h"
+
+#include "InvaderType.h"
 
 namespace UldericoAlpha
 {
-	class Invader : public Element
+	/**
+	* Klasse, welche die Invader abbildet.
+	* Der Typ des Invaders wird über den Konstruktor gesetzt
+	*/
+	class Invader : public Object
 	{
 	public:
-		Invader(float width, float height);
+		/**
+		* Hier wird der gewählte Invader erstellt
+		*/
+		Invader(InvaderType type);
+
+		InvaderType GetType() const { return m_type; };
+
+	private:
+		InvaderType m_type;
 	};
 }
 
-#endif
+#endif //ULDERICO_ALPHA_INVADER_H_INCLUDED

@@ -9,12 +9,14 @@ namespace UldericoAlpha
      * kann hier angepasst werden.
      */
     static const float PLAYER_ABS_SPEED = 10.0f;
+	static const float INVADER_ABS_SPEED = 2.0f;
 
     World::World(Vector2D const& size)
         : m_size(size)
     {
         InitializePlayer();
         InitializeShields();
+		InitializeInvaders();
     }
     
     void World::MovePlayerLeft()
@@ -51,6 +53,8 @@ namespace UldericoAlpha
     {
         UpdatePlayer();
 
+		UpdateInvaders();
+
         for (auto shield = m_shields.begin(); shield != m_shields.end(); ++shield)
             shield->Update();
 
@@ -80,12 +84,83 @@ namespace UldericoAlpha
 		m_shields.push_back(Shield(600, 420));
     }
 
+	void World::InitializeInvaders()
+	{
+		m_invaders.reserve(30);
+				
+		Vector2D speed(INVADER_ABS_SPEED, 0.0f);
+
+		for(int j = 2; j >= 0 ; j--)
+		{
+			for(int i = 0; i < 10; i++)
+			{
+				Invader invader((InvaderType)j);
+				invader.SetPosition(Vector2D((invader.GetSize().GetX() + 6.0f) * i, (invader.GetSize().GetY() + 6.0f) * j));
+				invader.SetSpeed(speed);
+				m_invaders.push_back(invader);
+			}
+		}
+
+	}
+
     void World::UpdatePlayer()
     {
         m_player.Update();
         if (!CanPlayerMove())
             StopPlayerMovement();
     }
+
+	void World::UpdateInvaders()
+	{
+		//Links dagegen oder rechts oder unten
+		//maxX, minY, maxY
+		//  x->
+		//y
+		//|
+		//v
+		Vector2D maxX = m_invaders.begin()->GetPosition();
+		Vector2D minX = m_invaders.begin()->GetPosition();
+		Vector2D maxY = m_invaders.begin()->GetPosition();
+		Vector2D minY = m_invaders.begin()->GetPosition();
+
+		Vector2D speed;
+
+		for (auto invader = m_invaders.begin(); invader != m_invaders.end(); ++invader)
+		{
+			Vector2D invaderPos = invader->GetPosition();
+			if(invaderPos.GetX() > maxX.GetX())
+				maxX = invader->PredictPosition(2.0f);			
+			if(invaderPos.GetY() > maxY.GetY())
+				maxY = invader->PredictPosition(2.0f);
+			if(invaderPos.GetX() < minX.GetX())
+				minX = invader->PredictPosition(2.0f);
+			if(invaderPos.GetY() < minY.GetY())
+				minY = invader->PredictPosition(2.0f);
+		}
+
+		if(minX.GetX() <= 0)
+		{
+			Vector2D right(INVADER_ABS_SPEED, 0);
+			speed = right;
+		}
+		if(maxX.GetX() + m_invaders.begin()->GetSize().GetX() >= m_size.GetX())
+		{
+			Vector2D left(-INVADER_ABS_SPEED, 0);
+			speed = left;
+		}
+
+		if(maxX.GetX() >= m_size.GetX())
+		{
+		}
+		
+
+		for (auto invader = m_invaders.begin(); invader != m_invaders.end(); ++invader)
+		{
+			if(speed != Vector2D::ZERO)
+				invader->SetSpeed(speed);
+			invader->Update();
+		}
+	}
     
     bool World::CanPlayerMove() const
     {

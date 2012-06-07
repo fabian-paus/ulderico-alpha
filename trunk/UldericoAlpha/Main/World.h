@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Shield.h"
 #include "Bullet.h"
+#include "Squadron.h"
 
 namespace UldericoAlpha
 {
@@ -43,6 +44,12 @@ namespace UldericoAlpha
         std::vector<Bullet>::const_iterator BulletsEnd() const
         { return m_bullets.end(); }
 
+		std::vector<Invader>::const_iterator InvadersBegin() const
+        { return m_invaders.begin(); }
+
+        std::vector<Invader>::const_iterator InvadersEnd() const
+        { return m_invaders.end(); }
+
         void MovePlayerLeft();
 
         void MovePlayerRight();
@@ -61,7 +68,11 @@ namespace UldericoAlpha
 
         void InitializeShields();
 
+		void InitializeInvaders();
+
         void UpdatePlayer();
+
+		void UpdateInvaders();
 
         bool CanPlayerMove() const;
 
@@ -73,6 +84,7 @@ namespace UldericoAlpha
         Player m_player;
         std::vector<Shield> m_shields;
         std::vector<Bullet> m_bullets;
+		std::vector<Invader> m_invaders;
     };
 
 

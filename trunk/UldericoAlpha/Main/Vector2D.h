@@ -43,6 +43,10 @@ namespace UldericoAlpha
          */
         Vector2D& operator *= (float factor);
 
+		bool operator != (Vector2D const& other);
+
+		bool operator == (Vector2D const& other);
+
     private:
         float m_x;
         float m_y;

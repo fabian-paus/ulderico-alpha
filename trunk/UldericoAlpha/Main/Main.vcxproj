@@ -130,6 +130,8 @@
     <ClInclude Include="HighscoreBehaviour.h" />
     <ClInclude Include="InGameBehaviour.h" />
     <ClInclude Include="Invader.h" />
+    <ClInclude Include="InvaderAction.h" />
+    <ClInclude Include="InvaderType.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="MenuBehaviour.h" />
     <ClInclude Include="Object.h" />
