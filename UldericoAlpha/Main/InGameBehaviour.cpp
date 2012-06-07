@@ -5,6 +5,8 @@
 
 #include "Shield.h"
 #include "Bullet.h"
+#include "Invader.h"
+#include "InvaderType.h"
 
 namespace UldericoAlpha
 {
@@ -71,6 +73,7 @@ namespace UldericoAlpha
 		DrawShields(window);
         DrawBullets(window, interpolation);
         DrawPlayer(window, interpolation);
+		DrawInvaders(window, interpolation);
 	}
 
     void InGameBehaviour::DrawShields(sf::RenderTarget& window)
@@ -119,6 +122,29 @@ namespace UldericoAlpha
 
         window.Draw(playerSprite);
     }
+
+	void InGameBehaviour::DrawInvaders(sf::RenderTarget& window, float interpolation)
+	{
+		sf::Sprite invaderSprite;
+		for(auto invader = m_world.InvadersBegin(); invader != m_world.InvadersEnd(); ++invader)
+		{
+			switch(invader->GetType())
+			{
+			case InvaderType_Green:
+				invaderSprite = m_resources.GetSprite("green-invader");
+				break;
+			case InvaderType_Blue:
+				invaderSprite = m_resources.GetSprite("blue-invader");
+				break;
+			case InvaderType_Purple:
+				invaderSprite = m_resources.GetSprite("purple-invader");
+				break;
+			}
+			invaderSprite.SetPosition(toSFML(invader->PredictPosition(interpolation)));
+
+			window.Draw(invaderSprite);
+		}
+	}
 
     void InGameBehaviour::HandleKeyPressed(sf::Event::KeyEvent const& event)
     {

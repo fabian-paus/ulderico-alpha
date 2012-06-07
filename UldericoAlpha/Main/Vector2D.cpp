@@ -32,6 +32,16 @@ namespace UldericoAlpha
         return *this;
     }
 
+	bool Vector2D::operator != (Vector2D const& other)
+	{
+		return !this->operator==(other);
+	}
+
+	bool Vector2D::operator == (Vector2D const& other)
+	{
+		return (m_x == other.GetX() && m_y == other.GetY());
+	}
+
     Vector2D operator + (Vector2D left, Vector2D const& right)
     {
         return left += right;

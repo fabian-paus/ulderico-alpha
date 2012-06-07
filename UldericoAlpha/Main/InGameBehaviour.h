@@ -57,6 +57,11 @@ namespace UldericoAlpha
          */
         void DrawPlayer(sf::RenderTarget& window, float interpolation);
 
+		/*
+		* Zeichnet die Invaders
+		*/
+		void DrawInvaders(sf::RenderTarget& window, float interpolation);
+
         /**
          * Behandelt Benutzereingaben über die Tastatur.
          */
