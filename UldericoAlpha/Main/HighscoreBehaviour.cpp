@@ -1,21 +1,22 @@
-#include "GameOverBehaviour.h"
+#include "HighscoreBehaviour.h"
 
 #include "Game.h"
 #include "ResourcesManager.h"
 
 namespace UldericoAlpha
 {
-    GameOverBehaviour::GameOverBehaviour(Game& game, ResourcesManager& resources)
+    HighscoreBehaviour::HighscoreBehaviour(Game& game, ResourcesManager& resources)
 		: m_game(game),
 		  m_resources(resources)
 	{ }
 
-    void GameOverBehaviour::Update()
+    void HighscoreBehaviour::Update()
 	{ }
 
-    void GameOverBehaviour::OnEvent(sf::Event const& event)
+    void HighscoreBehaviour::OnEvent(sf::Event const& event)
 	{ }
 
-    void GameOverBehaviour::Render(sf::RenderTarget& target, float interpolation)
+    void HighscoreBehaviour::Render(sf::RenderTarget& target, float interpolation)
 	{ }
 }
+

@@ -11,8 +11,11 @@ namespace UldericoAlpha
     static const float PLAYER_ABS_SPEED = 10.0f;
 	static const float INVADER_ABS_SPEED = 10.0f;
 
+	static const int INITIAL_PLAYER_LIVES = 3;
+
     World::World(Vector2D const& size)
-        : m_size(size)
+        : m_size(size),
+		  m_player(INITIAL_PLAYER_LIVES)
     {
         InitializePlayer();
         InitializeShields();
@@ -182,6 +185,8 @@ namespace UldericoAlpha
 
     void World::CheckCollisions()
     {
+		bool playerWasHit = false;
+
         // Wenn eine Kugel ein Schild trifft, dann entfernen
         auto eraseBullets = std::remove_if(m_bullets.begin(), m_bullets.end(), 
 			[&] (Bullet const& bullet) -> bool
@@ -194,12 +199,14 @@ namespace UldericoAlpha
             if (bullet.GetPosition().GetY() > GetHeight())
                 return true;
 
+			// Hat die Kugel ein Schild getroffen?
             for (auto shield = m_shields.begin(); shield != m_shields.end(); ++shield)
             {
                 if (shield->CollidesWith(bullet))
                     return true;
 		    }
 
+			// Hat die Kugel einen Invader getroffen?
 			for (auto invader = m_invaders.begin(); invader != m_invaders.end(); ++invader)
 			{
 				if (invader->CollidesWith(bullet))
@@ -208,6 +215,10 @@ namespace UldericoAlpha
 					return true;
 				}
 			}
+
+			// Hat die Kugel den Spieler getroffen?
+			if (m_player.CollidesWith(bullet))
+				playerWasHit = true;
 
             return false;
         });
@@ -219,5 +230,9 @@ namespace UldericoAlpha
 			[] (Invader const& invader) { return !invader.IsAlive(); });
 
 		m_invaders.erase(eraseInvaders, m_invaders.end());
+
+		// Wenn der Spieler mindestens einmal getroffen wurde, verliert er ein Leben
+		if (playerWasHit)
+			m_player.LoseLife();
     }
 }

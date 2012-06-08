@@ -50,6 +50,8 @@ namespace UldericoAlpha
         std::vector<Invader>::const_iterator InvadersEnd() const
         { return m_invaders.end(); }
 
+		bool HasInvaders() const { return m_invaders.size() > 0; }
+
         void MovePlayerLeft();
 
         void MovePlayerRight();
@@ -57,6 +59,8 @@ namespace UldericoAlpha
         void StopPlayerMovement();
 
         void ShootFromPlayer();
+
+		bool IsPlayerAlive() const { return m_player.IsAlive(); }
 
         /**
          * Aktualisiert alle Objekte in der Welt.
