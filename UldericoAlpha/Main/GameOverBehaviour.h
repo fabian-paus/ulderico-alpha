@@ -29,7 +29,7 @@ namespace UldericoAlpha
 		/**
 		 * Wenn der Zustand dargestellt werden soll, wird diese Methode aufgerufen.
 		 */
-		virtual void Render(sf::RenderTarget& window, float interpolation);
+		virtual void Render(sf::RenderTarget& target, float interpolation);
 
 	private:
 		Game& m_game;

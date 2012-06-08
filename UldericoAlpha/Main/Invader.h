@@ -21,8 +21,13 @@ namespace UldericoAlpha
 
 		InvaderType GetType() const { return m_type; };
 
+		bool IsAlive() const { return m_alive; }
+
+		void Kill() { m_alive = false; }
+
 	private:
 		InvaderType m_type;
+		bool m_alive;
 	};
 }
 

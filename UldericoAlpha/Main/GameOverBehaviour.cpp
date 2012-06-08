@@ -16,6 +16,6 @@ namespace UldericoAlpha
     void HighscoreBehaviour::OnEvent(sf::Event const& event)
 	{ }
 
-    void HighscoreBehaviour::Render(sf::RenderTarget& window, float interpolation)
+    void HighscoreBehaviour::Render(sf::RenderTarget& target, float interpolation)
 	{ }
 }

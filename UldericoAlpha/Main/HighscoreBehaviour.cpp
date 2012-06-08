@@ -16,6 +16,6 @@ namespace UldericoAlpha
     void GameOverBehaviour::OnEvent(sf::Event const& event)
 	{ }
 
-    void GameOverBehaviour::Render(sf::RenderTarget& window, float interpolation)
+    void GameOverBehaviour::Render(sf::RenderTarget& target, float interpolation)
 	{ }
 }

@@ -68,15 +68,15 @@ namespace UldericoAlpha
         }
 	}
 
-	void InGameBehaviour::Render(sf::RenderTarget& window, float interpolation)
+	void InGameBehaviour::Render(sf::RenderTarget& target, float interpolation)
 	{
-		DrawShields(window);
-        DrawBullets(window, interpolation);
-        DrawPlayer(window, interpolation);
-		DrawInvaders(window, interpolation);
+		DrawShields(target);
+        DrawBullets(target, interpolation);
+        DrawPlayer(target, interpolation);
+		DrawInvaders(target, interpolation);
 	}
 
-    void InGameBehaviour::DrawShields(sf::RenderTarget& window)
+    void InGameBehaviour::DrawShields(sf::RenderTarget& target)
     {
         sf::RectangleShape shieldShape;		
         shieldShape.SetFillColor(sf::Color::Green);
@@ -94,14 +94,14 @@ namespace UldericoAlpha
                         Vector2D position = shield->GetPosition() + delta;
 
                         shieldShape.SetPosition(toSFML(position));
-                        window.Draw(shieldShape);
+                        target.Draw(shieldShape);
                     }
                 }
             }
         }
     }
 
-    void InGameBehaviour::DrawBullets(sf::RenderTarget& window, float interpolation)
+    void InGameBehaviour::DrawBullets(sf::RenderTarget& target, float interpolation)
     {
         sf::Sprite bulletSprite = m_resources.GetSprite("red-attack");
 
@@ -109,21 +109,21 @@ namespace UldericoAlpha
         {
             bulletSprite.SetPosition(toSFML(bullet->PredictPosition(interpolation)));
 
-            window.Draw(bulletSprite);
+            target.Draw(bulletSprite);
 		}
     }
 
-    void InGameBehaviour::DrawPlayer(sf::RenderTarget& window, float interpolation)
+    void InGameBehaviour::DrawPlayer(sf::RenderTarget& target, float interpolation)
     {
         sf::Sprite playerSprite = m_resources.GetSprite("red-defender");
         
         Player const& player = m_world.GetPlayer();
         playerSprite.SetPosition(toSFML(player.PredictPosition(interpolation)));
 
-        window.Draw(playerSprite);
+        target.Draw(playerSprite);
     }
 
-	void InGameBehaviour::DrawInvaders(sf::RenderTarget& window, float interpolation)
+	void InGameBehaviour::DrawInvaders(sf::RenderTarget& target, float interpolation)
 	{
 		sf::Sprite invaderSprite;
 		for(auto invader = m_world.InvadersBegin(); invader != m_world.InvadersEnd(); ++invader)
@@ -142,7 +142,7 @@ namespace UldericoAlpha
 			}
 			invaderSprite.SetPosition(toSFML(invader->PredictPosition(interpolation)));
 
-			window.Draw(invaderSprite);
+			target.Draw(invaderSprite);
 		}
 	}
 

@@ -9,7 +9,7 @@ namespace UldericoAlpha
      * kann hier angepasst werden.
      */
     static const float PLAYER_ABS_SPEED = 10.0f;
-	static const float INVADER_ABS_SPEED = 2.0f;
+	static const float INVADER_ABS_SPEED = 10.0f;
 
     World::World(Vector2D const& size)
         : m_size(size)
@@ -179,9 +179,10 @@ namespace UldericoAlpha
 
     void World::CheckCollisions()
     {
-        // Wenn eine Kugel etwas trifft, dann entfernen
-        auto erase_iter = std::remove_if(m_bullets.begin(), m_bullets.end(), [&] (Bullet const& bullet) -> bool
-        {
+        // Wenn eine Kugel ein Schild trifft, dann entfernen
+        auto eraseBullets = std::remove_if(m_bullets.begin(), m_bullets.end(), 
+			[&] (Bullet const& bullet) -> bool
+		{
             // Oben aus dem Bildschirm geflogen
             if (bullet.GetPosition().GetY() < -Bullet::HEIGHT)
                 return true;
@@ -196,9 +197,24 @@ namespace UldericoAlpha
                     return true;
 		    }
 
+			for (auto invader = m_invaders.begin(); invader != m_invaders.end(); ++invader)
+			{
+				if (invader->CollidesWith(bullet))
+				{
+					invader->Kill();
+					return true;
+				}
+			}
+
             return false;
         });
 
-        m_bullets.erase(erase_iter, m_bullets.end());
+        m_bullets.erase(eraseBullets, m_bullets.end());
+
+		// Alle getöteten Invader entfernen
+		auto eraseInvaders = std::remove_if(m_invaders.begin(), m_invaders.end(),
+			[] (Invader const& invader) { return !invader.IsAlive(); });
+
+		m_invaders.erase(eraseInvaders, m_invaders.end());
     }
 }
