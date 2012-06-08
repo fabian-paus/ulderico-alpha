@@ -6,6 +6,7 @@ namespace UldericoAlpha
 
 	Invader::Invader(InvaderType type)
 		: Object(Vector2D::ZERO, INVADER_SIZE),
-	  m_type(type)
+		m_type(type),
+		m_alive(true)
 	{ }
 }

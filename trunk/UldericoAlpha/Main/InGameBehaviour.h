@@ -39,28 +39,28 @@ namespace UldericoAlpha
 		/**
 		* Zeichnet das für das Spiel relevante Daten
 		*/
-		virtual void Render(sf::RenderTarget& window, float interpolation);
+		virtual void Render(sf::RenderTarget& target, float interpolation);
 	
 	private:
         /**
          * Zeichnet die Schutzschilde.
          */
-        void DrawShields(sf::RenderTarget& window);
+        void DrawShields(sf::RenderTarget& target);
 
         /**
          * Zeichnet die aktiven Kugeln.
          */
-        void DrawBullets(sf::RenderTarget& window, float interpolation);
+        void DrawBullets(sf::RenderTarget& target, float interpolation);
 
         /**
          * Zeichnet den Spieler.
          */
-        void DrawPlayer(sf::RenderTarget& window, float interpolation);
+        void DrawPlayer(sf::RenderTarget& target, float interpolation);
 
 		/*
 		* Zeichnet die Invaders
 		*/
-		void DrawInvaders(sf::RenderTarget& window, float interpolation);
+		void DrawInvaders(sf::RenderTarget& target, float interpolation);
 
         /**
          * Behandelt Benutzereingaben über die Tastatur.
