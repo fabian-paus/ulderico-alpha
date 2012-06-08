@@ -32,8 +32,27 @@ namespace UldericoAlpha
 		virtual void Render(sf::RenderTarget& target, float interpolation);
 
 	private:
+		/**
+		* Margin beschreibt den Abstand zwischen den Menü-Elementen
+		*/
+		static const int MARGIN = 50;
+
+		/**
+		* Namen für die Menü-Elemente
+		*/
+		static const sf::String STR_GAME_START;
+		static const sf::String STR_HIGHSCORE;
+		static const sf::String STR_QUIT;
+		
 		Game& m_game;
 		ResourcesManager& m_resources;
+
+		sf::Font m_gameFont;
+		std::vector<sf::Text> m_menuItems;
+		
+		void InitializeMenuItems();
+		void SetMenuItemsPosition();
+		void HandleMouseClick(sf::Event::MouseButtonEvent const& event);
 	};
 }
 
