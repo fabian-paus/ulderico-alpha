@@ -10,6 +10,7 @@
 #include "World.h"
 
 #include "PlayerAction.h"
+#include "Cooldown.h"
 
 namespace UldericoAlpha
 {
@@ -84,6 +85,7 @@ namespace UldericoAlpha
 		ResourcesManager& m_resources;
 
         PlayerAction m_action;
+		Cooldown m_shootCooldown;
         World m_world;
 	};
 }

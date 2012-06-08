@@ -53,6 +53,9 @@
     <ClCompile Include="Squadron.cpp">
       <Filter>World</Filter>
     </ClCompile>
+    <ClCompile Include="Cooldown.cpp">
+      <Filter>Controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -78,6 +81,9 @@
     </Filter>
     <Filter Include="World">
       <UniqueIdentifier>{8d7097b4-348f-4445-a274-45614bd0edbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controller">
+      <UniqueIdentifier>{d19fdd7e-c35d-4e28-9f73-077d5fba0182}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -176,9 +182,6 @@
     <ClInclude Include="World.h">
       <Filter>World</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerAction.h">
-      <Filter>World</Filter>
-    </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>World</Filter>
     </ClInclude>
@@ -196,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="InvaderAction.h">
       <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="Cooldown.h">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAction.h">
+      <Filter>Controller</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

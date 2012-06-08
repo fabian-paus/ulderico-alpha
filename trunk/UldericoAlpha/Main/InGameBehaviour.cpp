@@ -19,10 +19,13 @@ namespace UldericoAlpha
         static_cast<float>(Game::WINDOW_WIDTH),
         static_cast<float>(Game::WINDOW_HEIGHT));
 
+	static const int SHOOT_COOLDOWN_IN_TICKS = 5;
+
 	InGameBehaviour::InGameBehaviour(Game& game, ResourcesManager& resources)
 		: m_game(game),
 		  m_resources(resources),
           m_action(PlayerAction_Nothing),
+		  m_shootCooldown(SHOOT_COOLDOWN_IN_TICKS),
           m_world(WORLD_SIZE)
 	{ }
 
@@ -34,6 +37,8 @@ namespace UldericoAlpha
 	void InGameBehaviour::Update()
 	{
         m_world.Update();
+
+		m_shootCooldown.Tick();
         switch (m_action)
         {
         case PlayerAction_MoveLeft:
@@ -49,7 +54,11 @@ namespace UldericoAlpha
             break;
 
         case PlayerAction_Shoot:
-            m_world.ShootFromPlayer();
+			if (m_shootCooldown.IsElapsed())
+			{
+				m_world.ShootFromPlayer();
+				m_shootCooldown.Start();
+			}
             break;
         }
 
