@@ -52,6 +52,15 @@ namespace UldericoAlpha
             m_world.ShootFromPlayer();
             break;
         }
+
+		// Wenn der Spieler stirbt, ist das Spiel beendet
+		if (!m_world.IsPlayerAlive())
+			HandleGameOver();
+
+		// TODO: Wenn alle Invader getötet wurden, dann neues Level beginnen
+		// Im Moment: Spiel beenden
+		if (!m_world.HasInvaders())
+			HandleGameOver();
 	}
 
 	void InGameBehaviour::OnEvent(sf::Event const& event)
@@ -186,4 +195,13 @@ namespace UldericoAlpha
             break;
         }
     }
+
+	void InGameBehaviour::HandleGameOver()
+	{
+		// Die Welt zurücksetzen
+		m_world = World(WORLD_SIZE);
+
+		// Übergang zum "Game Over"-Bildschirm
+		m_game.ChangeState(GameState_GameOver);
+	}
 }

@@ -72,6 +72,13 @@ namespace UldericoAlpha
          */
         void HandleKeyReleased(sf::Event::KeyEvent const& event);
 
+		/**
+		 * Behandelt das Spielende. 
+		 * Am Spielende muss das Spiel zurückgesetzt und der Übergang zum
+		 * GameOver Verhalten eingeleitet werden.
+		 */
+		void HandleGameOver();
+
     private:
 		Game& m_game;
 		ResourcesManager& m_resources;
