@@ -5,20 +5,11 @@
     <ClCompile Include="ResourcesManager.cpp">
       <Filter>ResourceManager</Filter>
     </ClCompile>
-    <ClCompile Include="Element.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Level.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="MenuBehaviour.cpp">
       <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="BoundingBox.cpp">
-      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="InGameBehaviour.cpp">
       <Filter>Game</Filter>
@@ -69,9 +60,6 @@
     </Filter>
     <Filter Include="ResourceManager">
       <UniqueIdentifier>{79f9b6aa-4a13-4a8d-acba-c90521226abf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core">
-      <UniqueIdentifier>{f9bde1ec-98ed-4fce-92e9-c4b74d905405}</UniqueIdentifier>
     </Filter>
     <Filter Include="Ressources\Fonts">
       <UniqueIdentifier>{efafabe2-a46b-41d7-9d17-bf571774c194}</UniqueIdentifier>
@@ -137,12 +125,6 @@
     <ClInclude Include="ResourcesManager.h">
       <Filter>ResourceManager</Filter>
     </ClInclude>
-    <ClInclude Include="Level.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Element.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -157,12 +139,6 @@
     </ClInclude>
     <ClInclude Include="MenuBehaviour.h">
       <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="BoundingBox.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="ElementTypes.h">
-      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="GameOverBehaviour.h">
       <Filter>Game</Filter>
