@@ -112,6 +112,9 @@ namespace UldericoAlpha
 
 	void World::UpdateInvaders()
 	{
+		if (m_invaders.empty())
+			return;
+
 		//Links dagegen oder rechts oder unten
 		//maxX, minY, maxY
 		//  x->
