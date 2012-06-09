@@ -1,142 +1,120 @@
 #include "ResourcesManager.h"
 
 #include <iostream>
+#include <cassert>
 
-using namespace UldericoAlpha;
-
-static const char* const CHARACTERS_IMAGE = "res/img/characters.png";
-static const char* const BACKGROUND_IMAGE = "res/img/invaders.png";
-static const char* const LOGO_IMAGE = "res/img/logo.png";
-
-static const char* const GAME_FONT = "res/font/ca.ttf";
-
-static const char* const MAIN_THEME_SOUND    = "res/sound/spaceinvaders1.ogg";
-static const char* const SHOOT_SOUND         = "res/sound/shoot.wav";
-static const char* const KILLED_SOUND        = "res/sound/invaderkilled.wav";
-static const char* const EXPLOSION_SOUND     = "res/sound/explosion.wav";
-static const char* const UFO_LOWPITCH_SOUND  = "res/sound/ufo_lowpitch.wav";
-static const char* const UFO_HIGHPITCH_SOUND = "res/sound/ufo_highpitch.wav";
-
-ResourcesManager::ResourcesManager()
+namespace UldericoAlpha
 {
-	LoadTexture(m_background, BACKGROUND_IMAGE);
-	LoadTexture(m_characters, CHARACTERS_IMAGE);
-   LoadTexture(m_logo, LOGO_IMAGE);
 
-	LoadSprites();
-	LoadSounds();
-   LoadFonts();
-}
-
-const sf::Sprite& ResourcesManager::GetSprite(std::string const & name)
-{
-	return m_spriteResources[name];
-}
-
-const sf::Font& ResourcesManager::GetFont(std::string const & name)
-{
-   return m_fontResources[name];
-}
-
-const sf::Sound& ResourcesManager::GetSound(std::string const & name)
-{
-	return m_soundResources[name];
-}
-
-void ResourcesManager::LoadFonts()
-{
-   LoadFont("game-font", GAME_FONT);
-}
-
-void ResourcesManager::LoadSprites()
-{
-    RegisterSprite("background", sf::Sprite(m_background));
-    RegisterSprite("logo", sf::Sprite(m_logo));
-
-    sf::Vector2f characterScale(0.4f, 0.4f);
-
-	LoadSprite("green-invader", m_characters, sf::IntRect(0, 0, 82, 86), characterScale);
-	LoadSprite("blue-invader", m_characters, sf::IntRect(112, 0, 116, 86), characterScale);
-	LoadSprite("purple-invader", m_characters, sf::IntRect(250, 0, 122, 86), characterScale);
-	LoadSprite("red-defender", m_characters, sf::IntRect(31, 303, 117, 70), characterScale);
-
-	LoadSprite("green-attack", m_characters, sf::IntRect(22, 122, 30, 60), characterScale);
-	LoadSprite("blue-attack", m_characters, sf::IntRect(152, 122, 28, 50), characterScale);
-	LoadSprite("purple-attack", m_characters, sf::IntRect(290, 122, 28, 50), characterScale);
-	LoadSprite("red-attack", m_characters, sf::IntRect(84, 222, 13, 45), characterScale);
-}
-
-void ResourcesManager::LoadSounds()
-{
-	LoadSound("main-theme", MAIN_THEME_SOUND);
-	LoadSound("shoot", SHOOT_SOUND);
-	LoadSound("killed", KILLED_SOUND);
-	LoadSound("explosion", EXPLOSION_SOUND);
-	LoadSound("ufo-lowpitch", UFO_LOWPITCH_SOUND);
-	LoadSound("ufo-highpitch", UFO_HIGHPITCH_SOUND);
-}
-
-void ResourcesManager::LoadSprite(std::string const& name, 
-		sf::Texture const& texture,
-		sf::IntRect const& textureRect,
-        sf::Vector2f const& scale)
-{
-	sf::Sprite sprite(texture);
-	sprite.SetTextureRect(textureRect);
-    sprite.SetScale(scale);
-
-	RegisterSprite(name, sprite);
-}
-
-void ResourcesManager::LoadSound(std::string const& name, 
-								 std::string const& path)
-{
-	// Add new sound buffer
-	m_soundBuffers.push_back(sf::SoundBuffer());
-	sf::SoundBuffer& buffer = m_soundBuffers.back();
-
-	if (!buffer.LoadFromFile(path))
+	ResourcesManager::ResourcesManager()
 	{
-		std::cerr << "Could not load sound resource '" << name 
-			<< "' from file '" << path << "'" << std::endl;
-		return;
+		LoadTextures();
+		LoadSprites();
+		LoadSounds();
+		LoadFonts();
 	}
 
-	RegisterSound(name, sf::Sound(buffer));
-}
-
-void ResourcesManager::LoadFont(std::string const& name, std::string const& path)
-{
-   sf::Font font;
-   if(!font.LoadFromFile(path))
-   {
-      std::cerr << "Could not load font resource '" << name 
-			<< "' from file '" << path << "'" << std::endl;
-      return;
-   }
-   RegisterFont(name, font);
-}
-
-void ResourcesManager::RegisterSprite(std::string const & name, sf::Sprite const& resource)
-{
-	m_spriteResources.insert(std::make_pair(name, resource));
-}
-
-void ResourcesManager::RegisterSound(std::string const & name, sf::Sound const& resource)
-{
-	m_soundResources.insert(std::make_pair(name, resource));
-}
-
-void ResourcesManager::RegisterFont(std::string const& name, sf::Font const& resource)
-{
-   m_fontResources.insert(std::make_pair(name, resource));
-}
-
-void ResourcesManager::LoadTexture(sf::Texture& texture, std::string const& path)
-{
-	if (!texture.LoadFromFile(path))
+	sf::Sprite ResourcesManager::Get(Sprites sprite) const
 	{
-		std::cerr << "Could not load texture from file '"	
-			<< path << "'" << std::endl;
+		assert(Sprites_Begin <= sprite && sprite < Sprites_Count);
+
+		return m_sprites[sprite];
 	}
+
+	sf::Sound ResourcesManager::Get(Sounds sound) const
+	{
+		assert(Sounds_Begin <= sound && sound < Sounds_Count);
+
+		return sf::Sound(m_soundBuffers[sound]);
+	}
+
+	sf::Text ResourcesManager::GetText(std::string const& text, Fonts font) const
+	{
+		return sf::Text(text, Get(font));
+	}
+
+	sf::Texture const& ResourcesManager::Get(Textures texture) const
+	{
+		assert(Textures_Begin <= texture && texture < Textures_Count);
+
+		return m_textures[texture];
+	}
+
+	const sf::Font& ResourcesManager::Get(Fonts font) const
+	{
+		assert(Fonts_Begin <= font && font < Fonts_Count);
+
+		return m_fonts[font];
+	}
+
+	void ResourcesManager::LoadTextures()
+	{
+		for (int i = Textures_Begin; i != Textures_Count; ++i)
+		{
+			Textures texture = Textures(i);
+
+			std::string file = GetTextureFile(texture);
+
+			if (!m_textures[i].LoadFromFile(file))
+			{
+				std::cerr << "Could not load texture from file '"	
+					<< file << "'\n";
+			}
+		}
+	}
+
+	void ResourcesManager::LoadFonts()
+	{
+		for (int i = Fonts_Begin; i != Fonts_Count; ++i)
+		{
+			Fonts fontIndex = Fonts(i);
+
+			std::string file = GetFontFile(fontIndex);
+			sf::Font& font = m_fonts[i];
+
+			if(!font.LoadFromFile(file))
+			{
+				std::cerr << "Could not load font resource from file '" 
+					<< file << "'\n";
+			}
+		}
+	}
+
+	void ResourcesManager::LoadSprites()
+	{
+		for (int i = Sprites_Begin; i != Sprites_Count; ++i)
+		{
+			Sprites sprite = Sprites(i);
+
+			// Daten auslesen
+			Textures textureIndex = GetTexture(sprite);
+			auto& texture = Get(textureIndex);
+			sf::IntRect position = GetPosition(sprite, texture);
+			float scale = GetScale(sprite);
+
+			// Daten setzen
+			auto& target = m_sprites[i];
+			target.SetTexture(texture);
+			target.SetTextureRect(position);
+			target.SetScale(sf::Vector2f(scale, scale));
+		}
+	}
+
+	void ResourcesManager::LoadSounds()
+	{
+		for (int i = Sounds_Begin; i != Sounds_Count; ++i)
+		{
+			Sounds sound = Sounds(i);
+			std::string file = GetSoundFile(sound);
+
+			auto& buffer = m_soundBuffers[i];
+
+			if (!buffer.LoadFromFile(file))
+			{
+				std::cerr << "Could not load sound resource from file '" 
+					<< file << "'\n";
+			}
+		}
+	}
+
 }

@@ -9,8 +9,7 @@ namespace UldericoAlpha
 
 	MenuBehaviour::MenuBehaviour(Game& game, ResourcesManager& resources)
 		: m_game(game),
-		m_resources(resources),
-		m_gameFont(m_resources.GetFont("game-font"))
+		m_resources(resources)
 	{ 
 		InitializeMenuItems();
 		SetMenuItemsPosition();
@@ -23,21 +22,20 @@ namespace UldericoAlpha
 	void MenuBehaviour::InitializeMenuItems()
 	{
 		m_menuItems.reserve(3);
-		m_menuItems.push_back(sf::Text(STR_GAME_START, m_gameFont));
-		m_menuItems.push_back(sf::Text(STR_HIGHSCORE, m_gameFont));
-		m_menuItems.push_back(sf::Text(STR_QUIT, m_gameFont));
+		m_menuItems.push_back(m_resources.GetText(STR_GAME_START));
+		m_menuItems.push_back(m_resources.GetText(STR_HIGHSCORE));
+		m_menuItems.push_back(m_resources.GetText(STR_QUIT));
 	}
 
 	void MenuBehaviour::SetMenuItemsPosition()
 	{
-		int top = 0;
-		int centerX = Game::WINDOW_WIDTH / 2;
-		int totalHeight = 0;
+		float centerX = Game::WINDOW_WIDTH / 2.0f;
+		float totalHeight = 0.0f;
 
 		for (auto item = m_menuItems.begin(); item != m_menuItems.end(); ++item)
 			totalHeight += item->GetGlobalBounds().Height + MARGIN;
 
-		top = Game::WINDOW_HEIGHT / 2 - totalHeight / 2;
+		float top = Game::WINDOW_HEIGHT / 2 - totalHeight / 2;
 
 		for (auto item = m_menuItems.begin(); item != m_menuItems.end(); ++item)
 		{
@@ -65,7 +63,7 @@ namespace UldericoAlpha
 		{
 			auto bounds = item->GetGlobalBounds();
 			auto text = item->GetString();
-			if (bounds.Contains(e.X, e.Y))
+			if (bounds.Contains(static_cast<float>(e.X), static_cast<float>(e.Y)))
 			{
 				if (text == STR_GAME_START)
 					m_game.ChangeState(GameState_InGame);
@@ -80,10 +78,10 @@ namespace UldericoAlpha
 
 	void MenuBehaviour::Render(sf::RenderTarget& target, float interpolation)
 	{
-		sf::Sprite background = m_resources.GetSprite("background");
+		sf::Sprite background = m_resources.Get(Sprite_Background);
 		target.Draw(background);
 
-		auto title = sf::Text("Ulderico - Alpha", m_gameFont);
+		auto title = m_resources.GetText("Ulderico - Alpha");
 		title.SetPosition(Game::WINDOW_WIDTH / 2 - title.GetGlobalBounds().Width / 2, 40.0f);
 		target.Draw(title);
 		

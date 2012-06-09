@@ -47,7 +47,6 @@ namespace UldericoAlpha
 		Game& m_game;
 		ResourcesManager& m_resources;
 
-		sf::Font m_gameFont;
 		std::vector<sf::Text> m_menuItems;
 		
 		void InitializeMenuItems();

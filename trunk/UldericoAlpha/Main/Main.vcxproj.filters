@@ -47,6 +47,18 @@
     <ClCompile Include="Cooldown.cpp">
       <Filter>Controller</Filter>
     </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprites.cpp">
+      <Filter>ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Sounds.cpp">
+      <Filter>ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Fonts.cpp">
+      <Filter>ResourceManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -181,6 +193,18 @@
     </ClInclude>
     <ClInclude Include="PlayerAction.h">
       <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprites.h">
+      <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Sounds.h">
+      <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Fonts.h">
+      <Filter>ResourceManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
