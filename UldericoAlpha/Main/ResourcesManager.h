@@ -1,64 +1,69 @@
 #ifndef RESOURCESMANAGER_H_INCLUDED
 #define RESOURCESMANAGER_H_INCLUDED
 
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
+#include "Sprites.h"
+#include "Textures.h"
+#include "Sounds.h"
+#include "Fonts.h"
 
-#include <map>
+#include <SFML/Audio/Sound.hpp>
+#include <SFML/Audio/SoundBuffer.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Text.hpp>
+
 #include <string>
-#include <list>
+#include <array>
 
 namespace UldericoAlpha
 {
+	/**
+	 * Diese Klasse verwaltet alle Ressourcen im Spiel.
+	 * 
+	 * Die eigentlichen Ressourcen (Texturen, SoundBuffer und Fonts) werden dabei
+	 * intern verwaltet. Über die öffentliche Schnittstelle werden nur Referenzen
+	 * (Sprite, Sound, Text) auf die internen Ressourcen zur Verfügung gestellt.
+	 */
 	class ResourcesManager
 	{
 	public:
+		/**
+		 * Lädt alle Ressourcen.
+		 */
 		ResourcesManager();
 
-		const sf::Sprite& GetSprite(std::string const& name);
+		/**
+		 * Gibt das angeforderte Sprite zurück.
+		 */
+		sf::Sprite Get(Sprites sprite) const;
 
-		const sf::Sound& GetSound(std::string const& name);
+		/**
+		 * Gibt den angeforderten Sound zurück.
+		 */
+		sf::Sound Get(Sounds sound) const;
 
-		const sf::Font& GetFont(std::string const& name);
+		/**
+		 * Gibt den angeforderten Text mit angegebener Schriftart zurück.
+		 */
+		sf::Text GetText(std::string const& text, Fonts font = Font_CosmicAlien) const;
 
 	private:
+		sf::Texture const& Get(Textures texture) const;
+		
+		sf::Font const& Get(Fonts font) const;
+
+		void LoadTextures();
+
+		void LoadFonts();
+
 		void LoadSprites();
 
 		void LoadSounds();
 
-		void LoadFonts();
-
-		void LoadSprite(std::string const& name, 
-			sf::Texture const& texture,
-			sf::IntRect const& textureRect,
-            sf::Vector2f const& scale = sf::Vector2f(1.0f, 1.0f));
-
-		void LoadFont(std::string const& name, std::string const& path);
-
-		void LoadSound(std::string const& name, std::string const& path);
-
-		void RegisterSprite(std::string const& name, sf::Sprite const& resource);
-
-		void RegisterSound(std::string const& name, sf::Sound const& resource);
-
-		void RegisterFont(std::string const& name, sf::Font const& resource);
-
-		void LoadTexture(sf::Texture& texture, std::string const& path);
-
 	private:
-		typedef std::map <std::string, sf::Sprite> SpriteResourceMap;
-		typedef std::map <std::string, sf::Sound> SoundResourceMap;
-		typedef std::map <std::string, sf::Font> FontResourceMap;
-
-		sf::Texture m_background;
-		sf::Texture m_characters;
-		sf::Texture m_logo;
-
-		std::list<sf::SoundBuffer> m_soundBuffers;
-
-		SpriteResourceMap m_spriteResources;
-		SoundResourceMap m_soundResources;
-		FontResourceMap m_fontResources;
+		std::array<sf::Texture, Textures_Count> m_textures;
+		std::array<sf::Sprite, Sprites_Count> m_sprites;
+		std::array<sf::SoundBuffer, Sounds_Count> m_soundBuffers;
+		std::array<sf::Font, Fonts_Count> m_fonts;
 	};
 }
 #endif

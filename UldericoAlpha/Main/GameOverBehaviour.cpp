@@ -28,12 +28,10 @@ namespace UldericoAlpha
 
     void GameOverBehaviour::Render(sf::RenderTarget& target, float interpolation)
 	{
-		sf::Font gameFont = m_resources.GetFont("game-font");
-
-		sf::Text gameOverText("Game Over", gameFont);
+		sf::Text gameOverText = m_resources.GetText("Game Over");
         gameOverText.SetPosition(300.0f, 200.0f);
 
-        sf::Text returnText("Press Enter to return to menu", gameFont);
+		sf::Text returnText = m_resources.GetText("Press Enter to return to menu");
         returnText.SetPosition(50.0f, 300.0f);
         
 		target.Draw(gameOverText);

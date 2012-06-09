@@ -85,6 +85,7 @@
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Cooldown.cpp" />
+    <ClCompile Include="Fonts.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameOverBehaviour.cpp" />
     <ClCompile Include="HighscoreBehaviour.cpp" />
@@ -96,7 +97,10 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
     <ClCompile Include="Shield.cpp" />
+    <ClCompile Include="Sounds.cpp" />
+    <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="Squadron.cpp" />
+    <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
@@ -120,6 +124,7 @@
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Cooldown.h" />
+    <ClInclude Include="Fonts.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameOverBehaviour.h" />
     <ClInclude Include="GameStates.h" />
@@ -134,8 +139,11 @@
     <ClInclude Include="PlayerAction.h" />
     <ClInclude Include="ResourcesManager.h" />
     <ClInclude Include="Shield.h" />
+    <ClInclude Include="Sounds.h" />
+    <ClInclude Include="Sprites.h" />
     <ClInclude Include="Squadron.h" />
     <ClInclude Include="Behaviour.h" />
+    <ClInclude Include="Textures.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>

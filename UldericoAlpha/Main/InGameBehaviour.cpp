@@ -8,6 +8,8 @@
 #include "Invader.h"
 #include "InvaderType.h"
 
+#include <SFML\Graphics\RectangleShape.hpp>
+
 namespace UldericoAlpha
 {
     sf::Vector2f toSFML(Vector2D const& vector)
@@ -121,7 +123,7 @@ namespace UldericoAlpha
 
     void InGameBehaviour::DrawBullets(sf::RenderTarget& target, float interpolation)
     {
-        sf::Sprite bulletSprite = m_resources.GetSprite("red-attack");
+		sf::Sprite bulletSprite = m_resources.Get(Sprite_RedDAttack);
 
         for (auto bullet = m_world.BulletsBegin(); bullet != m_world.BulletsEnd(); ++bullet)
         {
@@ -133,7 +135,7 @@ namespace UldericoAlpha
 
     void InGameBehaviour::DrawPlayer(sf::RenderTarget& target, float interpolation)
     {
-        sf::Sprite playerSprite = m_resources.GetSprite("red-defender");
+		sf::Sprite playerSprite = m_resources.Get(Sprite_RedDefender);
         
         Player const& player = m_world.GetPlayer();
         playerSprite.SetPosition(toSFML(player.PredictPosition(interpolation)));
@@ -149,13 +151,13 @@ namespace UldericoAlpha
 			switch(invader->GetType())
 			{
 			case InvaderType_Green:
-				invaderSprite = m_resources.GetSprite("green-invader");
+				invaderSprite = m_resources.Get(Sprite_GreenInvader);
 				break;
 			case InvaderType_Blue:
-				invaderSprite = m_resources.GetSprite("blue-invader");
+				invaderSprite = m_resources.Get(Sprite_BlueInvader);
 				break;
 			case InvaderType_Purple:
-				invaderSprite = m_resources.GetSprite("purple-invader");
+				invaderSprite = m_resources.Get(Sprite_PurpleInvader);
 				break;
 			}
 			invaderSprite.SetPosition(toSFML(invader->PredictPosition(interpolation)));

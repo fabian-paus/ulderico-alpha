@@ -12,6 +12,8 @@
 #include "PlayerAction.h"
 #include "Cooldown.h"
 
+#include <SFML\Audio\Sound.hpp>
+
 namespace UldericoAlpha
 {
     class Game;
