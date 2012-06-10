@@ -59,6 +59,15 @@
     <ClCompile Include="Fonts.cpp">
       <Filter>ResourceManager</Filter>
     </ClCompile>
+    <ClCompile Include="BoundingBox.cpp">
+      <Filter>Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="InvaderStep.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="MotionPattern.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -84,6 +93,9 @@
     </Filter>
     <Filter Include="Controller">
       <UniqueIdentifier>{d19fdd7e-c35d-4e28-9f73-077d5fba0182}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI">
+      <UniqueIdentifier>{43147c99-2017-49c4-b88f-ee5ce38e3bcd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -185,9 +197,6 @@
     <ClInclude Include="InvaderType.h">
       <Filter>World</Filter>
     </ClInclude>
-    <ClInclude Include="InvaderAction.h">
-      <Filter>World</Filter>
-    </ClInclude>
     <ClInclude Include="Cooldown.h">
       <Filter>Controller</Filter>
     </ClInclude>
@@ -205,6 +214,21 @@
     </ClInclude>
     <ClInclude Include="Fonts.h">
       <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingBox.h">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingBoxAction.h">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="InvaderStep.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="InvaderAction.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="MotionPattern.h">
+      <Filter>AI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
