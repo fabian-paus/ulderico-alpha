@@ -83,6 +83,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BoundingBox.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Cooldown.cpp" />
     <ClCompile Include="Fonts.cpp" />
@@ -91,8 +92,10 @@
     <ClCompile Include="HighscoreBehaviour.cpp" />
     <ClCompile Include="InGameBehaviour.cpp" />
     <ClCompile Include="Invader.cpp" />
+    <ClCompile Include="InvaderStep.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuBehaviour.cpp" />
+    <ClCompile Include="MotionPattern.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
@@ -122,6 +125,8 @@
     <None Include="res\sound\ufo_lowpitch.wav" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BoundingBox.h" />
+    <ClInclude Include="BoundingBoxAction.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Cooldown.h" />
     <ClInclude Include="Fonts.h" />
@@ -132,8 +137,10 @@
     <ClInclude Include="InGameBehaviour.h" />
     <ClInclude Include="Invader.h" />
     <ClInclude Include="InvaderAction.h" />
+    <ClInclude Include="InvaderStep.h" />
     <ClInclude Include="InvaderType.h" />
     <ClInclude Include="MenuBehaviour.h" />
+    <ClInclude Include="MotionPattern.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerAction.h" />

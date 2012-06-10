@@ -60,7 +60,7 @@ namespace UldericoAlpha
          * Aktualisiert das Objekt. Dabei wird das Objekt mit der aktuellen
          * Geschwindigkeit weiterbewegt.
          */
-        void Update();
+        virtual void Update();
 
     protected:
         /**
