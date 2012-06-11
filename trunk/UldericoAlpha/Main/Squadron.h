@@ -40,7 +40,7 @@ namespace UldericoAlpha
 		BoundingBox m_boundingBox;
 		MotionPattern m_motionPattern;
 		static const int MARGIN = 6;		
-		static const int INVADER_SPEED = 10;
+		static const int INVADER_SPEED = 5;
 	};
 }
 

@@ -24,6 +24,7 @@ namespace UldericoAlpha
 		Sprite_BlueAttack,
 		Sprite_PurpleAttack,
 		Sprite_RedDAttack,
+		Sprite_GreenShield,
 
 		Sprites_Count
 	};

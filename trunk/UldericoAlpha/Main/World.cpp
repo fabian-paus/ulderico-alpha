@@ -152,7 +152,7 @@ namespace UldericoAlpha
 
         m_bullets.erase(eraseBullets, m_bullets.end());
 
-
+		m_squadron.EraseInvaders();
 
 		// Wenn der Spieler mindestens einmal getroffen wurde, verliert er ein Leben
 		if (playerWasHit)
