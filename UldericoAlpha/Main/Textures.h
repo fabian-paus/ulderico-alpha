@@ -15,6 +15,7 @@ namespace UldericoAlpha
 		Texture_Characters = Textures_Begin,
 		Texture_Background,
 		Texture_Logo,
+		Texture_Green,
 
 		Textures_Count
 	};

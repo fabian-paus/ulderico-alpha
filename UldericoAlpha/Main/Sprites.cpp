@@ -12,6 +12,8 @@ namespace UldericoAlpha
 				return Texture_Background;
 			case Sprite_Logo: 
 				return Texture_Characters;
+			case Sprite_GreenShield:
+				return Texture_Green;
 			
 			case Sprite_GreenInvader:
 			case Sprite_BlueInvader:
@@ -31,12 +33,11 @@ namespace UldericoAlpha
 
 	sf::IntRect GetPosition(Sprites sprite, sf::Texture const& texture)
 	{
-		static const sf::IntRect FULL(-1, -1, -1, -1);
-
 		switch (sprite)
 		{
 			case Sprite_Background: 
 			case Sprite_Logo: 
+			case Sprite_GreenShield:
 				return sf::IntRect(0, 0,
 					texture.GetWidth(), texture.GetHeight());
 			
@@ -61,6 +62,7 @@ namespace UldericoAlpha
 		{
 			case Sprite_Background: 
 			case Sprite_Logo: 
+			case Sprite_GreenShield:
 				return 1.0f;
 			
 			case Sprite_GreenInvader:

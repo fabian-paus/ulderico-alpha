@@ -98,9 +98,7 @@ namespace UldericoAlpha
 
     void InGameBehaviour::DrawShields(sf::RenderTarget& target)
     {
-        sf::RectangleShape shieldShape;		
-        shieldShape.SetFillColor(sf::Color::Green);
-        shieldShape.SetSize(sf::Vector2f(Shield::BLOCK_WIDTH, Shield::BLOCK_HEIGHT));
+        sf::Sprite shieldSprite = m_resources.Get(Sprite_GreenShield);	
 
         for (auto shield = m_world.ShieldsBegin(); shield != m_world.ShieldsEnd(); ++shield)
 		{
@@ -113,8 +111,8 @@ namespace UldericoAlpha
                         Vector2D delta(x * Shield::BLOCK_WIDTH, y * Shield::BLOCK_HEIGHT);
                         Vector2D position = shield->GetPosition() + delta;
 
-                        shieldShape.SetPosition(toSFML(position));
-                        target.Draw(shieldShape);
+                        shieldSprite.SetPosition(toSFML(position));
+                        target.Draw(shieldSprite);
                     }
                 }
             }
