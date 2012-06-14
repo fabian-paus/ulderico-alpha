@@ -85,6 +85,7 @@
   <ItemGroup>
     <ClCompile Include="BoundingBox.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletType.cpp" />
     <ClCompile Include="Cooldown.cpp" />
     <ClCompile Include="Fonts.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="BoundingBox.h" />
     <ClInclude Include="BoundingBoxAction.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletType.h" />
     <ClInclude Include="Cooldown.h" />
     <ClInclude Include="Fonts.h" />
     <ClInclude Include="Game.h" />

@@ -22,7 +22,7 @@ namespace UldericoAlpha
 			case Sprite_GreenAttack:
 			case Sprite_BlueAttack:
 			case Sprite_PurpleAttack:
-			case Sprite_RedDAttack:
+			case Sprite_RedAttack:
 				return Texture_Characters;
 
 			default: 
@@ -48,7 +48,7 @@ namespace UldericoAlpha
 			case Sprite_GreenAttack:   return sf::IntRect(22, 122, 30, 60);
 			case Sprite_BlueAttack:    return sf::IntRect(152, 122, 28, 50);
 			case Sprite_PurpleAttack:  return sf::IntRect(290, 122, 28, 50);
-			case Sprite_RedDAttack:    return sf::IntRect(84, 222, 13, 45);
+			case Sprite_RedAttack:    return sf::IntRect(84, 222, 13, 45);
 
 			default: 
 				assert(false);
@@ -72,7 +72,7 @@ namespace UldericoAlpha
 			case Sprite_GreenAttack:
 			case Sprite_BlueAttack:
 			case Sprite_PurpleAttack:
-			case Sprite_RedDAttack:
+			case Sprite_RedAttack:
 				return 0.4f;
 
 			default: 

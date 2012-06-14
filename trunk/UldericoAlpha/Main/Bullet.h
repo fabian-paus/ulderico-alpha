@@ -2,6 +2,7 @@
 #define ULDERICO_ALPHA_BULLET_H_INCLUDED
 
 #include "Object.h"
+#include "BulletType.h"
 
 namespace UldericoAlpha
 {
@@ -12,7 +13,13 @@ namespace UldericoAlpha
         static const float HEIGHT;
 
 		Bullet(Vector2D const& position,
-               Vector2D const& speed);
+               Vector2D const& speed,
+			   BulletType type);
+
+		BulletType GetType() const { return m_type; }
+
+	private:
+		BulletType m_type;
 	};
 }
 

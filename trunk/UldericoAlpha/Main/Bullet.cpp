@@ -8,7 +8,9 @@ namespace UldericoAlpha
     static const Vector2D BULLET_SIZE(Bullet::WIDTH, Bullet::HEIGHT);
 
 	Bullet::Bullet(Vector2D const& position,
-                   Vector2D const& speed)
-		: Object(position, BULLET_SIZE, speed)
+                   Vector2D const& speed,
+				   BulletType type)
+		: Object(position, BULLET_SIZE, speed),
+		  m_type(type)
     { }
 }
