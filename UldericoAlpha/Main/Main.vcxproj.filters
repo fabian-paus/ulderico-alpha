@@ -68,6 +68,9 @@
     <ClCompile Include="MotionPattern.cpp">
       <Filter>AI</Filter>
     </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -229,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="MotionPattern.h">
       <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>World</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

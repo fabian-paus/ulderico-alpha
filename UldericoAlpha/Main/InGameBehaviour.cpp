@@ -28,12 +28,12 @@ namespace UldericoAlpha
 		  m_resources(resources),
           m_action(PlayerAction_Nothing),
 		  m_shootCooldown(SHOOT_COOLDOWN_IN_TICKS),
-          m_world(WORLD_SIZE)
+          m_world(WORLD_SIZE, Level(2.0f, 0.02f))
 	{ }
 
     void InGameBehaviour::Reset()
     {
-        m_world = World(WORLD_SIZE);
+        m_world = World(WORLD_SIZE, Level(2.0f, 0.02f));
     }
 
 	void InGameBehaviour::Update()
@@ -208,7 +208,7 @@ namespace UldericoAlpha
 	void InGameBehaviour::HandleGameOver()
 	{
 		// Die Welt zurücksetzen
-		m_world = World(WORLD_SIZE);
+		Reset();
 
 		// Übergang zum "Game Over"-Bildschirm
 		m_game.ChangeState(GameState_GameOver);

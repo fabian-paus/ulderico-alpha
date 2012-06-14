@@ -4,9 +4,10 @@ namespace UldericoAlpha
 {	
     static const Vector2D SQUADRON_SIZE(123.0f * 0.4f, 87.0f * 0.4f);
 
-	Squadron::Squadron()
+	Squadron::Squadron(float absoluteSpeed)
 		: Object(Vector2D::ZERO, SQUADRON_SIZE),
-		  m_motionPattern(true)
+		  m_motionPattern(true),
+		  m_absoluteSpeed(absoluteSpeed)
 	{ }
 
 	void Squadron::SetBoundingBox(Vector2D size, Vector2D position)
@@ -16,10 +17,10 @@ namespace UldericoAlpha
 
 	void Squadron::Initialize()
 	{
-		//Invaders initialisieren
+		// Invaders initialisieren
 		m_invaders.reserve(30);
 				
-		Vector2D speed(INVADER_SPEED, 0.0f);
+		Vector2D speed(m_absoluteSpeed, 0.0f);
 
 		for(int j = 2; j >= 0 ; j--)
 		{
@@ -48,14 +49,15 @@ namespace UldericoAlpha
 		m_invaders.erase(eraseInvaders, m_invaders.end());
 	}
 
-	bool Squadron::Collision(Object const bullet)
+	bool Squadron::Collision(Object const bullet, bool kill)
 	{		
 		// Hat die Kugel einen Invader aus dem Schwadron getroffen?
 		for (auto invader = m_invaders.begin(); invader != m_invaders.end(); ++invader)
 		{
 			if (invader->CollidesWith(bullet))
 			{
-				invader->Kill();
+				if (kill)
+					invader->Kill();
 				return true;
 			}
 		}
@@ -93,13 +95,13 @@ namespace UldericoAlpha
 		switch(m_motionPattern.GetAction())
 		{
 		case InvaderAction_MoveDown:
-			speed = Vector2D(0.0f, INVADER_SPEED);
+			speed = Vector2D(0.0f, m_absoluteSpeed);
 			break;
 		case InvaderAction_MoveLeft:
-			speed = Vector2D(-INVADER_SPEED, 0.0f);
+			speed = Vector2D(-m_absoluteSpeed, 0.0f);
 			break;
 		case InvaderAction_MoveRight:
-			speed = Vector2D(INVADER_SPEED, 0.0f);
+			speed = Vector2D(m_absoluteSpeed, 0.0f);
 			break;
 		default:
 			speed = Vector2D::ZERO;
@@ -109,6 +111,7 @@ namespace UldericoAlpha
 		{
 			if(speed != Vector2D::ZERO)
 				invader->SetSpeed(speed);
+
 			invader->Update();
 		}
 	}

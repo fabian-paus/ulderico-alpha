@@ -15,7 +15,7 @@ namespace UldericoAlpha
 	class Squadron : public Object
 	{
 	public:
-		Squadron();
+		Squadron(float absoluteSpeed);
 				
 		void SetBoundingBox(Vector2D size, Vector2D position);
 
@@ -31,7 +31,7 @@ namespace UldericoAlpha
 
 		void EraseInvaders();
 
-		bool Collision(Object const bullet);
+		bool Collision(Object const bullet, bool kill = true);
 
 		virtual void Update();
 
@@ -39,8 +39,8 @@ namespace UldericoAlpha
 		std::vector<Invader> m_invaders;
 		BoundingBox m_boundingBox;
 		MotionPattern m_motionPattern;
+		float m_absoluteSpeed;
 		static const int MARGIN = 6;		
-		static const int INVADER_SPEED = 5;
 	};
 }
 
