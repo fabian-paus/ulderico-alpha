@@ -14,16 +14,23 @@ namespace UldericoAlpha
 
 	static const int INITIAL_PLAYER_LIVES = 3;
 
-    World::World(Vector2D const& size, Level const& level)
+    World::World(Vector2D const& size)
         : m_size(size),
 		  m_player(INITIAL_PLAYER_LIVES),
-		  m_squadron(level.GetAbsoluteSpeed()),
-		  m_shootChance(level.GetShootChance())
+		  m_shootChance(0.0f)
     {
+		// Speicher für Schüsse reservieren, um mehrfache Allokationen zu vermeiden
+		m_bullets.reserve(32);
+
         InitializePlayer();
         InitializeShields();
-		InitializeSquadron();
     }
+
+	void World::Load(Level const& level)
+	{
+		InitializeSquadron(level.GetAbsoluteSpeed());
+		m_shootChance = level.GetShootChance();
+	}
     
     void World::MovePlayerLeft()
     {
@@ -91,8 +98,9 @@ namespace UldericoAlpha
 		m_shields.push_back(Shield(600, 420));
     }
 
-	void World::InitializeSquadron()
+	void World::InitializeSquadron(float speed)
 	{
+		m_squadron.SetAbsoluteSpeed(speed);
 		m_squadron.SetBoundingBox(m_size, Vector2D::ZERO);
 		m_squadron.Initialize();
 	}
@@ -172,6 +180,7 @@ namespace UldericoAlpha
 			//Hat die Kugel einen Invader aus dem Schwadron getroffen?
 			if(m_squadron.Collision(bullet))
 			{
+				m_onInvaderHit();
 				return true;
 			}
 			
@@ -205,6 +214,9 @@ namespace UldericoAlpha
 
 		// Wenn der Spieler mindestens einmal getroffen wurde, verliert er ein Leben
 		if (playerWasHit)
+		{
+			m_onPlayerHit();
 			m_player.LoseLife();
+		}
     }
 }
