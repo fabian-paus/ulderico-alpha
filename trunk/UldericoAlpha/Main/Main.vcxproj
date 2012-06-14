@@ -93,6 +93,7 @@
     <ClCompile Include="InGameBehaviour.cpp" />
     <ClCompile Include="Invader.cpp" />
     <ClCompile Include="InvaderStep.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuBehaviour.cpp" />
     <ClCompile Include="MotionPattern.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="InvaderAction.h" />
     <ClInclude Include="InvaderStep.h" />
     <ClInclude Include="InvaderType.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="MenuBehaviour.h" />
     <ClInclude Include="MotionPattern.h" />
     <ClInclude Include="Object.h" />

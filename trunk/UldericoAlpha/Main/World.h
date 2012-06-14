@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Shield.h"
 #include "Bullet.h"
+#include "Level.h"
 #include "Squadron.h"
 
 namespace UldericoAlpha
@@ -18,7 +19,7 @@ namespace UldericoAlpha
         /** 
         * Erstellt eine neue Welt mit gegebener Größe.
         */
-        World(Vector2D const& size);
+        World(Vector2D const& size, Level const& level);
 
         /**
          * Gibt die Breite der zweidimensionalen Welt an.
@@ -76,6 +77,10 @@ namespace UldericoAlpha
 
         void UpdatePlayer();
 
+		void UpdateEnemies();
+
+		void ShootFromInvader(Invader const& invader);
+
         bool CanPlayerMove() const;
 
         void CheckCollisions();
@@ -87,6 +92,7 @@ namespace UldericoAlpha
         std::vector<Shield> m_shields;
         std::vector<Bullet> m_bullets;
 		Squadron m_squadron;
+		float m_shootChance;
     };
 
 

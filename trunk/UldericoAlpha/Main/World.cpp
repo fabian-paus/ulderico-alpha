@@ -10,11 +10,15 @@ namespace UldericoAlpha
      */
     static const float PLAYER_ABS_SPEED = 10.0f;
 
+	static const float BULLET_ABS_SPEED = 10.0f;
+
 	static const int INITIAL_PLAYER_LIVES = 3;
 
-    World::World(Vector2D const& size)
+    World::World(Vector2D const& size, Level const& level)
         : m_size(size),
-		  m_player(INITIAL_PLAYER_LIVES)
+		  m_player(INITIAL_PLAYER_LIVES),
+		  m_squadron(level.GetAbsoluteSpeed()),
+		  m_shootChance(level.GetShootChance())
     {
         InitializePlayer();
         InitializeShields();
@@ -46,7 +50,7 @@ namespace UldericoAlpha
             m_player.GetPosition().GetX() + m_player.GetSize().GetX() / 2.0f - Bullet::WIDTH / 2.0f,
             m_player.GetPosition().GetY() - Bullet::HEIGHT);
 
-        Vector2D speed(0.0f, -10.0f);
+        Vector2D speed(0.0f, -BULLET_ABS_SPEED);
 
         m_bullets.push_back(Bullet(position, speed));
     }
@@ -55,6 +59,7 @@ namespace UldericoAlpha
     {
         UpdatePlayer();
 
+		UpdateEnemies();
 		m_squadron.Update();
 
         for (auto shield = m_shields.begin(); shield != m_shields.end(); ++shield)
@@ -98,6 +103,33 @@ namespace UldericoAlpha
         if (!CanPlayerMove())
             StopPlayerMovement();
     }
+
+	void World::UpdateEnemies()
+	{
+		m_squadron.Update();
+
+		// Die Invader schiessen zufällig auf den Spieler
+		for (auto invader = m_squadron.InvadersBegin(); invader != m_squadron.InvadersEnd(); ++invader)
+		{
+			if (rand() < m_shootChance * RAND_MAX)
+				ShootFromInvader(*invader);
+		}
+	}
+
+	void World::ShootFromInvader(Invader const& invader)
+	{
+		Vector2D position(
+            invader.GetPosition().GetX() + invader.GetSize().GetX() / 2.0f - Bullet::WIDTH / 2.0f,
+            invader.GetPosition().GetY() + invader.GetSize().GetY() + 0.5f);
+
+        Vector2D speed(0.0f, BULLET_ABS_SPEED);
+
+		Bullet bullet(position, speed);
+
+		// Vermeiden, dass sich die Invader selbst töten
+		if (!m_squadron.Collision(bullet, false))
+			m_bullets.push_back(Bullet(position, speed));
+	}
     
     bool World::CanPlayerMove() const
     {
@@ -145,7 +177,10 @@ namespace UldericoAlpha
 			
 			// Hat die Kugel den Spieler getroffen?
 			if (m_player.CollidesWith(bullet))
+			{
 				playerWasHit = true;
+				return true;
+			}
 
             return false;
         });
