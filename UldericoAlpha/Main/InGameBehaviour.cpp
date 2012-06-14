@@ -121,10 +121,29 @@ namespace UldericoAlpha
 
     void InGameBehaviour::DrawBullets(sf::RenderTarget& target, float interpolation)
     {
-		sf::Sprite bulletSprite = m_resources.Get(Sprite_RedDAttack);
+		sf::Sprite bulletSprite;
 
         for (auto bullet = m_world.BulletsBegin(); bullet != m_world.BulletsEnd(); ++bullet)
         {
+			switch (bullet->GetType())
+			{
+			case Bullet_Player: 
+				bulletSprite = m_resources.Get(Sprite_RedAttack);
+				break;
+
+			case Bullet_Green: 
+				bulletSprite = m_resources.Get(Sprite_GreenAttack);
+				break;
+
+			case Bullet_Blue:
+				bulletSprite = m_resources.Get(Sprite_BlueAttack);
+				break;
+
+			case Bullet_Purple: 
+				bulletSprite = m_resources.Get(Sprite_PurpleAttack);
+				break;
+			}
+
             bulletSprite.SetPosition(toSFML(bullet->PredictPosition(interpolation)));
 
             target.Draw(bulletSprite);

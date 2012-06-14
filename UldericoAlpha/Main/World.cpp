@@ -52,7 +52,7 @@ namespace UldericoAlpha
 
         Vector2D speed(0.0f, -BULLET_ABS_SPEED);
 
-        m_bullets.push_back(Bullet(position, speed));
+        m_bullets.push_back(Bullet(position, speed, Bullet_Player));
     }
 
     void World::Update()
@@ -124,11 +124,11 @@ namespace UldericoAlpha
 
         Vector2D speed(0.0f, BULLET_ABS_SPEED);
 
-		Bullet bullet(position, speed);
+		Bullet bullet(position, speed, invader.GetBulletType());
 
 		// Vermeiden, dass sich die Invader selbst töten
 		if (!m_squadron.Collision(bullet, false))
-			m_bullets.push_back(Bullet(position, speed));
+			m_bullets.push_back(bullet);
 	}
     
     bool World::CanPlayerMove() const
