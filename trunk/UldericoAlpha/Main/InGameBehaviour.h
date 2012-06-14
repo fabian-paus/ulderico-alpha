@@ -5,8 +5,6 @@
 
 #include "Behaviour.h"
 
-#include "Shield.h"
-#include "Bullet.h"
 #include "World.h"
 
 #include "PlayerAction.h"
@@ -45,26 +43,6 @@ namespace UldericoAlpha
 		virtual void Render(sf::RenderTarget& target, float interpolation);
 	
 	private:
-        /**
-         * Zeichnet die Schutzschilde.
-         */
-        void DrawShields(sf::RenderTarget& target);
-
-        /**
-         * Zeichnet die aktiven Kugeln.
-         */
-        void DrawBullets(sf::RenderTarget& target, float interpolation);
-
-        /**
-         * Zeichnet den Spieler.
-         */
-        void DrawPlayer(sf::RenderTarget& target, float interpolation);
-
-		/*
-		* Zeichnet die Invaders
-		*/
-		void DrawInvaders(sf::RenderTarget& target, float interpolation);
-
         /**
          * Behandelt Benutzereingaben über die Tastatur.
          */

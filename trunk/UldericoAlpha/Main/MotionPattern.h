@@ -19,7 +19,7 @@ namespace UldericoAlpha
 
 		void SetNextAction();
 	private:
-		int m_position;
+		std::size_t m_position;
 		bool m_iterative;
 		std::vector<InvaderStep> m_invaderSteps;
 		int m_actualDuration;

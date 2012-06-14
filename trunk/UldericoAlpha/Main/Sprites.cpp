@@ -47,8 +47,8 @@ namespace UldericoAlpha
 			case Sprite_RedDefender:   return sf::IntRect(31, 303, 117, 70);
 			case Sprite_GreenAttack:   return sf::IntRect(22, 122, 30, 60);
 			case Sprite_BlueAttack:    return sf::IntRect(152, 122, 28, 50);
-			case Sprite_PurpleAttack:  return sf::IntRect(290, 122, 28, 50);
-			case Sprite_RedAttack:    return sf::IntRect(84, 222, 13, 45);
+			case Sprite_PurpleAttack:  return sf::IntRect(300, 122, 28, 50);
+			case Sprite_RedAttack:     return sf::IntRect(84, 222, 13, 45);
 
 			default: 
 				assert(false);

@@ -3,10 +3,7 @@
 #include "Game.h"
 #include "ResourcesManager.h"
 
-#include "Shield.h"
-#include "Bullet.h"
-#include "Invader.h"
-#include "InvaderType.h"
+#include "View.h"
 
 #include <SFML\Graphics\RectangleShape.hpp>
 
@@ -90,97 +87,8 @@ namespace UldericoAlpha
 
 	void InGameBehaviour::Render(sf::RenderTarget& target, float interpolation)
 	{
-		DrawShields(target);
-        DrawBullets(target, interpolation);
-        DrawPlayer(target, interpolation);
-		DrawInvaders(target, interpolation);
-	}
-
-    void InGameBehaviour::DrawShields(sf::RenderTarget& target)
-    {
-        sf::Sprite shieldSprite = m_resources.Get(Sprite_GreenShield);	
-
-        for (auto shield = m_world.ShieldsBegin(); shield != m_world.ShieldsEnd(); ++shield)
-		{
-            for(int y = 0; y < Shield::BLOCK_COUNT_HEIGHT; y++)
-            {
-                for(int x = 0; x < Shield::BLOCK_COUNT_WIDTH; x++)
-                {
-                    if (shield->FragmentExists(x, y))
-                    {
-                        Vector2D delta(x * Shield::BLOCK_WIDTH, y * Shield::BLOCK_HEIGHT);
-                        Vector2D position = shield->GetPosition() + delta;
-
-                        shieldSprite.SetPosition(toSFML(position));
-                        target.Draw(shieldSprite);
-                    }
-                }
-            }
-        }
-    }
-
-    void InGameBehaviour::DrawBullets(sf::RenderTarget& target, float interpolation)
-    {
-		sf::Sprite bulletSprite;
-
-        for (auto bullet = m_world.BulletsBegin(); bullet != m_world.BulletsEnd(); ++bullet)
-        {
-			switch (bullet->GetType())
-			{
-			case Bullet_Player: 
-				bulletSprite = m_resources.Get(Sprite_RedAttack);
-				break;
-
-			case Bullet_Green: 
-				bulletSprite = m_resources.Get(Sprite_GreenAttack);
-				break;
-
-			case Bullet_Blue:
-				bulletSprite = m_resources.Get(Sprite_BlueAttack);
-				break;
-
-			case Bullet_Purple: 
-				bulletSprite = m_resources.Get(Sprite_PurpleAttack);
-				break;
-			}
-
-            bulletSprite.SetPosition(toSFML(bullet->PredictPosition(interpolation)));
-
-            target.Draw(bulletSprite);
-		}
-    }
-
-    void InGameBehaviour::DrawPlayer(sf::RenderTarget& target, float interpolation)
-    {
-		sf::Sprite playerSprite = m_resources.Get(Sprite_RedDefender);
-        
-        Player const& player = m_world.GetPlayer();
-        playerSprite.SetPosition(toSFML(player.PredictPosition(interpolation)));
-
-        target.Draw(playerSprite);
-    }
-
-	void InGameBehaviour::DrawInvaders(sf::RenderTarget& target, float interpolation)
-	{
-		sf::Sprite invaderSprite;
-		for(auto invader = m_world.InvadersBegin(); invader != m_world.InvadersEnd(); ++invader)
-		{
-			switch(invader->GetType())
-			{
-			case InvaderType_Green:
-				invaderSprite = m_resources.Get(Sprite_GreenInvader);
-				break;
-			case InvaderType_Blue:
-				invaderSprite = m_resources.Get(Sprite_BlueInvader);
-				break;
-			case InvaderType_Purple:
-				invaderSprite = m_resources.Get(Sprite_PurpleInvader);
-				break;
-			}
-			invaderSprite.SetPosition(toSFML(invader->PredictPosition(interpolation)));
-
-			target.Draw(invaderSprite);
-		}
+		View view(target, m_resources, interpolation);
+		view.Draw(m_world);
 	}
 
     void InGameBehaviour::HandleKeyPressed(sf::Event::KeyEvent const& event)
