@@ -34,12 +34,15 @@ namespace UldericoAlpha
 		m_world.OnInvaderHit([&] { m_killedSound.Play(); });
 		m_world.OnPlayerHit([&] { m_explosionSound.Play(); });
 
+		m_levels.Load();
+
 		Reset();
 	}
 
     void InGameBehaviour::Reset()
     {
-        m_world.Load(Level(3.0f, 0.04f));
+		m_currentLevel = 0;
+        m_world.Load(CurrentLevel());
     }
 
 	void InGameBehaviour::Update()
@@ -75,10 +78,16 @@ namespace UldericoAlpha
 		if (!m_world.IsPlayerAlive())
 			HandleGameOver();
 
-		// TODO: Wenn alle Invader getötet wurden, dann neues Level beginnen
-		// Im Moment: Spiel beenden
 		if (!m_world.HasInvaders())
-			HandleGameOver();
+		{
+			++m_currentLevel;
+
+			// TODO: Hier hat der Spieler gewonnen, GameOver nur zu Testzwecken
+			if (m_currentLevel > m_levels.GetMaxLevel())
+				HandleGameOver();
+
+			m_world.Load(CurrentLevel());
+		}
 	}
 
 	void InGameBehaviour::OnEvent(sf::Event const& event)

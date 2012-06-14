@@ -10,6 +10,8 @@
 #include "PlayerAction.h"
 #include "Cooldown.h"
 
+#include "LevelList.h"
+
 #include <SFML\Audio\Sound.hpp>
 
 namespace UldericoAlpha
@@ -60,6 +62,8 @@ namespace UldericoAlpha
 		 */
 		void HandleGameOver();
 
+		Level const& CurrentLevel() const { return m_levels[m_currentLevel]; }
+
     private:
 		Game& m_game;
 		ResourcesManager& m_resources;
@@ -71,6 +75,9 @@ namespace UldericoAlpha
 		sf::Sound m_shootSound;
 		sf::Sound m_killedSound;
 		sf::Sound m_explosionSound;
+
+		LevelList m_levels;
+		std::size_t m_currentLevel;
 	};
 }
 
