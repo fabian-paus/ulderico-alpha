@@ -18,19 +18,28 @@ namespace UldericoAlpha
         static_cast<float>(Game::WINDOW_WIDTH),
         static_cast<float>(Game::WINDOW_HEIGHT));
 
-	static const int SHOOT_COOLDOWN_IN_TICKS = 5;
+	static const int SHOOT_COOLDOWN_IN_TICKS = 10;
 
 	InGameBehaviour::InGameBehaviour(Game& game, ResourcesManager& resources)
 		: m_game(game),
 		  m_resources(resources),
           m_action(PlayerAction_Nothing),
 		  m_shootCooldown(SHOOT_COOLDOWN_IN_TICKS),
-          m_world(WORLD_SIZE, Level(2.0f, 0.02f))
-	{ }
+          m_world(WORLD_SIZE)
+	{
+		m_shootSound = m_resources.Get(Sound_Shoot);
+		m_killedSound = m_resources.Get(Sound_Killed);
+		m_explosionSound = m_resources.Get(Sound_Explosion);
+
+		m_world.OnInvaderHit([&] { m_killedSound.Play(); });
+		m_world.OnPlayerHit([&] { m_explosionSound.Play(); });
+
+		Reset();
+	}
 
     void InGameBehaviour::Reset()
     {
-        m_world = World(WORLD_SIZE, Level(2.0f, 0.02f));
+        m_world.Load(Level(3.0f, 0.04f));
     }
 
 	void InGameBehaviour::Update()
@@ -56,6 +65,7 @@ namespace UldericoAlpha
 			if (m_shootCooldown.IsElapsed())
 			{
 				m_world.ShootFromPlayer();
+				m_shootSound.Play();
 				m_shootCooldown.Start();
 			}
             break;

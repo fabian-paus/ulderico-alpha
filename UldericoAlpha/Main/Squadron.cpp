@@ -4,11 +4,16 @@ namespace UldericoAlpha
 {	
     static const Vector2D SQUADRON_SIZE(123.0f * 0.4f, 87.0f * 0.4f);
 
-	Squadron::Squadron(float absoluteSpeed)
+	Squadron::Squadron()
 		: Object(Vector2D::ZERO, SQUADRON_SIZE),
 		  m_motionPattern(true),
-		  m_absoluteSpeed(absoluteSpeed)
+		  m_absoluteSpeed(0.0f)
 	{ }
+
+	void Squadron::SetAbsoluteSpeed(float speed)
+	{
+		m_absoluteSpeed = speed;
+	}
 
 	void Squadron::SetBoundingBox(Vector2D size, Vector2D position)
 	{

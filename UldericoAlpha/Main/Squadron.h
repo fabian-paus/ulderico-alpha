@@ -15,7 +15,9 @@ namespace UldericoAlpha
 	class Squadron : public Object
 	{
 	public:
-		Squadron(float absoluteSpeed);
+		Squadron();
+
+		void SetAbsoluteSpeed(float speed);
 				
 		void SetBoundingBox(Vector2D size, Vector2D position);
 

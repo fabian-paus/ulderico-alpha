@@ -67,6 +67,10 @@ namespace UldericoAlpha
         PlayerAction m_action;
 		Cooldown m_shootCooldown;
         World m_world;
+		
+		sf::Sound m_shootSound;
+		sf::Sound m_killedSound;
+		sf::Sound m_explosionSound;
 	};
 }
 

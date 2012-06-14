@@ -7,6 +7,8 @@
 #include "Level.h"
 #include "Squadron.h"
 
+#include <functional>
+
 namespace UldericoAlpha
 {
     /**
@@ -19,7 +21,14 @@ namespace UldericoAlpha
         /** 
         * Erstellt eine neue Welt mit gegebener Größe.
         */
-        World(Vector2D const& size, Level const& level);
+        World(Vector2D const& size);
+
+		/**
+		 * Lädt das gegebene Level in die aktuelle Welt.
+		 * Dabei werden die Gegner zurückgesetzt. Die Schilde werden nicht
+		 * wiederhergestellt. 
+		 */
+		void Load(Level const& level);
 
         /**
          * Gibt die Breite der zweidimensionalen Welt an.
@@ -68,12 +77,18 @@ namespace UldericoAlpha
          */
         void Update();
 
+		typedef std::function<void()> Callback;
+
+		void OnInvaderHit(Callback const& callback) { m_onInvaderHit = callback; }
+
+		void OnPlayerHit(Callback const& callback) {m_onPlayerHit = callback; }
+
     private:
         void InitializePlayer();
 
         void InitializeShields();
 
-		void InitializeSquadron();
+		void InitializeSquadron(float speed);
 
         void UpdatePlayer();
 
@@ -93,6 +108,9 @@ namespace UldericoAlpha
         std::vector<Bullet> m_bullets;
 		Squadron m_squadron;
 		float m_shootChance;
+
+		Callback m_onInvaderHit;
+		Callback m_onPlayerHit;
     };
 
 
