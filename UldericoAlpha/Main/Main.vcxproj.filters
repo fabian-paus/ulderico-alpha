@@ -74,6 +74,9 @@
     <ClCompile Include="BulletType.cpp">
       <Filter>World</Filter>
     </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -102,6 +105,9 @@
     </Filter>
     <Filter Include="AI">
       <UniqueIdentifier>{43147c99-2017-49c4-b88f-ee5ce38e3bcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{26480aff-3c41-4ae4-a117-697b9ff776ad}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="BulletType.h">
       <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>View</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

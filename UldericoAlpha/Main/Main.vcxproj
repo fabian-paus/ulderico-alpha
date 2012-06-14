@@ -107,6 +107,7 @@
     <ClCompile Include="Squadron.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="View.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="Behaviour.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="View.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
