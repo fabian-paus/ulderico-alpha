@@ -68,14 +68,17 @@
     <ClCompile Include="MotionPattern.cpp">
       <Filter>AI</Filter>
     </ClCompile>
-    <ClCompile Include="Level.cpp">
-      <Filter>World</Filter>
-    </ClCompile>
     <ClCompile Include="BulletType.cpp">
       <Filter>World</Filter>
     </ClCompile>
     <ClCompile Include="View.cpp">
       <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelList.cpp">
+      <Filter>Controller</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -242,14 +245,17 @@
     <ClInclude Include="MotionPattern.h">
       <Filter>AI</Filter>
     </ClInclude>
-    <ClInclude Include="Level.h">
-      <Filter>World</Filter>
-    </ClInclude>
     <ClInclude Include="BulletType.h">
       <Filter>World</Filter>
     </ClInclude>
     <ClInclude Include="View.h">
       <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelList.h">
+      <Filter>Controller</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
