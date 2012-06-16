@@ -101,7 +101,8 @@ namespace UldericoAlpha
 	void World::InitializeSquadron(float speed)
 	{
 		m_squadron.SetAbsoluteSpeed(speed);
-		m_squadron.SetBoundingBox(m_size, Vector2D::ZERO);
+		Vector2D boundingSize(m_size.GetX(), m_size.GetY() - 220.0f);
+		m_squadron.SetBoundingBox(boundingSize, Vector2D(0.0f, 50.0f));
 		m_squadron.Initialize();
 	}
 

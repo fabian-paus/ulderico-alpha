@@ -39,7 +39,11 @@ namespace UldericoAlpha
 
 	private:
 		std::vector<Invader> m_invaders;
+		Vector2D GetSpeed();
+		void SetSpeed(Vector2D speed);
 		BoundingBox m_boundingBox;
+		bool CanMove();
+		void UpdateInvaders();
 		MotionPattern m_motionPattern;
 		float m_absoluteSpeed;
 		static const int MARGIN = 6;		

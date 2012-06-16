@@ -3,9 +3,10 @@
 namespace UldericoAlpha
 {	
     static const Vector2D SQUADRON_SIZE(123.0f * 0.4f, 87.0f * 0.4f);
+	static const Vector2D SQUADRON_POSITION(0.0f, 50.0f);
 
 	Squadron::Squadron()
-		: Object(Vector2D::ZERO, SQUADRON_SIZE),
+		: Object(SQUADRON_POSITION, SQUADRON_SIZE),
 		  m_motionPattern(true),
 		  m_absoluteSpeed(0.0f)
 	{ }
@@ -32,7 +33,9 @@ namespace UldericoAlpha
 			for(int i = 0; i < 10; i++)
 			{
 				Invader invader((InvaderType)j);
-				invader.SetPosition(Vector2D((invader.GetSize().GetX() + MARGIN) * i, (invader.GetSize().GetY() + MARGIN) * j));
+				float posX = ((invader.GetSize().GetX() + MARGIN) * i) + this->GetPosition().GetX();
+				float posY = ((invader.GetSize().GetY() + MARGIN) * j) + this->GetPosition().GetY();
+				invader.SetPosition(Vector2D(posX, posY));
 				invader.SetSpeed(speed);
 				m_invaders.push_back(invader);
 			}
@@ -74,29 +77,32 @@ namespace UldericoAlpha
 		if (m_invaders.empty())
 			return;
 
-		Vector2D speed;
+		while(!CanMove())
+		{
+			m_motionPattern.SetNextAction();
+			SetSpeed(GetSpeed());
+		}	
+		SetSpeed(GetSpeed());	
+		UpdateInvaders();
+	}
 
+	bool Squadron::CanMove()
+	{
 		for(auto invader = m_invaders.begin(); invader != m_invaders.end(); ++invader)
 		{
+			//Überprüfen ob die Invader sich noch in der Boundingbox befinden
 			BoundingBoxAction boundingBoxAction = m_boundingBox.InBoundingBox(*invader);
 			if(boundingBoxAction != BoundingBoxAction_Move)
 			{
-				m_motionPattern.SetNextAction();
-				if(m_motionPattern.GetAction() == InvaderAction_MoveDown && boundingBoxAction == BoundingBoxAction_CollisionBottom)
-					m_motionPattern.SetNextAction();
-				break;
+				return false;
 			}
 		}
-/*
-		std::for_each(m_invaders.begin(), m_invaders.end(), [&] (Invader const& invader)
-		{
-			BoundingBoxAction boundingBoxAction = m_boundingBox.InBoundingBox(invader);
-			if(boundingBoxAction != BoundingBoxAction_Move)
-			{
-				m_motionPattern.SetNextAction();
-			}
-		});
-*/
+		return true;
+	}
+
+	Vector2D Squadron::GetSpeed()
+	{
+		Vector2D speed;
 		switch(m_motionPattern.GetAction())
 		{
 		case InvaderAction_MoveDown:
@@ -111,12 +117,22 @@ namespace UldericoAlpha
 		default:
 			speed = Vector2D::ZERO;
 		}
+		return speed;
+	}
 
+	void Squadron::SetSpeed(Vector2D speed)
+	{
 		for (auto invader = m_invaders.begin(); invader != m_invaders.end(); ++invader)
 		{
 			if(speed != Vector2D::ZERO)
 				invader->SetSpeed(speed);
+		}
+	}
 
+	void Squadron::UpdateInvaders()
+	{
+		for (auto invader = m_invaders.begin(); invader != m_invaders.end(); ++invader)
+		{
 			invader->Update();
 		}
 	}
