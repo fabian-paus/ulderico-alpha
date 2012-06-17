@@ -16,7 +16,7 @@ namespace UldericoAlpha
 		{
 			case InvaderType_Purple: return 10;
 			case InvaderType_Blue: return 20;
-			case InvaderType_Green: return 50;
+			case InvaderType_Green: return 30;
 			case InvaderType_MotherShip: return 100;
 		}
 		return 0;
