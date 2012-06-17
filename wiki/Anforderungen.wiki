@@ -18,8 +18,11 @@ Highscore:
 
 Spiel:
   * Das Spiel kann pausiert werden.
+  * Wie im echten Spiel mit STRG + P
   * Während einer Pause finden keine Aktionen (Spieler und Computer) im Spiel statt.
+  * Es wird der Pause Bildschirm angezeigt
   * Das Spiel kann nach einer Pause wieder fortgesetzt werden.
+  * Auch hier wie im echten Spiel mit der Taste P
   * Das Spiel kann abgebrochen werden. Das bedeutet Rückkehr zum Titelbildschirm ohne Speichern von Zwischenergebnissen .
 
 Steuerung:
