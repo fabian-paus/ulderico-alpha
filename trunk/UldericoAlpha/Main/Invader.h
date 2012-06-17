@@ -28,6 +28,11 @@ namespace UldericoAlpha
 
 		void Kill() { m_alive = false; }
 
+		/**
+		* Gibt für den Invader (abhängig vom InvaderTyp) den Score zurück.
+		*/
+		int GetScore() const;
+
 	private:
 		InvaderType m_type;
 		bool m_alive;
