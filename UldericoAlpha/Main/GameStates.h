@@ -10,6 +10,7 @@ namespace UldericoAlpha
 	{
 		GameState_Menu,
 		GameState_InGame,
+		GameState_InPause,
 		GameState_GameOver,
 		GameState_Highscore
 	};

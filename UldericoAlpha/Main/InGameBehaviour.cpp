@@ -162,7 +162,12 @@ namespace UldericoAlpha
             if (m_action == PlayerAction_Shoot)
                 m_action = PlayerAction_Nothing;
             break;
-        }
+
+		case sf::Keyboard::P:
+			if (event.Control)
+				m_game.ChangeState(GameState_InPause);
+			break;
+		}
     }
 
 	void InGameBehaviour::HandleGameOver()

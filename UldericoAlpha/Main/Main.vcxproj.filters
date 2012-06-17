@@ -80,6 +80,9 @@
     <ClCompile Include="LevelList.cpp">
       <Filter>Controller</Filter>
     </ClCompile>
+    <ClCompile Include="InPauseBehaviour.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -256,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="LevelList.h">
       <Filter>Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="InPauseBehaviour.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

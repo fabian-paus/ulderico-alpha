@@ -92,6 +92,7 @@
     <ClCompile Include="GameOverBehaviour.cpp" />
     <ClCompile Include="HighscoreBehaviour.cpp" />
     <ClCompile Include="InGameBehaviour.cpp" />
+    <ClCompile Include="InPauseBehaviour.cpp" />
     <ClCompile Include="Invader.cpp" />
     <ClCompile Include="InvaderStep.cpp" />
     <ClCompile Include="Level.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="GameStates.h" />
     <ClInclude Include="HighscoreBehaviour.h" />
     <ClInclude Include="InGameBehaviour.h" />
+    <ClInclude Include="InPauseBehaviour.h" />
     <ClInclude Include="Invader.h" />
     <ClInclude Include="InvaderAction.h" />
     <ClInclude Include="InvaderStep.h" />
