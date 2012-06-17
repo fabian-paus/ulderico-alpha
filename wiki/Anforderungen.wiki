@@ -51,9 +51,10 @@ Treffer:
 
 Punkte: 
   * Die unterschiedlichen Gegnertypen geben bei Abschuss verschiedene Punkte.
-  * Typ 1: 10 Punkte
-  * Typ 2: 20 Punkte
-  * Typ 3: 30 Punkte
+  * Typ 1: 10 Punkte (Purple)
+  * Typ 2: 20 Punkte (Blue)
+  * Typ 3: 30 Punkte (Green)
+  * Typ 4: 100 Punkte (Mothership)
 
 Game Over:
   * Hat der Spieler keine Leben mehr, ist die Spielrunde beendet.
