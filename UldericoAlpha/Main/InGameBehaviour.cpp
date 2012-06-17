@@ -6,6 +6,7 @@
 #include "View.h"
 
 #include <SFML\Graphics\RectangleShape.hpp>
+#include <sstream>
 
 namespace UldericoAlpha
 {
@@ -108,8 +109,21 @@ namespace UldericoAlpha
 	{
 		View view(target, m_resources, interpolation);
 		view.Draw(m_world);
-	}
 
+		// Render game informations: Score and Lives
+		std::stringstream stream;
+		stream << "SCORE " << m_world.GetPlayer().GetScore();	
+		auto score = m_resources.GetText(stream.str());
+		score.SetPosition(10.0f, 2.5f);
+		target.Draw(score);
+
+		stream.str("");
+		stream << "LIVES " << m_world.GetPlayer().GetLives();
+		auto lives = m_resources.GetText(stream.str());
+		lives.SetPosition(Game::WINDOW_WIDTH - lives.GetGlobalBounds().Width - 10.0f, 2.5f);
+		target.Draw(lives);
+	}
+	
     void InGameBehaviour::HandleKeyPressed(sf::Event::KeyEvent const& event)
     {
         switch (event.Code)

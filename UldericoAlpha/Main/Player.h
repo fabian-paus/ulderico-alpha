@@ -24,7 +24,7 @@ namespace UldericoAlpha
 		bool IsAlive() const { return GetLives() > 0; }
 
 		/**
-		 * Der Spieler gewinnt eine Leben hinzu.
+		 * Der Spieler gewinnt ein Leben hinzu.
 		 */
 		void AddLife() { ++m_lives; }
 
@@ -33,8 +33,20 @@ namespace UldericoAlpha
 		 */
 		void LoseLife() { --m_lives; }
 
+		/**
+		 * Gibt den aktuellen Score des Spielers zurück.
+		 */
+		int GetScore() const { return m_score; }
+
+		/**
+		 * Fügt den Wert 'value' zum Score hinzu.
+		 * (Negativer Wert zum abziehen, falls das irgendwann unterstützt werden soll)
+		 */
+		void AddToScore(int value)	{ m_score += value; }
+
 	private:
 		int m_lives;
+		int m_score;
 	};
 }
 

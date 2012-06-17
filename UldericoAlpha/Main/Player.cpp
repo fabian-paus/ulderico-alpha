@@ -10,6 +10,7 @@ namespace UldericoAlpha
 
     Player::Player(int lives)
         : Object(Vector2D::ZERO, PLAYER_SIZE),
-		  m_lives(lives)
+		  m_lives(lives),
+		  m_score(0)
     { }
 }

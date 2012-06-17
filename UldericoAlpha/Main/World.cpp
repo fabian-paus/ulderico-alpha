@@ -195,23 +195,17 @@ namespace UldericoAlpha
             return false;
         });
 
-        m_bullets.erase(eraseBullets, m_bullets.end());
 
-		/*
-		 * TODO cschl:
-		 * Hier muss ich die Punkte zählen
-		 * 
-		 * Enum für Invader typen ... In dem Invader eine Methode einbauen, die Punkte für den Invader TOd bestimmen
-		 * Dann hier zusammen rechnen
-		 * 
-		 * Wohin mit den POints?!
-		 * 
-		 *		=> Es soll ein Score geben, Score implementieren...
-		 *		In den Spieler ein Integer Field "Score" einbauen
-		 */
+		// Abgeschossene invaders geben Punkte..., zum Score des Spielers addieren
+		for (auto invader = m_squadron.InvadersBegin(); invader != m_squadron.InvadersEnd(); ++invader)
+		{
+			if (!invader->IsAlive())
+				m_player.AddToScore(invader->GetScore());
+		}
 
-
+		m_bullets.erase(eraseBullets, m_bullets.end());
 		m_squadron.EraseInvaders();
+		
 
 		// Wenn der Spieler mindestens einmal getroffen wurde, verliert er ein Leben
 		if (playerWasHit)
