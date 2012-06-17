@@ -2,6 +2,7 @@
 
 #include "MenuBehaviour.h"
 #include "InGameBehaviour.h"
+#include "InPauseBehaviour.h"
 #include "GameOverBehaviour.h"
 #include "HighscoreBehaviour.h"
 
@@ -97,6 +98,7 @@ namespace UldericoAlpha
         // um Speicherprobleme zu umgehen.
         static MenuBehaviour menuBehaviour(*this, m_resources);
         static InGameBehaviour inGameBehaviour(*this, m_resources);
+		static InPauseBehaviour inPauseBehaviour(*this, m_resources);
         static GameOverBehaviour gameOverBehaviour(*this, m_resources);
         static HighscoreBehaviour highscoreBehaviour(*this, m_resources);
 
@@ -104,6 +106,9 @@ namespace UldericoAlpha
         {
         case GameState_Menu:
             return &menuBehaviour;
+
+		case GameState_InPause:
+			return &inPauseBehaviour;
 
         case GameState_InGame:
             return &inGameBehaviour;
