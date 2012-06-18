@@ -31,8 +31,7 @@ namespace UldericoAlpha
 	{
 	private:
 		HighscoreEntry* Placement[10];
-		void Insert(short Place);
-		short DeterminePlace(int Points);		// Ermittelt die Platzierung in der Tabelle
+		void Insert(HighscoreEntry* NewEntry);
 	
 	public:
 		HighscoreList();
@@ -42,8 +41,8 @@ namespace UldericoAlpha
 
 		HighscoreEntry* GetEntry(int Index);
 
-		bool SaveToFile();
-		bool LoadFromFile();
+		void SaveToFile();
+		void LoadFromFile();
 	};
 }
 #endif // ULDERICO_ALPHA_HIGHSCORE_H_INCLUDED
