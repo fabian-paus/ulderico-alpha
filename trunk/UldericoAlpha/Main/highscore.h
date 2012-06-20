@@ -32,12 +32,13 @@ namespace UldericoAlpha
 	private:
 		HighscoreEntry* Placement[10];
 		void Insert(HighscoreEntry* NewEntry);
-	
+		bool CanInsert(int Points);
+
 	public:
 		HighscoreList();
 		~HighscoreList();
 
-		bool CanInsert(int Points);		
+		bool Add_HighscoreEntry (int Score);				
 
 		HighscoreEntry* GetEntry(int Index);
 
