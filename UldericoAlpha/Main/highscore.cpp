@@ -1,6 +1,7 @@
 #include "highscore.h"
 #include "string.h"
 #include <fstream>
+#include <iostream>
 
 
 namespace UldericoAlpha
@@ -17,9 +18,14 @@ namespace UldericoAlpha
 	}	
 	void HighscoreEntry::SetName(const char* Input)
 	{
-		HighscoreEntry::NameLength = strlen(Input);
-		HighscoreEntry::Name = new char[NameLength + 1];
-		strcpy(HighscoreEntry::Name, Input);
+		NameLength = strlen(Input);
+		Name = new char[NameLength + 1];
+		int i = 0;
+		for( ; i < NameLength; i++)
+		{
+			Name[i] = Input[i];
+		}
+		Name[i] = 0;
 	}
 
 	// Funktionen der Highscore Liste
@@ -72,13 +78,13 @@ namespace UldericoAlpha
 		std::fstream File;
 		File.open("Highscore.txt", std::ios::in);
 
-		char* string;
+		char* tmp = new char[20];
 		int points;
 
 		for(int i = 0; i < 10 && !File.eof(); i++)
 		{
-			File >> string;
-			Placement[i]->SetName(string);
+			File >> tmp;
+			Placement[i]->SetName(tmp);
 			File >> points;
 			Placement[i]->SetScore(points);
 		}
@@ -86,9 +92,9 @@ namespace UldericoAlpha
 	}
 	void HighscoreList::Insert(HighscoreEntry* NewEntry)
 	{
-		delete[] Placement[10];		// Gibt Speicher des 10 Eintrages wieder frei
-		Placement[10] = NewEntry;
-		HighscoreEntry* tmp;
+		HighscoreEntry* tmp = Placement[9];
+		Placement[9] = NewEntry;
+		//delete[] tmp;		// Gibt Speicher des 10 Eintrages wieder frei
 
 		// Voraussetzung: Liste ist sortiert
 		for(int i = 9; i; i--)
@@ -100,5 +106,23 @@ namespace UldericoAlpha
 				Placement[i] = tmp;
 			}
 		}
+	}
+	bool HighscoreList::Add_HighscoreEntry(int Score)
+	{
+		if(CanInsert(Score))
+		{
+			HighscoreEntry* NewEntry = new HighscoreEntry;
+			char* name = new char[20];
+
+			std::cout << "Enter your name: ";
+			std::cin >> name;
+			NewEntry->SetName(name);
+			NewEntry->SetScore(Score);
+			Insert(NewEntry);
+
+			return 1;
+		}
+		else
+			return 0;
 	}
 }
