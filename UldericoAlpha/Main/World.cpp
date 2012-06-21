@@ -21,10 +21,17 @@ namespace UldericoAlpha
     {
 		// Speicher für Schüsse reservieren, um mehrfache Allokationen zu vermeiden
 		m_bullets.reserve(32);
-
-        InitializePlayer();
-        InitializeShields();
+		m_shields.reserve(4);
     }
+
+	void World::Reset()
+	{
+		m_player = Player(INITIAL_PLAYER_LIVES);
+		m_bullets.clear();
+		InitializePlayer();
+		InitializeShields();
+		m_squadron.Initialize();
+	}
 
 	void World::Load(Level const& level)
 	{
@@ -89,8 +96,7 @@ namespace UldericoAlpha
 
     void World::InitializeShields()
     {
-        // Speicher reservieren, um mehrfache Allokationen zu vermeiden
-        m_shields.reserve(4);
+		m_shields.clear();
 
         m_shields.push_back(Shield( 60, 420));
 		m_shields.push_back(Shield(240, 420));

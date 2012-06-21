@@ -23,6 +23,8 @@ namespace UldericoAlpha
         */
         World(Vector2D const& size);
 
+		void Reset();
+
 		/**
 		 * Lädt das gegebene Level in die aktuelle Welt.
 		 * Dabei werden die Gegner zurückgesetzt. Die Schilde werden nicht
