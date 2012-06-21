@@ -43,6 +43,7 @@ namespace UldericoAlpha
     void InGameBehaviour::Reset()
     {
 		m_currentLevel = 0;
+		m_world.Reset();
         m_world.Load(CurrentLevel());
     }
 

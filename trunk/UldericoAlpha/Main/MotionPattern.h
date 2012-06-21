@@ -18,6 +18,9 @@ namespace UldericoAlpha
 		InvaderAction GetAction();
 
 		void SetNextAction();
+
+		void Clear();
+
 	private:
 		std::size_t m_position;
 		bool m_iterative;

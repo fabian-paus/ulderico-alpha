@@ -9,7 +9,9 @@ namespace UldericoAlpha
 		: Object(SQUADRON_POSITION, SQUADRON_SIZE),
 		  m_motionPattern(true),
 		  m_absoluteSpeed(0.0f)
-	{ }
+	{
+		m_invaders.reserve(30);
+	}
 
 	void Squadron::SetAbsoluteSpeed(float speed)
 	{
@@ -23,8 +25,7 @@ namespace UldericoAlpha
 
 	void Squadron::Initialize()
 	{
-		// Invaders initialisieren
-		m_invaders.reserve(30);
+		m_invaders.clear();
 				
 		Vector2D speed(m_absoluteSpeed, 0.0f);
 
@@ -40,6 +41,8 @@ namespace UldericoAlpha
 				m_invaders.push_back(invader);
 			}
 		}
+
+		m_motionPattern.Clear();
 
 		//Bewegungsablauf festlegen
 		m_motionPattern.AddStep(InvaderAction_MoveRight, -1);

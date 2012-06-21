@@ -61,4 +61,10 @@ namespace UldericoAlpha
 			}
 		}
 	}
+
+	void MotionPattern::Clear()
+	{
+		m_invaderSteps.clear();
+		m_position = 0;
+	}
 }
