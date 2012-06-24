@@ -36,12 +36,11 @@ namespace UldericoAlpha
 		/**
 		* Margin beschreibt den Abstand zwischen den Highscore-Elementen
 		*/
-		static const int MARGIN = 30;
+		static const int MARGIN = 20;
 
 		/**
 		* Namen für die Highscore-Elemente
 		*/
-		static const sf::String STR_HIGHSCORELISTE;
 		static const sf::String STR_BACK;
 
 		Game& m_game;
