@@ -1,5 +1,7 @@
 #include "HighscoreList.h"
 #include <fstream>
+#include "HighscoreBehaviour.h"
+#include <string>
 
 
 
@@ -46,6 +48,8 @@ namespace UldericoAlpha
 			Placement[i].SetScore(points);
 		}
 		File.close();
+		//HighscoreBehaviour::STR_PLACEMENT_NAME_FIRST = Placement[0].GetName();
+
 	}
 	void HighscoreList::Insert (const HighscoreEntry& NewEntry)
 	{

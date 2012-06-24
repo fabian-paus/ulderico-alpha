@@ -91,6 +91,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameOverBehaviour.cpp" />
     <ClCompile Include="HighscoreBehaviour.cpp" />
+    <ClCompile Include="HighscoreEntry.cpp" />
+    <ClCompile Include="HighscoreList.cpp" />
     <ClCompile Include="InGameBehaviour.cpp" />
     <ClCompile Include="InPauseBehaviour.cpp" />
     <ClCompile Include="Invader.cpp" />
@@ -113,6 +115,7 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Highscore.txt" />
     <None Include="res\font\ca.ttf" />
     <None Include="res\img\characters.png" />
     <None Include="res\img\invaders.png" />
@@ -140,6 +143,8 @@
     <ClInclude Include="GameOverBehaviour.h" />
     <ClInclude Include="GameStates.h" />
     <ClInclude Include="HighscoreBehaviour.h" />
+    <ClInclude Include="HighscoreEntry.h" />
+    <ClInclude Include="HighscoreList.h" />
     <ClInclude Include="InGameBehaviour.h" />
     <ClInclude Include="InPauseBehaviour.h" />
     <ClInclude Include="Invader.h" />

@@ -83,6 +83,12 @@
     <ClCompile Include="InPauseBehaviour.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="HighscoreEntry.cpp">
+      <Filter>Highscore</Filter>
+    </ClCompile>
+    <ClCompile Include="HighscoreList.cpp">
+      <Filter>Highscore</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Ressources">
@@ -114,6 +120,9 @@
     </Filter>
     <Filter Include="View">
       <UniqueIdentifier>{26480aff-3c41-4ae4-a117-697b9ff776ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Highscore">
+      <UniqueIdentifier>{44cb7440-d101-4db2-9a60-e8526278df94}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +170,9 @@
     </None>
     <None Include="res\Levels.xml">
       <Filter>Ressources</Filter>
+    </None>
+    <None Include="Highscore.txt">
+      <Filter>Highscore</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +274,12 @@
     </ClInclude>
     <ClInclude Include="InPauseBehaviour.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="HighscoreEntry.h">
+      <Filter>Highscore</Filter>
+    </ClInclude>
+    <ClInclude Include="HighscoreList.h">
+      <Filter>Highscore</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
