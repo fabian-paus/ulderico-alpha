@@ -41,26 +41,7 @@ namespace UldericoAlpha
 		/**
 		* Namen für die Highscore-Elemente
 		*/
-		static const sf::String STR_PLACEMENT_NAME_FIRST;
-		static const int STR_SCORE_NAME_FIRST;
-		static const sf::String STR_PLACEMENT_NAME_SECOND;
-		static const int STR_SCORE_NAME_SECOND;
-		static const sf::String STR_PLACEMENT_NAME_THIRD;
-		static const int STR_SCORE_NAME_THIRD;
-		static const sf::String STR_PLACEMENT_NAME_FOURTH;
-		static const int STR_SCORE_NAME_FOURTH;
-		static const sf::String STR_PLACEMENT_NAME_FIFTH;
-		static const int STR_SCORE_NAME_FIFTH;
-		static const sf::String STR_PLACEMENT_NAME_SIXTH;
-		static const int STR_SCORE_NAME_SIXTH;
-		static const sf::String STR_PLACEMENT_NAME_SEVENTH;
-		static const int STR_SCORE_NAME_SEVENTH;
-		static const sf::String STR_PLACEMENT_NAME_EIGHT;
-		static const int STR_SCORE_NAME_EIGHT;
-		static const sf::String STR_PLACEMENT_NAME_NINTH;
-		static const int STR_SCORE_NAME_NINTH;
-		static const sf::String STR_PLACEMENT_NAME_TENTH;
-		static const int STR_SCORE_NAME_TENTH;
+		static const sf::String STR_HIGHSCORELISTE;
 		static const sf::String STR_BACK;
 
 		Game& m_game;
