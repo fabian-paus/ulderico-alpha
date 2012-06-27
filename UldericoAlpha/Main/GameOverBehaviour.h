@@ -3,6 +3,8 @@
 
 #include "Behaviour.h"
 
+#include <string>
+
 namespace UldericoAlpha
 {
     class Game;
@@ -32,8 +34,25 @@ namespace UldericoAlpha
 		virtual void Render(sf::RenderTarget& target, float interpolation);
 
 	private:
+		static const int MAX_NAME_LENGTH = 10;
+
+		void LeaveGameOver();
+
+		void HandleKeyInput(sf::Keyboard::Key key);
+
+		bool AwaitsNameInput() const;
+
+		bool IsPartOfName(sf::Keyboard::Key key) const;
+
+		void AppendToName(sf::Keyboard::Key key);
+
+	private:
 		Game& m_game;
 		ResourcesManager& m_resources;
+
+		int m_score;
+		std::string m_name;
+		bool m_isHighscore;
 	};
 }
 

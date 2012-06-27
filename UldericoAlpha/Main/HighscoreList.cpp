@@ -34,22 +34,18 @@ namespace UldericoAlpha
 
 	void HighscoreList::LoadFromFile()
 	{
-		std::fstream File;
-		File.open("Highscore.txt", std::ios::in);
+		std::ifstream file("Highscore.txt");
 
-		std::string tmp;
-		int points;
-
-		for(int i = 0; i < MAX_ENTRIES && !File.eof(); i++)
+		for(int i = 0; i < MAX_ENTRIES && file; i++)
 		{
-			File >> tmp;
-			Placement[i].SetName(tmp);
-			File >> points;
-			Placement[i].SetScore(points);
-		}
-		File.close();
-		//HighscoreBehaviour::STR_PLACEMENT_NAME_FIRST = Placement[0].GetName();
+			std::string name;
+			int points = 0;
 
+			file >> name;
+			file >> points;
+
+			Placement[i] = HighscoreEntry(name, points);
+		}
 	}
 	void HighscoreList::Insert (const HighscoreEntry& NewEntry)
 	{
