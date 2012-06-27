@@ -15,10 +15,6 @@ namespace UldericoAlpha
 
     void GameOverBehaviour::Update()
 	{
-		m_score = m_game.GetFinalScore();
-
-		// TODO: Hier die Highscore-Liste abfragen
-		m_isHighscore = true; 
 	}
 
     void GameOverBehaviour::OnEvent(sf::Event const& event)
@@ -33,35 +29,57 @@ namespace UldericoAlpha
         gameOverText.SetPosition(300.0f, 50.0f);
 
 		std::ostringstream scoreStream;
-		scoreStream << "You have scored " << m_score << " points.";
+		scoreStream << "You have scored " << m_game.GetFinalScore() << " points.";
 		sf::Text scoreText = m_resources.GetText(scoreStream.str());
 		scoreText.SetPosition(50.0f, 100.0f);
 
-		sf::Text enterNameText = m_resources.GetText("Enter Name:");
-		enterNameText.SetPosition(130.0f, 200.0f);
-
-		sf::Text nameText = m_resources.GetText(m_name);
-		nameText.SetPosition(150.0f + enterNameText.GetGlobalBounds().Width, 200.0f);
-
-		sf::Text returnText = m_resources.GetText("Press Enter to return to menu");
-        returnText.SetPosition(50.0f, 300.0f);
-        
 		target.Draw(scoreText);
-		target.Draw(enterNameText);
-		target.Draw(nameText);
 		target.Draw(gameOverText);
-        target.Draw(returnText);
+
+		if (IsHighscore())
+		{
+			sf::Text enterNameText = m_resources.GetText("Enter Name:");
+			enterNameText.SetPosition(130.0f, 200.0f);
+
+			sf::Text nameText = m_resources.GetText(m_name);
+			nameText.SetPosition(150.0f + enterNameText.GetGlobalBounds().Width, 200.0f);
+
+			sf::Text returnText = m_resources.GetText("Press Enter to confirm your name");
+			returnText.SetPosition(20.0f, 300.0f);
+
+			target.Draw(enterNameText);
+		    target.Draw(nameText);
+			target.Draw(returnText);
+		}
+		else
+		{
+			sf::Text lostText = m_resources.GetText("You did not make into the top 10");
+			lostText.SetPosition(30.0f, 200.0f);
+
+			sf::Text returnText = m_resources.GetText("Press Enter to return to menu");
+			returnText.SetPosition(50.0f, 300.0f);
+
+			target.Draw(lostText);
+		    target.Draw(returnText);
+		}
 	}
 
 	void GameOverBehaviour::LeaveGameOver()
 	{
-		m_score = 0;
-		m_name.clear();
+		if (IsHighscore())
+		{
+			HighscoreList& highscore = m_game.GetHighscore();
+			int score = m_game.GetFinalScore();
 
-		if (m_isHighscore)
+			highscore.Insert(HighscoreEntry(m_name, score));
+			highscore.SaveToFile();
+
 			m_game.ChangeState(GameState_Highscore);
+		}
 		else
 			m_game.ChangeState(GameState_Menu);
+
+		m_name.clear();
 	}
 
 	void GameOverBehaviour::HandleKeyInput(sf::Keyboard::Key key)
@@ -75,7 +93,7 @@ namespace UldericoAlpha
 
 	bool GameOverBehaviour::AwaitsNameInput() const
 	{
-		return m_isHighscore && m_name.length() < MAX_NAME_LENGTH;
+		return IsHighscore() && m_name.length() < MAX_NAME_LENGTH;
 	}
 
 	bool GameOverBehaviour::IsPartOfName(sf::Keyboard::Key key) const
@@ -93,5 +111,11 @@ namespace UldericoAlpha
 			char character = key - sf::Keyboard::A + 'A';
 			m_name.push_back(character);
 		}
+	}
+
+	bool GameOverBehaviour::IsHighscore() const
+	{
+		int score = m_game.GetFinalScore();
+		return m_game.GetHighscore().CanInsert(score); 
 	}
 }

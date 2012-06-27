@@ -46,13 +46,13 @@ namespace UldericoAlpha
 
 		void AppendToName(sf::Keyboard::Key key);
 
+		bool IsHighscore() const;
+
 	private:
 		Game& m_game;
 		ResourcesManager& m_resources;
 
-		int m_score;
 		std::string m_name;
-		bool m_isHighscore;
 	};
 }
 
