@@ -19,8 +19,9 @@ namespace UldericoAlpha
 	Game::Game() 
         : m_window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), 
                    WINDOW_TITLE, WINDOW_STYLE),
-          m_currentBehaviour(GetBehaviour(GameState_Menu)),
-          m_frameCount(0)
+		  m_frameCount(0),
+          m_currentBehaviour(GetBehaviour(GameState_Menu))
+          
 	{ 
         // Einmalig den Zufallszahlengenerator initialieren
         std::srand(static_cast <unsigned int> (std::time(NULL)));

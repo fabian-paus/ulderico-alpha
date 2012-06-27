@@ -22,7 +22,7 @@ namespace UldericoAlpha
 
 	void HighscoreBehaviour::InitializeHighscoreItems()
 	{
-		HighscoreList list;
+		HighscoreList& list = m_game.GetHighscore();
 		list.LoadFromFile();
 
 		highscoreItems.reserve(HighscoreList::MAX_ENTRIES);
