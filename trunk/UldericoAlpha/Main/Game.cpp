@@ -25,6 +25,7 @@ namespace UldericoAlpha
 	{ 
         // Einmalig den Zufallszahlengenerator initialieren
         std::srand(static_cast <unsigned int> (std::time(NULL)));
+		m_highscore.LoadFromFile();
     }
 
 	void Game::StartGameLoop()

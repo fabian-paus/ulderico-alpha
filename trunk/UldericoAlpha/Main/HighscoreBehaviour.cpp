@@ -12,20 +12,20 @@ namespace UldericoAlpha
 		: m_game(game),
 		m_resources(resources)
 	{ 
-		InitializeHighscoreItems();
-		SetHighscoreItemsPosition();
+		highscoreItems.reserve(HighscoreList::MAX_ENTRIES);
 	}
 
 	void HighscoreBehaviour::Update()
 	{ 
+		InitializeHighscoreItems();
+		SetHighscoreItemsPosition();
 	}
 
 	void HighscoreBehaviour::InitializeHighscoreItems()
 	{
 		HighscoreList& list = m_game.GetHighscore();
-		list.LoadFromFile();
 
-		highscoreItems.reserve(HighscoreList::MAX_ENTRIES);
+		highscoreItems.clear();
 		
 		HighscoreEntry entry;
 		for( int i = 0; i < HighscoreList::MAX_ENTRIES; i++ )
