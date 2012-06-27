@@ -3,6 +3,7 @@
 
 #include "GameStates.h"
 #include "ResourcesManager.h"
+#include "HighscoreList.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <string>
@@ -52,6 +53,11 @@ namespace UldericoAlpha
 		 */
 		int GetFinalScore() const;
 
+		/**
+		 * Gibt die zentrale Highscore-Liste zurück.
+		 */
+		HighscoreList& GetHighscore() { return m_highscore; }
+
 	private:
         /**
          * Verarbeitet eingehende Ereignisse (z.B. Tastatureingaben).
@@ -88,8 +94,9 @@ namespace UldericoAlpha
         sf::Clock m_frameTime;
         int m_frameCount;
 
-		Behaviour* m_currentBehaviour;
+		HighscoreList m_highscore;
 		int m_finalScore;
+		Behaviour* m_currentBehaviour;
 	};
 }
 #endif // ULDERICO_ALPHA_GAME_H_INCLUDED

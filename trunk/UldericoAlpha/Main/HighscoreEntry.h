@@ -19,8 +19,8 @@ namespace UldericoAlpha
 
 		void SetName(const std::string& Input);
 		void SetScore(int Points) { Score = Points; }
-		const std::string& GetName() { return Name; }
-		int GetScore() { return Score; }
+		const std::string& GetName() const { return Name; }
+		int GetScore() const { return Score; }
 	};	
 }
 #endif // ULDERICO_ALPHA_HIGHSCORE_ENTRY_H_INCLUDED

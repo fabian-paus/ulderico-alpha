@@ -9,17 +9,17 @@ namespace UldericoAlpha
 {
 	// Funktionen der Highscore Liste
 
-	bool HighscoreList::CanInsert(int Points)
+	bool HighscoreList::CanInsert(int Points) const
 	{
 		return Placement[MAX_ENTRIES-1].GetScore() < Points;
 	}
 
-	const HighscoreEntry& HighscoreList::GetEntry(int Index)
+	const HighscoreEntry& HighscoreList::GetEntry(int Index) const
 	{
 		return Placement[Index];
 	}
 
-	void HighscoreList::SaveToFile()
+	void HighscoreList::SaveToFile() const
 	{
 		std::fstream File;
 		File.open("Highscore.txt", std::ios::out);

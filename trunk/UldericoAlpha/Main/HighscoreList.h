@@ -15,11 +15,11 @@ namespace UldericoAlpha
 		static const int MAX_ENTRIES = 10;
 
 		void Insert(const HighscoreEntry& NewEntry);
-		bool CanInsert(int Points);
+		bool CanInsert(int Points) const;
 
-		const HighscoreEntry& GetEntry(int Index);
+		const HighscoreEntry& GetEntry(int Index) const;
 
-		void SaveToFile();
+		void SaveToFile() const;
 		void LoadFromFile();
 	
 	private:
