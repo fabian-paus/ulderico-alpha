@@ -42,6 +42,16 @@ namespace UldericoAlpha
          */
         void Quit();
 
+		/**
+		 * Setzt die endgültige Punktzahl in dieser Runde.
+		 */
+		void SetFinalScore(int score);
+
+		/**
+		 * Gibt die endgültige Punktzahl dieser Runde zurück.
+		 */
+		int GetFinalScore() const;
+
 	private:
         /**
          * Verarbeitet eingehende Ereignisse (z.B. Tastatureingaben).
@@ -79,6 +89,7 @@ namespace UldericoAlpha
         int m_frameCount;
 
 		Behaviour* m_currentBehaviour;
+		int m_finalScore;
 	};
 }
 #endif // ULDERICO_ALPHA_GAME_H_INCLUDED

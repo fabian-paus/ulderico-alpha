@@ -173,10 +173,11 @@ namespace UldericoAlpha
 
 	void InGameBehaviour::HandleGameOver()
 	{
-		// Die Welt zurücksetzen
-		Reset();
-
 		// Übergang zum "Game Over"-Bildschirm
 		m_game.ChangeState(GameState_GameOver);
+		m_game.SetFinalScore(m_world.GetPlayer().GetScore());
+
+		// Die Welt zurücksetzen
+		Reset();
 	}
 }

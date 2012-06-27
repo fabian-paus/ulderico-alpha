@@ -47,6 +47,16 @@ namespace UldericoAlpha
         m_window.Close();
     }
 
+	void Game::SetFinalScore(int score)
+	{
+		m_finalScore = score;
+	}
+
+	int Game::GetFinalScore() const
+	{
+		return m_finalScore;
+	}
+
     void Game::ProcessEvents()
     {
         sf::Event event;
